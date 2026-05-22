@@ -1,0 +1,243 @@
+[
+  {
+    "id": "D001",
+    "category": "unit_standardization",
+    "question": "What unit should soil water content be standardized to: fraction (m3/m3, 0-1) or percent (0-100)?",
+    "evidence": {
+      "ICOS": "SWC_1..5 in volumetric percent (% vol), sample values 29-45%",
+      "SAEON": "moisture_soil_s1_avg in 'pcnt' (percent), sample values 34-35%",
+      "eLTER": "SMa010..SMb080 in '%', sample value 28.54%",
+      "TERN": "Sws_5cm..80cm in m3/m3 (fraction), documented as 'Volumetric water content'",
+      "NEON": "VSWCMean in m3/m3 (fraction), range 0.0-0.997, explicitly flagged as 'CRITICAL: Fraction, NOT percent'"
+    },
+    "alternatives_considered": [
+      "Percent (0-100): matches ICOS, SAEON, eLTER native format; familiar to field scientists",
+      "Fraction (0-1, m3/m3): matches CF conventions, TERN and NEON native format; unambiguous"
+    ],
+    "decision": "Standardize to fraction (m3/m3), range 0.0-1.0",
+    "rationale": "CF standard uses m3/m3. The two largest networks by site count (NEON 81 sites + TERN 31 sites = 112) already use fraction. Fraction is unambiguous — percent can be confused with gravimetric moisture or relative saturation. Conversion from percent is trivial (divide by 100). This is the #1 known failure mode in the project, so choosing the scientifically rigorous unit is critical.",
+    "confidence": 0.9
+  },
+  {
+    "id": "D002",
+    "category": "variable_identification",
+    "question": "Which variables should be in the core harmonized schema?",
+    "evidence": {
+      "ICOS": "73+ variables: TA, RH, PA, P, SW_IN/OUT, LW_IN/OUT, SWC_1-5, TS_1-6, G, VPD, WS, WD, NETRAD, ALB",
+      "SAEON": "66 flux variables: temp_air, humid_rel, rain_tot, rad_*, soil moisture/temp, wind, pressure",
+      "eLTER": "Variable by country: air temp, RH, precip, wind, pressure, soil moisture, soil temp",
+      "TERN": "456 unique variables including Ta, RH, Precip, Fsd/Fsu/Fld/Flu, Sws, Ts, Fg, Ws, Wd, CO2, H2O",
+      "NEON": "Air temp, precip, soil temp, soil moisture, soil texture"
+    },
+    "alternatives_considered": [
+      "Include only variables present in ALL 5 networks (very restrictive — only air temp, precip, SWC, soil temp)",
+      "Include variables present in 3+ networks (broader coverage, still well-supported)",
+      "Include all variables from any network (too broad, many network-specific variables)"
+    ],
+    "decision": "Tier 1 = present in all 5 networks (air_temperature, precipitation, soil_water_content, soil_temperature). Tier 2 = present in 2-4 networks (relative_humidity, radiation components, wind, pressure, VPD, soil heat flux, soil texture). [UPDATED by D009: RH demoted from Tier 1 to Tier 2; by D010: net_radiation and VPD corrected to 2/5 coverage]",
+    "rationale": "The tiered approach balances coverage with supportability. Tier 1 ensures the most critical variables are always harmonized. Tier 2 captures important meteorological and soil variables that are broadly available but not universal. See D009 and D010 for corrections to original coverage claims.",
+    "confidence": 0.85
+  },
+  {
+    "id": "D003",
+    "category": "naming",
+    "question": "What naming convention should canonical variable names follow?",
+    "evidence": {
+      "ICOS": "Uppercase abbreviations (TA, SWC, TS, PA)",
+      "SAEON": "Descriptive snake_case (temp_air_avg, moisture_soil_s1_avg)",
+      "eLTER": "Mixed: cryptic codes (SMa010), sensor IDs (T336), abbreviated (P_RAIN)",
+      "TERN": "Short codes (Ta, Sws, Ts, Fsd)",
+      "NEON": "CamelCase descriptive (tempTripleMean, VSWCMean, soilTempMean)"
+    },
+    "alternatives_considered": [
+      "ICOS-style abbreviations (TA, SWC) — short but cryptic",
+      "NEON-style CamelCase (AirTemperature) — readable but verbose",
+      "CF standard_name style (air_temperature, soil_moisture_content) — well-established standard",
+      "Custom snake_case descriptive (air_temperature, soil_water_content) — readable and standard-adjacent"
+    ],
+    "decision": "Use descriptive snake_case aligned with CF conventions where possible (air_temperature, soil_water_content, etc.)",
+    "rationale": "CF conventions are the international standard for environmental data. snake_case is the dominant convention in Python/R scientific computing. Descriptive names reduce ambiguity compared to abbreviations. This approach is readable, standard-compliant, and compatible with common data analysis workflows.",
+    "confidence": 0.9
+  },
+  {
+    "id": "D004",
+    "category": "schema_structure",
+    "question": "How should the harmonized data be structured — wide format, long format, or multiple tables?",
+    "evidence": {
+      "ICOS": "Wide format CSV (columns = variables)",
+      "SAEON": "Flux: wide format; DB exports: long format",
+      "eLTER": "Mixed: Germany/Spain long format (VARIABLE, VALUE columns); Finland wide Parquet",
+      "TERN": "Wide format NetCDF (variables as dimensions)",
+      "NEON": "Semi-wide Parquet (one measurement type per file)"
+    },
+    "alternatives_considered": [
+      "Single wide table with all variables as columns — simple but column explosion for depth-varying",
+      "Single long table (variable, value) — flexible but requires pivoting for analysis",
+      "Wide primary + companion depth metadata table — best of both worlds",
+      "Multiple tables per variable category — normalized but complex"
+    ],
+    "decision": "Wide primary observation table with depth encoded in column names ({variable}_{depth}cm), plus companion metadata tables (site, depth, soil texture).",
+    "rationale": "Wide format is the dominant pattern (ICOS, TERN, SAEON flux) and matches typical data science workflows. Depth-in-column-name follows TERN convention. Companion tables handle site metadata and depth resolution without cluttering the primary table.",
+    "confidence": 0.8
+  },
+  {
+    "id": "D005",
+    "category": "depth_height",
+    "question": "How should measurement depth/height be encoded?",
+    "evidence": {
+      "ICOS": "Ordinal index (SWC_1..5, TS_1..6) — actual depth in ancillary files",
+      "SAEON": "Ordinal index (_s1.._s4)",
+      "eLTER": "Depth in variable name (SMa010 = 10cm); VERT_OFFSET in cm (negative for below ground)",
+      "TERN": "Depth in variable name (Sws_5cm, Ts_80cm) — positive cm below surface",
+      "NEON": "verticalPosition index code — requires metadata lookup"
+    },
+    "alternatives_considered": [
+      "Positive cm below surface (5, 10, 20) — matches TERN, intuitive",
+      "Negative cm (signed, -5, -10) — matches eLTER Germany VERT_OFFSET convention",
+      "Meters below surface (0.05, 0.10) — SI but awkward for typical soil depths",
+      "Ordinal index (1, 2, 3) — matches ICOS/SAEON but loses depth information"
+    ],
+    "decision": "Positive centimeters below surface. Column names: {variable}_{depth}cm. Depth metadata table maps indices to actual cm per site.",
+    "rationale": "Positive-downward cm is the most intuitive convention for soil science. TERN uses it natively. Centimeters are the natural unit (most depths are 5-80cm). Avoids sign confusion of negative values.",
+    "confidence": 0.85
+  },
+  {
+    "id": "D006",
+    "category": "temporal",
+    "question": "What temporal resolution and timestamp format should the harmonized data use?",
+    "evidence": {
+      "ICOS": "30-min, YYYYMMDDHHmm format",
+      "SAEON": "30-min (flux), 5-min (DB), ISO 8601 UTC",
+      "eLTER": "10-min (Germany), variable (others), ISO 8601 with Z suffix",
+      "TERN": "30-min to 1-hour, CF time dimension",
+      "NEON": "30-min, ISO 8601 UTC"
+    },
+    "alternatives_considered": [
+      "30-minute intervals (dominant resolution)",
+      "Hourly (simpler but loses information from 30-min networks)",
+      "Variable resolution (flexible but complicates joins)",
+      "1-minute (highest resolution available, but massive data volume)"
+    ],
+    "decision": "30-minute intervals, UTC, ISO 8601 format with both timestamp_start and timestamp_end",
+    "rationale": "30 minutes is the dominant resolution across 4 of 5 networks. Higher-resolution data can be aggregated. UTC eliminates timezone ambiguity. Start+end timestamps follow ICOS and NEON convention and are unambiguous.",
+    "confidence": 0.9
+  },
+  {
+    "id": "D007",
+    "category": "missing_data",
+    "question": "How should missing data be represented?",
+    "evidence": {
+      "ICOS": "-9999 sentinel value",
+      "SAEON": "Empty string / blank fields",
+      "eLTER": "NaN (Parquet) or empty (CSV)",
+      "TERN": "NaN (NetCDF standard)",
+      "NEON": "Null/NaN (Parquet)"
+    },
+    "alternatives_considered": [
+      "NaN (IEEE 754) — scientific computing standard",
+      "-9999 sentinel — ICOS convention, widely recognized in flux community",
+      "NULL (database) — good for SQL but not for scientific computing",
+      "Empty string — CSV-friendly but type-ambiguous"
+    ],
+    "decision": "IEEE 754 NaN for all missing values. No sentinel values.",
+    "rationale": "NaN is the standard for scientific computing (numpy, pandas, R). Sentinel values like -9999 are error-prone. NaN propagates correctly through arithmetic. All target formats support NaN.",
+    "confidence": 0.95
+  },
+  {
+    "id": "D008",
+    "category": "unit_standardization",
+    "question": "What unit should VPD be standardized to?",
+    "evidence": {
+      "ICOS": "VPD in kPa, sample values near 0 to ~3 kPa",
+      "SAEON": "pressure_vapour_def_avg in hPa, sample values 6.2-12.8 hPa (= 0.62-1.28 kPa)",
+      "eLTER": "Not directly profiled as a separate variable",
+      "TERN": "Not explicitly listed in profile but derivable",
+      "NEON": "Not in profiled data products"
+    },
+    "alternatives_considered": [
+      "kPa — ICOS convention, common in ecology literature",
+      "hPa — SAEON convention, common in meteorology",
+      "Pa — SI base unit"
+    ],
+    "decision": "Standardize VPD to kPa",
+    "rationale": "kPa is the dominant unit in ecology and flux tower literature. ICOS (the largest European flux network) uses kPa. Typical VPD ranges (0-4 kPa) are more readable than in hPa (0-40) or Pa (0-4000). Conversion from SAEON hPa is simple (divide by 10).",
+    "confidence": 0.85
+  },
+  {
+    "id": "D009",
+    "category": "variable_identification",
+    "question": "Should relative humidity be Tier 1 (all 5 networks) or Tier 2 (4/5)?",
+    "evidence": {
+      "ICOS": "RH provided directly",
+      "SAEON": "humid_rel_avg provided directly",
+      "eLTER": "RH provided in Germany (RH50HMP), Finland (RH168), Austria ('Air Relative Humidity')",
+      "TERN": "RH provided directly",
+      "NEON": "NOT provided in profiled data products (parquet files contain only air temp, precip, soil temp, soil moisture, soil texture)"
+    },
+    "alternatives_considered": [
+      "Tier 1 with note that NEON requires derivation from water vapor",
+      "Tier 2 (4/5 networks) — honest about what is directly available"
+    ],
+    "decision": "Demote RH to Tier 2 (4/5 networks). Tier 1 restricted to air_temperature, precipitation, soil_water_content, soil_temperature.",
+    "rationale": "Derivable is not the same as present. The profiled NEON data products do not include a humidity variable. Claiming 5/5 coverage when one network requires computation is misleading. Reviewer correctly identified this as inflating coverage claims.",
+    "confidence": 0.95
+  },
+  {
+    "id": "D010",
+    "category": "variable_identification",
+    "question": "What is the actual cross-network coverage for net_radiation, VPD, and atmospheric_pressure?",
+    "evidence": {
+      "ICOS": "NETRAD (direct), VPD (direct), PA (direct)",
+      "SAEON": "rad_net_avg (direct), pressure_vapour_def_avg (direct), pressure_atm_avg (direct)",
+      "eLTER": "atmospheric_pressure in Germany (airpres50), Finland (Pamb0), Austria ('Surface Air Pressure'). No direct net_radiation or VPD.",
+      "TERN": "Fa = available energy (Rn - G), NOT net radiation. No direct VPD. No surface pressure variable in L3 profile.",
+      "NEON": "None of these three variables in profiled data products."
+    },
+    "alternatives_considered": [
+      "Count TERN Fa as net_radiation (it is a different quantity)",
+      "Count derivable VPD (from Ta + RH) as present"
+    ],
+    "decision": "Corrected counts: atmospheric_pressure = 3/5 (ICOS, SAEON, eLTER). Net radiation = 2/5 (ICOS, SAEON). VPD = 2/5 (ICOS, SAEON). All retained in Tier 2 for networks that provide them.",
+    "rationale": "TERN's Fa (available energy) subtracts soil heat flux from net radiation, making it a different physical quantity. Derivable variables should not be counted as present. The mapping table and tier classification must agree on coverage.",
+    "confidence": 0.9
+  },
+  {
+    "id": "D011",
+    "category": "temporal",
+    "question": "How should sub-30-minute data be aggregated to 30-minute intervals?",
+    "evidence": {
+      "ICOS": "Already 30-minute",
+      "SAEON": "Flux 30-min; DB 5-min needs aggregation",
+      "eLTER": "Germany 10-min needs aggregation",
+      "TERN": "Already 30-minute",
+      "NEON": "Standard 30-min; 1-min available for some products"
+    },
+    "alternatives_considered": [
+      "Arithmetic mean for all variables",
+      "Variable-specific aggregation (mean for intensive, sum for extensive, vector mean for directional)"
+    ],
+    "decision": "Variable-specific aggregation: arithmetic mean for intensive variables (temperature, humidity, pressure, radiation, SWC, soil temp, VPD, soil heat flux), sum for extensive variables (precipitation), vector mean for directional variables (wind direction), arithmetic mean for scalar speed (wind speed).",
+    "rationale": "Temperature and pressure are intensive properties — averaging is physically correct. Precipitation accumulates (extensive) — summing sub-period values is correct. Wind direction requires vector averaging to handle the 360/0 discontinuity (scalar averaging of 350 and 10 would incorrectly yield 180 instead of 0).",
+    "confidence": 0.95
+  },
+  {
+    "id": "D012",
+    "category": "schema_structure",
+    "question": "How should multiple soil profiles at the same site be handled?",
+    "evidence": {
+      "ICOS": "Single profile per site (SWC_1..5 aggregated across sensors)",
+      "SAEON": "Single profile per site (_s1.._s4)",
+      "eLTER": "Germany Hohes Holz has two soil profiles: A and B (SMa010 vs SMb010)",
+      "TERN": "Multiple replicate sensors per depth (Sws_5cma, Sws_5cmb) — typically averaged",
+      "NEON": "Multiple horizontal positions (HOR codes) per site"
+    },
+    "alternatives_considered": [
+      "Average all profiles into one — loses spatial information",
+      "Include only one profile per site — arbitrary selection",
+      "Include all profiles with a profile_id discriminator"
+    ],
+    "decision": "Add a profile_id column to the primary observation table. For sites with multiple profiles (e.g., eLTER Germany A/B), each profile is a separate row. For single-profile sites, profile_id is NULL.",
+    "rationale": "Preserves the spatial heterogeneity information that multiple profiles provide. Does not force arbitrary averaging or selection. The profile_id column has minimal overhead for single-profile sites (just NULL).",
+    "confidence": 0.85
+  }
+]

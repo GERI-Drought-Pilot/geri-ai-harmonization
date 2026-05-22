@@ -1,0 +1,29 @@
+{
+  "air_temperature": {
+    "temp_air_avg": "airTemp_mean_degC",
+    "timestamp_start": "startDateTime",
+    "timestamp_end": "endDateTime",
+    "unit": "degC (no conversion needed)",
+    "notes": "temp_air_avg is the averaged air temperature; alternatives: temp_air_EC100_avg, temp_air_sonic_avg"
+  },
+  "precipitation": {
+    "rain_tot": "precip_tot_mm",
+    "timestamp_start": "startDateTime",
+    "timestamp_end": "endDateTime",
+    "unit": "mm per 30 min (no conversion needed)"
+  },
+  "soil_moisture": {
+    "moisture_soil_s1_avg": "sws_mean_percent",
+    "timestamp_start": "startDateTime",
+    "timestamp_end": "endDateTime",
+    "unit": "percent volumetric (already 0-100 range)",
+    "notes": "s1 = shallowest sensor at ~2.5cm depth"
+  },
+  "soil_temperature": {
+    "temp_soil_s1_avg": "soilTemp_Mean_degC",
+    "timestamp_start": "startDateTime",
+    "timestamp_end": "endDateTime",
+    "unit": "degC (no conversion needed)",
+    "notes": "s1 = shallowest sensor at ~2.5cm depth"
+  }
+}

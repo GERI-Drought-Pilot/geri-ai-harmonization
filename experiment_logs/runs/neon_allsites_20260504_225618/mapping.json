@@ -1,0 +1,151 @@
+{
+  "network": "NEON",
+  "mapping_timestamp": "2026-05-04T22:56:18.961171+00:00",
+  "target_schema": "AccelNet/GERI Harmonized Data Schema (Governance Handbook)",
+  "products": {
+    "air_temperature": {
+      "source": "proc_neon_airtemperature_data.parquet",
+      "mappings": {
+        "airTemp_mean_degC": {
+          "from": "meanAirTemp_degC",
+          "conversion": "none"
+        },
+        "latitude_deg": {
+          "from": "sensor_positions:latitude",
+          "join": "siteID"
+        },
+        "longitude_deg": {
+          "from": "sensor_positions:longitude",
+          "join": "siteID"
+        },
+        "elevation": {
+          "from": "sensor_positions:elevation",
+          "join": "siteID"
+        },
+        "height_m": {
+          "from": "sensor_positions:height",
+          "join": "siteID"
+        },
+        "instrument": {
+          "value": "triple aspirated air temperature sensor"
+        }
+      },
+      "qc": "drop NaN, range -80 to 60\u00b0C",
+      "confidence": "HIGH"
+    },
+    "precipitation": {
+      "source": "proc_neon_precipitation_data.parquet",
+      "mappings": {
+        "precip_tot_mm": {
+          "from": "bulkPrecipitation_mm",
+          "conversion": "none"
+        },
+        "latitude": {
+          "from": "site_metadata:field_latitude",
+          "join": "siteID"
+        },
+        "longitude": {
+          "from": "site_metadata:field_longitude",
+          "join": "siteID"
+        },
+        "elevation": {
+          "from": "site_metadata:field_mean_evelation_m",
+          "join": "siteID"
+        },
+        "height_m": {
+          "from": "site_metadata:field_tower_height_m",
+          "join": "siteID"
+        },
+        "instrument": {
+          "value": "tipping bucket rain gauge"
+        }
+      },
+      "qc": "drop NaN, range 0 to 500mm",
+      "confidence": "HIGH"
+    },
+    "soil_moisture": {
+      "source": "neon_soilmoisture_merged_data.parquet",
+      "mappings": {
+        "sws_mean_percent": {
+          "from": "VSWCMean",
+          "conversion": "MULTIPLY BY 100 (fraction\u2192percent)"
+        },
+        "latitude": {
+          "from": "latitude",
+          "conversion": "passthrough"
+        },
+        "longitude": {
+          "from": "longitude",
+          "conversion": "passthrough"
+        },
+        "elevation": {
+          "from": "elevation",
+          "conversion": "passthrough"
+        },
+        "depth": {
+          "from": "N/A",
+          "value": "NaN",
+          "reason": "verticalPosition lost in merge"
+        },
+        "instrument": {
+          "value": "soil water content sensor"
+        }
+      },
+      "qc": "drop NaN VSWCMean, range 0-100% after conversion",
+      "confidence": "MEDIUM",
+      "limitation": "depth unavailable \u2014 verticalPosition dropped during upstream data merge"
+    },
+    "soil_temperature": {
+      "source": "chunk_{1-8}_neon_soiltemperature_data.parquet",
+      "mappings": {
+        "soilTemp_Mean_degC": {
+          "from": "soilTempMean",
+          "conversion": "none"
+        },
+        "latitude": {
+          "from": "latitude",
+          "conversion": "passthrough"
+        },
+        "longitude": {
+          "from": "longitude",
+          "conversion": "passthrough"
+        },
+        "elevation": {
+          "from": "elevation",
+          "conversion": "passthrough"
+        },
+        "depth": {
+          "from": "height",
+          "conversion": "rename (already negative m)"
+        },
+        "instrument": {
+          "value": "soil temperature sensor"
+        }
+      },
+      "qc": "drop NaN soilTempMean, range -40 to 60\u00b0C",
+      "confidence": "HIGH"
+    },
+    "soil_texture": {
+      "source": "proc_neon_soiltexture_data.parquet",
+      "mappings": {
+        "plotID": {
+          "from": "pitID",
+          "conversion": "rename"
+        },
+        "latitude": {
+          "from": "latitude_deg",
+          "conversion": "rename"
+        },
+        "longitude": {
+          "from": "longitude_deg",
+          "conversion": "rename"
+        },
+        "instrument": {
+          "value": "laboratory analysis"
+        }
+      },
+      "qc": "sand + clay + silt \u2248 100 (95-105 tolerance)",
+      "confidence": "HIGH"
+    }
+  }
+}

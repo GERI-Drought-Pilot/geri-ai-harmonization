@@ -1,0 +1,110 @@
+{
+  "run_id": "elter_all_20260505_005547",
+  "timestamp": "2026-05-05T00:56:18.775286",
+  "stations_processed": 15,
+  "products": {
+    "air_temperature": {
+      "rows": 62132,
+      "csv": "harmonized_elter_air_temperature.csv",
+      "parquet": "harmonized_elter_air_temperature.parquet",
+      "csv_size_mb": 11.73,
+      "parquet_size_mb": 0.81
+    },
+    "precipitation": {
+      "rows": 61180,
+      "csv": "harmonized_elter_precipitation.csv",
+      "parquet": "harmonized_elter_precipitation.parquet",
+      "csv_size_mb": 11.18,
+      "parquet_size_mb": 0.45
+    },
+    "soil_moisture": {
+      "rows": 13569,
+      "csv": "harmonized_elter_soil_moisture.csv",
+      "parquet": "harmonized_elter_soil_moisture.parquet",
+      "csv_size_mb": 2.38,
+      "parquet_size_mb": 0.24
+    },
+    "soil_temperature": {
+      "rows": 15626,
+      "csv": "harmonized_elter_soil_temperature.csv",
+      "parquet": "harmonized_elter_soil_temperature.parquet",
+      "csv_size_mb": 2.83,
+      "parquet_size_mb": 0.27
+    },
+    "soil_texture": {
+      "rows": 56,
+      "csv": "harmonized_elter_soil_texture.csv",
+      "parquet": "harmonized_elter_soil_texture.parquet",
+      "csv_size_mb": 0.01,
+      "parquet_size_mb": 0.01
+    }
+  },
+  "site_stats": {
+    "FI_Hyytiala": {
+      "air_temp": 10157,
+      "precip": 10230,
+      "swc": 7884,
+      "soil_temp": 9924
+    },
+    "Germany_DE-HoH": {
+      "air_temp": 3811,
+      "precip": 3905,
+      "swc": 4237,
+      "soil_temp": 4248
+    },
+    "Hohes-Holz": {
+      "air_temp": 3814,
+      "precip": 3893
+    },
+    "Donana_El_Palacio": {
+      "air_temp": 15809,
+      "precip": 16663
+    },
+    "HIDROMET_8437": {
+      "air_temp": 1763,
+      "precip": 1763
+    },
+    "HIDROMET_8423": {
+      "air_temp": 1074,
+      "precip": 1074
+    },
+    "HIDROMET_8436": {
+      "air_temp": 1743,
+      "precip": 1743
+    },
+    "HIDROMET_8433": {
+      "air_temp": 1578,
+      "precip": 1578
+    },
+    "HIDROMET_1072": {
+      "air_temp": 1713,
+      "precip": 1713
+    },
+    "HIDROMET_8465": {
+      "air_temp": 1616,
+      "precip": 1616
+    },
+    "HIDROMET_8466": {
+      "air_temp": 1057,
+      "precip": 1057
+    },
+    "Rosalia_KW": {
+      "air_temp": 8391,
+      "precip": 8639
+    },
+    "Rosalia_HB": {
+      "air_temp": 1518,
+      "precip": 0
+    },
+    "Rosalia_MB": {
+      "air_temp": 8088,
+      "precip": 7306
+    },
+    "Rosalia_DRAIN": {
+      "swc": 1448,
+      "soil_temp": 1454
+    }
+  },
+  "errors": [],
+  "elapsed_seconds": 30.94
+}

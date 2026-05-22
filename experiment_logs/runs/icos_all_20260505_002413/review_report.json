@@ -1,0 +1,139 @@
+{
+  "timestamp": "2026-05-05T00:24:13.981475",
+  "status": "PASS",
+  "qc_results": {
+    "air_temperature": {
+      "total_rows": 2444325,
+      "sites": 39,
+      "null_values": 0,
+      "min": -49.96,
+      "max": 48.06,
+      "mean": 9.305539148844776,
+      "schema_columns_present": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "airTemp_mean_degC",
+        "latitude_deg",
+        "longitude_deg",
+        "elevation",
+        "height_m",
+        "instrument"
+      ],
+      "schema_valid": true,
+      "outlier_count": 0
+    },
+    "precipitation": {
+      "total_rows": 2335582,
+      "sites": 39,
+      "null_values": 0,
+      "min": 0.0,
+      "max": 115.62,
+      "mean": 0.04656688140257975,
+      "schema_columns_present": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "precip_tot_mm",
+        "latitude",
+        "longitude",
+        "elevation",
+        "height_m",
+        "instrument"
+      ],
+      "schema_valid": true,
+      "negative_values": 0
+    },
+    "soil_moisture": {
+      "total_rows": 2422153,
+      "sites": 39,
+      "null_values": 0,
+      "min": 0.0,
+      "max": 99.97,
+      "mean": 25.47295387203038,
+      "schema_columns_present": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "sws_mean_percent",
+        "latitude",
+        "longitude",
+        "elevation",
+        "depth",
+        "instrument"
+      ],
+      "schema_valid": true,
+      "fraction_like_pct": 0.3207064128484039,
+      "values_in_0_100_range": true
+    },
+    "soil_temperature": {
+      "total_rows": 2424843,
+      "sites": 39,
+      "null_values": 0,
+      "min": -20.17,
+      "max": 39.01,
+      "mean": 9.48151724049763,
+      "schema_columns_present": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "soilTemp_Mean_degC",
+        "latitude",
+        "longitude",
+        "elevation",
+        "depth",
+        "instrument"
+      ],
+      "schema_valid": true,
+      "outlier_count": 0
+    },
+    "soil_texture": {
+      "total_rows": 28,
+      "sites": 6,
+      "schema_columns_present": [
+        "researchInfrastructure",
+        "siteID",
+        "plotID",
+        "latitude",
+        "longitude",
+        "dateCollected",
+        "depthMax_m",
+        "depthMin_m",
+        "sand_percent",
+        "clay_percent",
+        "silt_percent",
+        "instrument"
+      ],
+      "schema_valid": true,
+      "texture_sum_mean": 100.00071428571428,
+      "texture_sum_min": 99.99000000000001,
+      "texture_sum_max": 100.01,
+      "complete_rows": 28,
+      "sand_percent_range": [
+        6.2,
+        95.6
+      ],
+      "clay_percent_range": [
+        1.17,
+        37.5
+      ],
+      "silt_percent_range": [
+        2.07,
+        72.4
+      ]
+    }
+  },
+  "errors": []
+}

@@ -1,0 +1,315 @@
+{
+  "source_directory": "Downloads/geri-data/elter",
+  "stations": {
+    "FI_Hyytiala": {
+      "file_count": 7,
+      "total_size_mb": 348.3,
+      "files": [
+        {
+          "filename": "FI_Hyytiala/FI_Hyytiala_SOGEO-001_DATA_19950801-20220801_V1.0.0.parquet",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "FI_Hyytiala/FI_Hyytiala_STATION_V1.0.0.parquet",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "FI_Hyytiala/FI_Hyytiala_SOATM-027_DATA_19960101-20241231_V0.1.0.parquet",
+          "size_mb": 338.7
+        },
+        {
+          "filename": "FI_Hyytiala/FI_Hyytiala_SOGEO-001_METHOD_19950801-20220801_V1.0.0.parquet",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "FI_Hyytiala/FI_Hyytiala_SOHYD-168_METHOD_19970101-20241230_V1.0.0.parquet",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "FI_Hyytiala/FI_Hyytiala_SOATM-027_METHOD_19960101-20241231_V0.1.0.parquet",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "FI_Hyytiala/FI_Hyytiala_SOHYD-168_DATA_19970101-20241230_V1.0.0.parquet",
+          "size_mb": 9.6
+        }
+      ]
+    },
+    "Germany_DE-HoH": {
+      "file_count": 13,
+      "total_size_mb": 1885.2,
+      "files": [
+        {
+          "filename": "Germany_DE-HoH/eLTER_TechDoc.01_TemplateSpecification_V1.3.pdf",
+          "size_mb": 0.8
+        },
+        {
+          "filename": "Germany_DE-HoH/eLTER_SOATM_027_METHOD.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Germany_DE-HoH/meta_SOATM_027.xlsx",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Germany_DE-HoH/meta_SOHYD_168.xlsx",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Germany_DE-HoH/eLTER_SOGEO_001_DATA.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Germany_DE-HoH/eLTER_SOATM_abstract.md",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Germany_DE-HoH/eLTER_SOATM_027_DATA.csv",
+          "size_mb": 458.7
+        },
+        {
+          "filename": "Germany_DE-HoH/eLTER_SOHYD_168_DATA.csv",
+          "size_mb": 1425.7
+        },
+        {
+          "filename": "Germany_DE-HoH/eLTER_SOGEO_001_METHOD.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Germany_DE-HoH/eLTER_SOATM_027_STATION.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Germany_DE-HoH/eLTER_SOHYD_168_METHOD.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Germany_DE-HoH/eLTER_SOGEO_001_STATION.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Germany_DE-HoH/eLTER_SOHYD_168_STATION.csv",
+          "size_mb": 0.0
+        }
+      ]
+    },
+    "Hohes-Holz": {
+      "file_count": 4,
+      "total_size_mb": 4637.7,
+      "files": [
+        {
+          "filename": "Hohes-Holz/meta_SOATM_027.xlsx",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Hohes-Holz/DE-HoH_SOATM_027_air_temperature_2015-2025_eLTER-schema.csv",
+          "size_mb": 1180.4
+        },
+        {
+          "filename": "Hohes-Holz/DE-HoH_SOATM_027_precipitation_2015-2025_eLTER-schema.csv",
+          "size_mb": 206.7
+        },
+        {
+          "filename": "Hohes-Holz/SOATM_027.zip",
+          "size_mb": 3250.6
+        }
+      ]
+    },
+    "Donana-Spain": {
+      "file_count": 15,
+      "total_size_mb": 69.4,
+      "files": [
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_REFERENCE_El Palacio.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Donana-Spain/SOATM/MetaDatos  El Palacio.docx",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_METHOD_HIDROMET.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_Alls_HIDROMET.xlsx",
+          "size_mb": 14.5
+        },
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_STATION_El Palacio.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_Alls_El Palacio.xlsx",
+          "size_mb": 5.5
+        },
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_REFERENCE_HIDROMET.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_METHOD_El Palacio.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_LICENSE_El Palacio.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_LICENSE_HIDROMET.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_STATION_HIDROMET.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_DATA_El Palacio.csv",
+          "size_mb": 10.6
+        },
+        {
+          "filename": "Donana-Spain/SOATM/eLTER_SOATM_027_DATA_HIDROMET.csv",
+          "size_mb": 38.7
+        },
+        {
+          "filename": "Donana-Spain/SOATM/MetaDatos_Hidromet.docx",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Donana-Spain/SOGEO/eLTER_SOGEO_001_SoilInventory.xlsx",
+          "size_mb": 0.1
+        }
+      ]
+    },
+    "Lerhforst-rosalia": {
+      "file_count": 31,
+      "total_size_mb": 94.8,
+      "files": [
+        {
+          "filename": "Lerhforst-rosalia/station.txt",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/license.txt",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil4.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil5.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil7.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil8a.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil6.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil2.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil3.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil1.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil8.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil9.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil10.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil11.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil13.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil12.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/profil1a.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/out/tidy_particle_size.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/out/tidy_profiles.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/vegetation_composition/out/tidy_horizons.csv",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/SOATM/rosalia_kw_meteo_elter_reporting_2021-01-01_2025-04-29.csv",
+          "size_mb": 3.9
+        },
+        {
+          "filename": "Lerhforst-rosalia/SOATM/KW_method.txt",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/SOATM/rosalia_hb_meteo_elter_reporting_2021_01_01-2025-04-29.csv",
+          "size_mb": 4.1
+        },
+        {
+          "filename": "Lerhforst-rosalia/SOATM/rosalia_mb_meteo_elter_reporting_2021_01_01-2024-08-29.csv",
+          "size_mb": 2.9
+        },
+        {
+          "filename": "Lerhforst-rosalia/SOATM/rosalia_kw_meteo_elter_reporting_2001_01_01to2021_01_01.corr.csv",
+          "size_mb": 15.3
+        },
+        {
+          "filename": "Lerhforst-rosalia/SOATM/rosalia_mb_meteo_elter_reporting_2001_01_01to2021_01_01_corr.csv",
+          "size_mb": 14.6
+        },
+        {
+          "filename": "Lerhforst-rosalia/SOATM/MB_method.txt",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/SOATM/HB_method.txt",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/SOHYD/method.txt",
+          "size_mb": 0.0
+        },
+        {
+          "filename": "Lerhforst-rosalia/SOHYD/rosalia_drain_soil_elter_reporting_2013_02_25-2017_06_07.csv",
+          "size_mb": 44.2
+        },
+        {
+          "filename": "Lerhforst-rosalia/SOHYD/rosalia_drain_soil_elter_reporting2019_11_14-2020_10_30.csv",
+          "size_mb": 9.8
+        }
+      ]
+    }
+  }
+}

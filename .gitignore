@@ -1,0 +1,107 @@
+# Ignore everything by default
+*
+
+# ============================================================
+# INCLUDE: Pipeline skill definitions (the core contribution)
+# ============================================================
+!.gitignore
+!README.md
+!LICENSE
+
+# Claude Code skill definitions (6-skill pipeline)
+!.claude/
+!.claude/skills/
+!.claude/skills/harmonize-schema.md
+!.claude/skills/harmonize-ingest.md
+!.claude/skills/harmonize-research.md
+!.claude/skills/harmonize-map.md
+!.claude/skills/harmonize-transform.md
+!.claude/skills/harmonize-review.md
+!.claude/skills/harmonize-log.md
+!.claude/skills/ontology-derivation-team.md
+
+# Claude Code agent definitions (vocabulary derivation team)
+!.claude/agents/
+!.claude/agents/ontology-profiler.md
+!.claude/agents/ontology-reviewer.md
+
+# ============================================================
+# INCLUDE: Experiment logs and analysis
+# ============================================================
+!experiment_logs/
+!experiment_logs/master_log.csv
+!experiment_logs/paper/
+!experiment_logs/paper/methods_notes.md
+!experiment_logs/paper/results_tables.md
+!experiment_logs/runs/
+!experiment_logs/runs/*/
+!experiment_logs/runs/*/*.json
+!experiment_logs/runs/*/*.txt
+!experiment_logs/runs/*/*.md
+
+# Exclude large output snapshots from run directories
+experiment_logs/runs/*/outputs/
+experiment_logs/runs/*/claude_output.json
+
+# Original vocabulary derivation artifacts
+!experiment_logs/runs/ontology_derivation_20260401/
+!experiment_logs/runs/ontology_derivation_20260401/*.md
+!experiment_logs/runs/ontology_derivation_20260401/*.json
+
+# ============================================================
+# INCLUDE: Paper and analysis scripts
+# ============================================================
+!paper/
+!paper/main.tex
+!paper/references.bib
+!paper/elsarticle.cls
+!paper/elsarticle-harv.bst
+!paper/elsarticle-num.bst
+!paper/figures/
+!paper/figures/*.pdf
+!paper/figures/*.png
+!paper/tables/
+!paper/tables/*.csv
+!paper/tables/*.json
+!paper/tables/*.tex
+!paper/scripts/
+!paper/scripts/*.py
+!paper/scripts/*.sh
+!paper/supplementary/
+
+# ============================================================
+# EXCLUDE: Everything sensitive or large
+# ============================================================
+
+# Answer keys / governance docs (MUST NOT be public)
+Geri*.xlsx
+Term*.xlsx
+*.xlsx
+
+# Raw data (multi-GB)
+Downloads/
+harmonized_*.csv
+harmonized_*.parquet
+*.parquet
+*.nc
+*.netcdf
+
+# Python scripts with hardcoded paths (validation scripts, not the pipeline)
+harmonize_*.py
+
+# Build artifacts
+*.pdf
+!paper/figures/*.pdf
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex*
+
+# OS files
+.DS_Store
+__pycache__/
+*.pyc
+.env
+*.key

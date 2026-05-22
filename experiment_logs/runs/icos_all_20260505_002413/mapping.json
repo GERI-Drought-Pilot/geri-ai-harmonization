@@ -1,0 +1,34 @@
+{
+  "air_temperature": {
+    "TA": "airTemp_mean_degC",
+    "TIMESTAMP_START": "startDateTime",
+    "TIMESTAMP_END": "endDateTime",
+    "unit": "degC (no conversion needed)"
+  },
+  "precipitation": {
+    "P": "precip_tot_mm",
+    "TIMESTAMP_START": "startDateTime",
+    "TIMESTAMP_END": "endDateTime",
+    "unit": "mm (no conversion needed)"
+  },
+  "soil_moisture": {
+    "SWC_1": "sws_mean_percent",
+    "TIMESTAMP_START": "startDateTime",
+    "TIMESTAMP_END": "endDateTime",
+    "unit": "percent volumetric (verified 0-100 range; auto-converts if fraction)"
+  },
+  "soil_temperature": {
+    "TS_1": "soilTemp_Mean_degC",
+    "TIMESTAMP_START": "startDateTime",
+    "TIMESTAMP_END": "endDateTime",
+    "unit": "degC (no conversion needed)"
+  },
+  "soil_texture": {
+    "SOIL_TEX_SAND": "sand_percent",
+    "SOIL_TEX_CLAY": "clay_percent",
+    "SOIL_TEX_SILT": "silt_percent",
+    "SOIL_TEX_PROFILE_MIN": "depthMin_m (cm->m, negated)",
+    "SOIL_TEX_PROFILE_MAX": "depthMax_m (cm->m, negated)",
+    "SOIL_TEX_DATE": "dateCollected"
+  }
+}

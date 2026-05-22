@@ -1,0 +1,77 @@
+{
+  "transform_timestamp": "2026-05-04T22:47:37.444934+00:00",
+  "network": "NEON",
+  "total_rows": 309917541,
+  "products": {
+    "air_temperature": {
+      "rows": 6319753,
+      "sites": 47,
+      "elapsed_sec": 29.2,
+      "value_range": [
+        -51.5678,
+        50.9728
+      ],
+      "date_range": [
+        "2013-12-06 00:00:00",
+        "2024-06-30 23:30:00"
+      ],
+      "null_pcts": {}
+    },
+    "precipitation": {
+      "rows": 2850653,
+      "sites": 46,
+      "elapsed_sec": 11.6,
+      "value_range": [
+        0.0,
+        241.34
+      ],
+      "date_range": [
+        "2014-09-11 00:00:00",
+        "2024-06-30 23:00:00"
+      ],
+      "null_pcts": {}
+    },
+    "soil_moisture": {
+      "rows": 123634173,
+      "sites": 39,
+      "elapsed_sec": 44.6,
+      "value_range": [
+        0.0,
+        100.0
+      ],
+      "date_range": [
+        "2016-04-08 07:30:00",
+        "2024-06-30 23:30:00"
+      ],
+      "null_pcts": {}
+    },
+    "soil_temperature": {
+      "rows": 177112510,
+      "sites": 39,
+      "elapsed_sec": 63.5,
+      "value_range": [
+        -40.0,
+        60.0
+      ],
+      "date_range": [
+        "2016-04-08 16:00:00",
+        "2024-06-30 23:30:00"
+      ],
+      "null_pcts": {}
+    },
+    "soil_texture": {
+      "rows": 452,
+      "sites": 47,
+      "elapsed_sec": 0.0,
+      "value_range": [
+        1.6,
+        97.6
+      ],
+      "date_range": [
+        "2012-06-19",
+        "2018-07-11"
+      ],
+      "null_pcts": {}
+    }
+  }
+}

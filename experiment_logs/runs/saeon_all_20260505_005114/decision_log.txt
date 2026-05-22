@@ -1,0 +1,58 @@
+SAEON Harmonization Decision Log
+Run: saeon_all_20260505_005114
+Date: 2026-05-05T00:51:27.564307
+============================================================
+
+1. Air temperature: selected temp_air_avg (averaged from multiple sensors)
+2. Soil moisture: moisture_soil_s1_avg already in percent (0-100); no unit conversion needed
+3. Soil sensor depth: s1 = -0.025m (2.5cm), per EFTEON SOP documentation
+4. Precipitation: rain_tot already in mm per 30-min; no conversion needed
+5. Soil temperature: temp_soil_s1_avg already in degC; no conversion needed
+6. Timestamps: parsed from YYYYMMDDHHmm compact format; ISO 8601 Timestamp as fallback
+7. Coordinates: extracted from Latitude/Longitude columns in each data file
+8. Elevations: sourced from DEIMS-SDR registry, SAEON Obs DB, and published literature
+9. Tower heights: estimated from EFTEON documentation (site-specific tower specifications)
+10. QC bounds: TA [-50,60], TS [-20,70], SWC [0,100], P [0,200] mm/30min
+
+Mapping:
+{
+  "air_temperature": {
+    "temp_air_avg": "airTemp_mean_degC",
+    "timestamp_start": "startDateTime",
+    "timestamp_end": "endDateTime",
+    "unit": "degC (no conversion needed)",
+    "notes": "temp_air_avg is the averaged air temperature; alternatives: temp_air_EC100_avg, temp_air_sonic_avg"
+  },
+  "precipitation": {
+    "rain_tot": "precip_tot_mm",
+    "timestamp_start": "startDateTime",
+    "timestamp_end": "endDateTime",
+    "unit": "mm per 30 min (no conversion needed)"
+  },
+  "soil_moisture": {
+    "moisture_soil_s1_avg": "sws_mean_percent",
+    "timestamp_start": "startDateTime",
+    "timestamp_end": "endDateTime",
+    "unit": "percent volumetric (already 0-100 range)",
+    "notes": "s1 = shallowest sensor at ~2.5cm depth"
+  },
+  "soil_temperature": {
+    "temp_soil_s1_avg": "soilTemp_Mean_degC",
+    "timestamp_start": "startDateTime",
+    "timestamp_end": "endDateTime",
+    "unit": "degC (no conversion needed)",
+    "notes": "s1 = shallowest sensor at ~2.5cm depth"
+  }
+}
+
+Site metadata:
+  ZA-BKa: Benfontein Karoo Eddy Covariance (elev=1183.0m)
+  ZA-BSa: Benfontein Savanna Eddy Covariance (elev=1183.0m)
+  ZA-CPk: Cathedral Peak Grassland Eddy Covariance (elev=1850.0m)
+  ZA-JFy: Jonkershoek Fynbos Eddy Covariance (elev=350.0m)
+  ZA-MCC: Maputaland Coastal Cashews Grassland Eddy Covariance (elev=50.0m)
+  ZA-MUm: Maputaland Umhlabuyalingana Grassland Eddy Covariance (elev=60.0m)
+  ZA-Sku: Skukuza Savanna Eddy Covariance (elev=365.0m)
+  ZA-Spk: Spioenkop Savanna Eddy Covariance (elev=1100.0m)
+
+Errors (0):

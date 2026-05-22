@@ -1,0 +1,68 @@
+{
+  "mapping_timestamp": "2026-05-04T22:22:42.931071Z",
+  "target_schema": "AccelNet Governance Handbook",
+  "source_network": "TERN / OzFlux",
+  "file_mappings": [
+    {
+      "data_product": "air_temperature",
+      "mappings": {
+        "airTemp_mean_degC": {
+          "source_variable": "Ta",
+          "unit_conversion": "none (already degC)",
+          "confidence": "HIGH",
+          "rationale": "PyFluxPro 'Ta' is the best-estimate air temperature aggregated from all available sensors"
+        }
+      },
+      "sensor_metadata_source": "NetCDF variable 'height' attribute",
+      "instrument_source": "NetCDF variable 'instrument' attribute"
+    },
+    {
+      "data_product": "precipitation",
+      "mappings": {
+        "precip_tot_mm": {
+          "source_variable": "Precip",
+          "unit_conversion": "none (already mm per interval)",
+          "confidence": "HIGH",
+          "rationale": "PyFluxPro 'Precip' is the aggregated precipitation measurement"
+        }
+      },
+      "sensor_metadata_source": "NetCDF variable 'height' attribute",
+      "instrument_source": "NetCDF variable 'instrument' attribute"
+    },
+    {
+      "data_product": "soil_moisture",
+      "mappings": {
+        "sws_mean_percent": {
+          "source_variable": "Sws",
+          "unit_conversion": "m^3/m^3 -> percent: multiply by 100",
+          "confidence": "HIGH",
+          "rationale": "PyFluxPro 'Sws' is the best-estimate soil water content. Source unit is volumetric fraction (0-1), AccelNet schema requires percent (0-100)."
+        }
+      },
+      "depth_source": "NetCDF variable 'height' attribute (negative = below ground)",
+      "instrument_source": "NetCDF variable 'instrument' attribute"
+    },
+    {
+      "data_product": "soil_temperature",
+      "mappings": {
+        "soilTemp_Mean_degC": {
+          "source_variable": "Ts",
+          "unit_conversion": "none (already degC)",
+          "confidence": "HIGH",
+          "rationale": "PyFluxPro 'Ts' is the best-estimate soil temperature"
+        }
+      },
+      "depth_source": "NetCDF variable 'height' attribute (negative = below ground)",
+      "instrument_source": "NetCDF variable 'instrument' attribute"
+    },
+    {
+      "data_product": "soil_texture",
+      "status": "not_available",
+      "rationale": "TERN OzFlux NetCDF files contain only time-series flux/met data. Soil texture is static lab data not included."
+    }
+  ],
+  "global_warnings": [
+    "SWC unit conversion is CRITICAL \u2014 source is fraction (0-1), target is percent (0-100)",
+    "Depths in 'height' attribute use negative convention (below ground) matching AccelNet schema"
+  ]
+}

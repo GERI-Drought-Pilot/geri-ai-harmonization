@@ -1,0 +1,8 @@
+{
+    "run_id": "model_comparison_saeon_haiku_20260504_194234",
+    "experiment": "model_comparison",
+    "network": "saeon",
+    "model": "haiku",
+    "timestamp": "2026-05-04T17:43:39Z",
+    "elapsed_seconds": 65
+}

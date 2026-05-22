@@ -1,0 +1,8 @@
+{
+    "run_id": "model_comparison_saeon_sonnet_20260504_194112",
+    "experiment": "model_comparison",
+    "network": "saeon",
+    "model": "sonnet",
+    "timestamp": "2026-05-04T17:42:34Z",
+    "elapsed_seconds": 82
+}

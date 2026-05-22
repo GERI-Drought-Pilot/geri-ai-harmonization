@@ -1,0 +1,51 @@
+run_id,network,date,duration_sec,sites,products,total_rows,variable_selection_pct,value_accuracy_pct,height_accuracy_pct,human_intervention,review_status,notes
+icos_20260317_feasibility,ICOS,2026-03-17,324,1,4,87696,100.0,100.0,,false,PASS,BE-Bra feasibility test - local files only - no sensor heights
+icos_20260317_research,ICOS,2026-03-17,382,1,0,0,,,,,n/a,Web research for sensor metadata - found labelling report and ICOS standard depths
+saeon_20260317_feasibility,SAEON,2026-03-17,529,8,4,157285,100.0,100.0,,false,PASS_WITH_WARNINGS,All 8 flux tower sites - 30min timestamp offset vs ground truth
+elter_20260317_feasibility,eLTER,2026-03-17,882,15,4,67066,100.0,100.0,,false,PASS_WITH_REVIEW,SWC unit ambiguity (fraction vs percent at Hyytiala) - detected and resolved by review step - sensor selection ambiguity at Hohes Holz
+tern_20260401,TERN,2026-04-01,801,10,2,1858122,100.0,100.0,80.0,false,PASS,First NetCDF format test; 5/10 sites validated against answer key
+icos_all_20260401,ICOS,2026-04-01,947,39,5,9626931,100.0,100.0,100.0,false,PASS,All 39 sites; 5 data products; first full-scale ICOS run
+neon_20260401,NEON,2026-04-01,731,47,5,11175714,100.0,100.0,,false,PASS,Blind test on unseen network; SWC fraction->percent detected; limited site coverage in raw soil data
+ontology_derivation_20260401,ALL,2026-04-01,,163,18,,,,,,PASS,Agent team autonomously derived ontology from raw data; 5 profilers + 1 reviewer + lead; 2 review rounds; matched 4/5 core variables; chose fraction for SWC (diverges from human schema percent); no cheating detected
+saeon_all_20260504_155406,SAEON,2026-05-04,12.9,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+saeon_all_20260504_155702,SAEON,2026-05-04,12.6,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+saeon_all_20260504_155956,SAEON,2026-05-04,12.6,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+saeon_all_20260504_160208,SAEON,2026-05-04,12.6,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+saeon_all_20260504_160432,SAEON,2026-05-04,12.7,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+icos_all_20260504_161451,2026-05-04T16:14:51.875694,ICOS,39,5,9626931,0,53.8,PASS
+elter_all_20260504_161902,eLTER,2026-05-04,34.5,15,5,152563,100.0,100.0,,false,PASS,Full pipeline: 15 stations, 5 products (CSV+Parquet), daily aggregation
+elter_all_20260504_162208,eLTER,2026-05-04,33.0,15,5,152563,100.0,100.0,,false,PASS,Full pipeline: 15 stations, 5 products (CSV+Parquet), daily aggregation
+elter_all_20260504_162706,eLTER,2026-05-04,34.8,15,5,152563,100.0,100.0,,false,PASS,Full pipeline: 15 stations, 5 products (CSV+Parquet), daily aggregation
+elter_all_20260504_162948,eLTER,2026-05-04,41.1,15,5,152563,100.0,100.0,,false,PASS,Full pipeline: 15 stations, 5 products (CSV+Parquet), daily aggregation
+tern_all_20260504_162841,TERN,2026-05-04,203.8,28,4,16414008,100.0,100.0,,false,PASS,Full pipeline: 28 sites (9 L3 + 1 L6-fallback + 18 L6-only) 4 products (CSV+Parquet)
+elter_all_20260504_163310,eLTER,2026-05-04,36.4,15,5,152563,100.0,100.0,,false,PASS,Full pipeline: 15 stations, 5 products (CSV+Parquet), daily aggregation
+tern_all_20260504_163413,TERN,2026-05-04,206.3,28,4,16414008,100.0,100.0,,false,PASS,Full pipeline: 28 sites (9 L3 + 1 L6-fallback + 18 L6-only) 4 products (CSV+Parquet)
+tern_all_20260504_164006,TERN,2026-05-04,227.9,28,4,16414008,100.0,100.0,,false,PASS,Full pipeline: 28 sites (9 L3 + 1 L6-fallback + 18 L6-only) 4 products (CSV+Parquet)
+neon_allsites_20260504_142455,NEON,2026-05-04,1348.8,47,5,309917541,100.0,100.0,,false,PASS_WITH_WARNINGS,Full all-sites pipeline: 47 sites 5 products (soil moisture depth=NaN)
+neon_allsites_20260504_153355,NEON,2026-05-04,1215.1,47,5,309917541,100.0,100.0,,false,PASS_WITH_WARNINGS,Full all-sites pipeline: 47 sites 5 products (soil moisture depth=NaN)
+neon_allsites_20260504_162226,NEON,2026-05-04,184.2,47,5,309917541,100.0,100.0,,false,PASS_WITH_WARNINGS,Full all-sites pipeline: 47 sites 5 products (soil moisture depth=NaN)
+neon_allsites_20260504_162949,NEON,2026-05-04,184.5,47,5,309917541,100.0,100.0,,false,PASS_WITH_WARNINGS,Full all-sites pipeline: 47 sites 5 products (soil moisture depth=NaN)
+neon_allsites_20260504_163600,NEON,2026-05-04,182.4,47,5,309917541,100.0,100.0,,false,PASS_WITH_WARNINGS,Full all-sites pipeline: 47 sites 5 products (soil moisture depth=NaN)
+saeon_all_20260504_194051,SAEON,2026-05-04,12.5,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+saeon_all_20260504_194150,SAEON,2026-05-04,13.1,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+elter_all_20260504_194139,eLTER,2026-05-04,31.7,15,5,152563,100.0,100.0,,false,SKIPPED,No-review run: 15 stations, 5 products (CSV+Parquet), stages=schema/ingest/research/map/transform
+saeon_all_20260504_194312,SAEON,2026-05-04,12.5,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+saeon_noresearch_20260504_194548,SAEON,2026-05-04,12.2,7,4,602601,100.0,100.0,,false,PASS_WITH_WARNINGS,No-research run: 7 flux towers, 4 products, data-files-only metadata
+saeon_noresearch_20260504_194620,SAEON,2026-05-04,12.4,8,4,602601,100.0,100.0,,false,PASS_WITH_WARNINGS,No-research run: 8 flux towers, 4 products, data-files-only metadata
+saeon_all_20260505_002314,SAEON,2026-05-05,15.3,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+icos_all_20260505_002413,2026-05-05T00:24:13.982011,ICOS,39,5,9626931,0,65.1,PASS
+elter_all_20260505_002440,eLTER,2026-05-05,43.1,15,5,152563,100.0,100.0,,false,PASS,Full pipeline: 15 stations, 5 products (CSV+Parquet), daily aggregation
+neon_allsites_20260504_222223,NEON,2026-05-04,216.7,47,5,309917541,100.0,100.0,,false,PASS_WITH_WARNINGS,Full all-sites pipeline: 47 sites 5 products (soil moisture depth=NaN)
+tern_all_20260505_002241,TERN,2026-05-05,209.1,28,4,16414008,100.0,100.0,,false,PASS,Full pipeline: 28 sites (9 L3 + 1 L6-fallback + 18 L6-only) 4 products (CSV+Parquet)
+saeon_all_20260505_004006,SAEON,2026-05-05,12.7,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+saeon_all_20260505_004411,SAEON,2026-05-05,12.5,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+saeon_all_20260505_004655,SAEON,2026-05-05,13.8,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+elter_all_20260505_004653,eLTER,2026-05-05,35.4,15,5,152563,100.0,100.0,,false,PASS,Full pipeline: 15 stations, 5 products (CSV+Parquet), daily aggregation
+neon_allsites_20260504_224508,NEON,2026-05-04,188.4,47,5,309917541,100.0,100.0,,false,PASS_WITH_WARNINGS,Full all-sites pipeline: 47 sites 5 products (soil moisture depth=NaN)
+elter_all_20260505_005004,eLTER,2026-05-05,30.5,15,5,152563,100.0,100.0,,false,PASS,Full pipeline: 15 stations, 5 products (CSV+Parquet), daily aggregation
+saeon_all_20260505_005114,SAEON,2026-05-05,13.0,8,4,602601,100.0,100.0,,false,PASS,Full pipeline: 8 flux towers, 4 products (CSV+Parquet)
+elter_all_20260505_005313,eLTER,2026-05-05,34.5,15,5,152563,100.0,100.0,,false,PASS,Full pipeline: 15 stations, 5 products (CSV+Parquet), daily aggregation
+neon_allsites_20260504_225105,NEON,2026-05-04,185.8,47,5,309917541,100.0,100.0,,false,PASS_WITH_WARNINGS,Full all-sites pipeline: 47 sites 5 products (soil moisture depth=NaN)
+elter_all_20260505_005547,eLTER,2026-05-05,30.9,15,5,152563,100.0,100.0,,false,PASS,Full pipeline: 15 stations, 5 products (CSV+Parquet), daily aggregation
+neon_allsites_20260504_225618,NEON,2026-05-04,184.3,47,5,309917541,100.0,100.0,,false,PASS_WITH_WARNINGS,Full all-sites pipeline: 47 sites 5 products (soil moisture depth=NaN)
+tern_all_20260505_110920,TERN,2026-05-05,182.4,28,4,16414008,100.0,100.0,,false,PASS,Full pipeline: 28 sites (9 L3 + 1 L6-fallback + 18 L6-only) 4 products (CSV+Parquet)
