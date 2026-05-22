@@ -1,0 +1,98 @@
+{
+  "stage": "schema",
+  "target_schema": "AccelNet Governance Handbook",
+  "products": {
+    "air_temperature": {
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "airTemp_mean_degC",
+        "latitude_deg",
+        "longitude_deg",
+        "elevation",
+        "height_m",
+        "instrument"
+      ],
+      "value_column": "airTemp_mean_degC",
+      "unit": "degC",
+      "qc_bounds": [
+        -60,
+        60
+      ]
+    },
+    "precipitation": {
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "precip_tot_mm",
+        "latitude",
+        "longitude",
+        "elevation",
+        "height_m",
+        "instrument"
+      ],
+      "value_column": "precip_tot_mm",
+      "unit": "mm",
+      "qc_bounds": [
+        0,
+        500
+      ]
+    },
+    "soil_moisture": {
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "sws_mean_percent",
+        "latitude",
+        "longitude",
+        "elevation",
+        "depth",
+        "instrument"
+      ],
+      "value_column": "sws_mean_percent",
+      "unit": "percent",
+      "qc_bounds": [
+        0,
+        100
+      ]
+    },
+    "soil_temperature": {
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "soilTemp_Mean_degC",
+        "latitude",
+        "longitude",
+        "elevation",
+        "depth",
+        "instrument"
+      ],
+      "value_column": "soilTemp_Mean_degC",
+      "unit": "degC",
+      "qc_bounds": [
+        -30,
+        70
+      ]
+    },
+    "soil_texture": {
+      "status": "not_available",
+      "reason": "TERN OzFlux NetCDF files do not contain soil texture data"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "run_id": "model_comparison_saeon_opus_20260504_193748",
+    "experiment": "model_comparison",
+    "network": "saeon",
+    "model": "opus",
+    "timestamp": "2026-05-04T17:41:12Z",
+    "elapsed_seconds": 204
+}

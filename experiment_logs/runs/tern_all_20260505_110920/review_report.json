@@ -1,0 +1,1185 @@
+{
+  "review_timestamp": "2026-05-05T09:12:00.510480",
+  "network": "TERN",
+  "products": {
+    "air_temperature": {
+      "total_rows": 4103502,
+      "n_sites": 28,
+      "value_range": {
+        "min": -14.848,
+        "max": 49.2626
+      },
+      "pct_missing": 2.7,
+      "per_site_stats": {
+        "AU-ASM": {
+          "n_rows": 252549,
+          "n_valid": 252549,
+          "pct_missing": 0.0,
+          "min": -0.6141,
+          "max": 43.4059,
+          "mean": 23.072,
+          "std": 7.9968,
+          "height_m": 11.6
+        },
+        "AU-Boy": {
+          "n_rows": 142651,
+          "n_valid": 139555,
+          "pct_missing": 2.2,
+          "min": 2.0467,
+          "max": 42.3842,
+          "mean": 16.2629,
+          "std": 6.5388,
+          "height_m": 23.0
+        },
+        "AU-Col": {
+          "n_rows": 39819,
+          "n_valid": 39819,
+          "pct_missing": 0.0,
+          "min": 0.8969,
+          "max": 38.4215,
+          "mean": 15.2975,
+          "std": 5.9047,
+          "height_m": 35.0
+        },
+        "AU-Cow": {
+          "n_rows": 282031,
+          "n_valid": 282031,
+          "pct_missing": 0.0,
+          "min": 1.9998,
+          "max": 49.2626,
+          "mean": 24.4204,
+          "std": 2.9688,
+          "height_m": 23.0
+        },
+        "AU-Cpr": {
+          "n_rows": 271971,
+          "n_valid": 264702,
+          "pct_missing": 2.7,
+          "min": 0.0,
+          "max": 48.1588,
+          "mean": 18.0172,
+          "std": 8.1221,
+          "height_m": 2.0
+        },
+        "AU-Cum": {
+          "n_rows": 200927,
+          "n_valid": 198471,
+          "pct_missing": 1.2,
+          "min": -1.7994,
+          "max": 46.3162,
+          "mean": 18.4089,
+          "std": 6.1847,
+          "height_m": 30.0
+        },
+        "AU-DaS": {
+          "n_rows": 315600,
+          "n_valid": 298031,
+          "pct_missing": 5.6,
+          "min": 8.4147,
+          "max": 42.0625,
+          "mean": 26.8661,
+          "std": 4.877,
+          "height_m": 21.0
+        },
+        "AU-Dry": {
+          "n_rows": 267763,
+          "n_valid": 267763,
+          "pct_missing": 0.0,
+          "min": 5.8657,
+          "max": 41.975,
+          "mean": 27.2195,
+          "std": 5.6356,
+          "height_m": 15.0
+        },
+        "AU-Eme": {
+          "n_rows": 44927,
+          "n_valid": 44927,
+          "pct_missing": 0.0,
+          "min": 0.6429,
+          "max": 41.6937,
+          "mean": 21.5016,
+          "std": 6.9773,
+          "height_m": 6.7
+        },
+        "AU-Fle": {
+          "n_rows": 52325,
+          "n_valid": 52325,
+          "pct_missing": 0.0,
+          "min": 2.5831,
+          "max": 43.4558,
+          "mean": 23.6725,
+          "std": 5.4047,
+          "height_m": 24.5
+        },
+        "AU-Fog": {
+          "n_rows": 47892,
+          "n_valid": 47892,
+          "pct_missing": 0.0,
+          "min": 7.2712,
+          "max": 38.068,
+          "mean": 25.4837,
+          "std": 4.9863,
+          "height_m": null
+        },
+        "AU-Gin": {
+          "n_rows": 244170,
+          "n_valid": 230497,
+          "pct_missing": 5.6,
+          "min": -4.1366,
+          "max": 45.1143,
+          "mean": 18.4798,
+          "std": 6.527,
+          "height_m": 14.7
+        },
+        "AU-Lit": {
+          "n_rows": 167783,
+          "n_valid": 167783,
+          "pct_missing": 0.0,
+          "min": 12.9151,
+          "max": 39.0555,
+          "mean": 26.402,
+          "std": 3.2292,
+          "height_m": 32.0
+        },
+        "AU-Lon": {
+          "n_rows": 100393,
+          "n_valid": 100393,
+          "pct_missing": 0.0,
+          "min": 0.1131,
+          "max": 43.8316,
+          "mean": 24.1175,
+          "std": 7.7794,
+          "height_m": 2.0
+        },
+        "AU-MVA": {
+          "n_rows": 19901,
+          "n_valid": 19901,
+          "pct_missing": 0.0,
+          "min": -1.3683,
+          "max": 41.3456,
+          "mean": 20.1043,
+          "std": 8.4014,
+          "height_m": 2.5
+        },
+        "AU-Rgf": {
+          "n_rows": 172695,
+          "n_valid": 172669,
+          "pct_missing": 0.0,
+          "min": 0.0078,
+          "max": 44.808,
+          "mean": 16.4634,
+          "std": 7.354,
+          "height_m": 2.5
+        },
+        "AU-Rig": {
+          "n_rows": 114467,
+          "n_valid": 114467,
+          "pct_missing": 0.0,
+          "min": -4.8015,
+          "max": 43.0793,
+          "mean": 15.6808,
+          "std": 7.6786,
+          "height_m": 2.0
+        },
+        "AU-Rob": {
+          "n_rows": 201710,
+          "n_valid": 201710,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 35.6429,
+          "mean": 19.2101,
+          "std": 3.8129,
+          "height_m": 40.0
+        },
+        "AU-SiP": {
+          "n_rows": 88972,
+          "n_valid": 88972,
+          "pct_missing": 0.0,
+          "min": -14.848,
+          "max": 31.1536,
+          "mean": 7.5168,
+          "std": 5.0959,
+          "height_m": 2.0
+        },
+        "AU-Stp": {
+          "n_rows": 288075,
+          "n_valid": 288075,
+          "pct_missing": 0.0,
+          "min": 4.7361,
+          "max": 45.412,
+          "mean": 26.4709,
+          "std": 6.3702,
+          "height_m": 5.0
+        },
+        "AU-TTE": {
+          "n_rows": 166608,
+          "n_valid": 149934,
+          "pct_missing": 10.0,
+          "min": 0.1687,
+          "max": 44.3018,
+          "mean": 23.6973,
+          "std": 8.2645,
+          "height_m": 9.8
+        },
+        "AU-Tum": {
+          "n_rows": 15299,
+          "n_valid": 15231,
+          "pct_missing": 0.4,
+          "min": -3.6451,
+          "max": 27.5817,
+          "mean": 9.1408,
+          "std": 6.1218,
+          "height_m": 71.0
+        },
+        "AU-Wal": {
+          "n_rows": 58775,
+          "n_valid": 58775,
+          "pct_missing": 0.0,
+          "min": -0.944,
+          "max": 35.1202,
+          "mean": 10.8108,
+          "std": 6.0439,
+          "height_m": 45.0
+        },
+        "AU-Wel": {
+          "n_rows": 22920,
+          "n_valid": 22914,
+          "pct_missing": 0.0,
+          "min": -1.9791,
+          "max": 39.0486,
+          "mean": 17.7094,
+          "std": 8.4509,
+          "height_m": 2.5
+        },
+        "AU-Whr": {
+          "n_rows": 218462,
+          "n_valid": 169784,
+          "pct_missing": 22.3,
+          "min": -2.4237,
+          "max": 43.8272,
+          "mean": 15.5827,
+          "std": 6.8998,
+          "height_m": 36.0
+        },
+        "AU-Wom1": {
+          "n_rows": 199072,
+          "n_valid": 199072,
+          "pct_missing": 0.0,
+          "min": -4.9419,
+          "max": 37.7851,
+          "mean": 11.2258,
+          "std": 6.2037,
+          "height_m": 35.0
+        },
+        "AU-Wom2": {
+          "n_rows": 14671,
+          "n_valid": 14402,
+          "pct_missing": 1.8,
+          "min": 0.1515,
+          "max": 34.4194,
+          "mean": 11.2205,
+          "std": 6.422,
+          "height_m": null
+        },
+        "AU-Yar": {
+          "n_rows": 91074,
+          "n_valid": 91074,
+          "pct_missing": 0.0,
+          "min": -4.7591,
+          "max": 46.1776,
+          "mean": 16.7228,
+          "std": 6.8826,
+          "height_m": 2.0
+        }
+      },
+      "schema_compliant": true,
+      "unit_verified": true
+    },
+    "precipitation": {
+      "total_rows": 4103502,
+      "n_sites": 28,
+      "value_range": {
+        "min": 0.0,
+        "max": 85.8
+      },
+      "pct_missing": 5.2,
+      "per_site_stats": {
+        "AU-ASM": {
+          "n_rows": 252549,
+          "n_valid": 252549,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 43.6,
+          "mean": 0.0206,
+          "std": 0.3396,
+          "height_m": 2.0
+        },
+        "AU-Boy": {
+          "n_rows": 142651,
+          "n_valid": 136247,
+          "pct_missing": 4.5,
+          "min": 0.0,
+          "max": 21.0,
+          "mean": 0.0287,
+          "std": 0.2688,
+          "height_m": 1.2
+        },
+        "AU-Col": {
+          "n_rows": 39819,
+          "n_valid": 39819,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 10.6,
+          "mean": 0.0414,
+          "std": 0.292,
+          "height_m": null
+        },
+        "AU-Cow": {
+          "n_rows": 282031,
+          "n_valid": 282031,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 85.8,
+          "mean": 0.1824,
+          "std": 1.3069,
+          "height_m": 23.0
+        },
+        "AU-Cpr": {
+          "n_rows": 271971,
+          "n_valid": 265121,
+          "pct_missing": 2.5,
+          "min": 0.0,
+          "max": 20.2,
+          "mean": 0.0135,
+          "std": 0.1889,
+          "height_m": 0.6
+        },
+        "AU-Cum": {
+          "n_rows": 200927,
+          "n_valid": 199627,
+          "pct_missing": 0.6,
+          "min": 0.0,
+          "max": 30.0,
+          "mean": 0.0535,
+          "std": 0.4671,
+          "height_m": 0.6
+        },
+        "AU-DaS": {
+          "n_rows": 315600,
+          "n_valid": 265655,
+          "pct_missing": 15.8,
+          "min": 0.0,
+          "max": 35.0,
+          "mean": 0.066,
+          "std": 0.7611,
+          "height_m": 0.6
+        },
+        "AU-Dry": {
+          "n_rows": 267763,
+          "n_valid": 267763,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 47.0,
+          "mean": 0.0488,
+          "std": 0.6632,
+          "height_m": 0.6
+        },
+        "AU-Eme": {
+          "n_rows": 44927,
+          "n_valid": 44927,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 33.6,
+          "mean": 0.0352,
+          "std": 0.5162,
+          "height_m": null
+        },
+        "AU-Fle": {
+          "n_rows": 52325,
+          "n_valid": 52325,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 43.6,
+          "mean": 0.0469,
+          "std": 0.651,
+          "height_m": 2.0
+        },
+        "AU-Fog": {
+          "n_rows": 47892,
+          "n_valid": 47892,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 45.6,
+          "mean": 0.0965,
+          "std": 0.8948,
+          "height_m": 0.6
+        },
+        "AU-Gin": {
+          "n_rows": 244170,
+          "n_valid": 228617,
+          "pct_missing": 6.4,
+          "min": 0.0,
+          "max": 21.4,
+          "mean": 0.0356,
+          "std": 0.3026,
+          "height_m": 0.6
+        },
+        "AU-Lit": {
+          "n_rows": 167783,
+          "n_valid": 167783,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 49.0,
+          "mean": 0.0878,
+          "std": 0.9255,
+          "height_m": 1.0
+        },
+        "AU-Lon": {
+          "n_rows": 100393,
+          "n_valid": 100393,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 30.6,
+          "mean": 0.0192,
+          "std": 0.2917,
+          "height_m": 0.6
+        },
+        "AU-MVA": {
+          "n_rows": 19901,
+          "n_valid": 19901,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 33.0,
+          "mean": 0.0346,
+          "std": 0.4244,
+          "height_m": 0.5
+        },
+        "AU-Rgf": {
+          "n_rows": 172695,
+          "n_valid": 172694,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 29.4,
+          "mean": 0.0357,
+          "std": 0.3538,
+          "height_m": 8.0
+        },
+        "AU-Rig": {
+          "n_rows": 114467,
+          "n_valid": 114463,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 28.6,
+          "mean": 0.0273,
+          "std": 0.2729,
+          "height_m": 0.6
+        },
+        "AU-Rob": {
+          "n_rows": 201710,
+          "n_valid": 201710,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 46.8,
+          "mean": 0.1321,
+          "std": 0.8492,
+          "height_m": 40.0
+        },
+        "AU-SiP": {
+          "n_rows": 88972,
+          "n_valid": 88972,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 44.2,
+          "mean": 0.0432,
+          "std": 0.4039,
+          "height_m": null
+        },
+        "AU-Stp": {
+          "n_rows": 288075,
+          "n_valid": 288075,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 46.344,
+          "mean": 0.0392,
+          "std": 0.5801,
+          "height_m": 0.6
+        },
+        "AU-TTE": {
+          "n_rows": 166608,
+          "n_valid": 135465,
+          "pct_missing": 18.7,
+          "min": 0.0,
+          "max": 41.4,
+          "mean": 0.0166,
+          "std": 0.3135,
+          "height_m": 2.0
+        },
+        "AU-Tum": {
+          "n_rows": 15299,
+          "n_valid": 15231,
+          "pct_missing": 0.4,
+          "min": 0.0,
+          "max": 9.4,
+          "mean": 0.0568,
+          "std": 0.3254,
+          "height_m": 71.0
+        },
+        "AU-Wal": {
+          "n_rows": 58775,
+          "n_valid": 58763,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 19.8,
+          "mean": 0.0329,
+          "std": 0.2581,
+          "height_m": 0.6
+        },
+        "AU-Wel": {
+          "n_rows": 22920,
+          "n_valid": 22920,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 22.4,
+          "mean": 0.0425,
+          "std": 0.4478,
+          "height_m": 2.0
+        },
+        "AU-Whr": {
+          "n_rows": 218462,
+          "n_valid": 116806,
+          "pct_missing": 46.5,
+          "min": 0.0,
+          "max": 13.8,
+          "mean": 0.0165,
+          "std": 0.1841,
+          "height_m": 0.6
+        },
+        "AU-Wom1": {
+          "n_rows": 199072,
+          "n_valid": 199072,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 19.8,
+          "mean": 0.0488,
+          "std": 0.3141,
+          "height_m": 1.0
+        },
+        "AU-Wom2": {
+          "n_rows": 14671,
+          "n_valid": 14424,
+          "pct_missing": 1.7,
+          "min": 0.0,
+          "max": 11.0,
+          "mean": 0.0334,
+          "std": 0.2508,
+          "height_m": null
+        },
+        "AU-Yar": {
+          "n_rows": 91074,
+          "n_valid": 91074,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 28.8,
+          "mean": 0.0593,
+          "std": 0.492,
+          "height_m": 0.6
+        }
+      },
+      "schema_compliant": true,
+      "unit_verified": true
+    },
+    "soil_moisture": {
+      "total_rows": 4103502,
+      "n_sites": 28,
+      "value_range": {
+        "min": 0.0,
+        "max": 100.0
+      },
+      "pct_missing": 7.2,
+      "per_site_stats": {
+        "AU-ASM": {
+          "n_rows": 252549,
+          "n_valid": 252549,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 20.8163,
+          "mean": 4.7253,
+          "std": 2.7099,
+          "depth": -0.05
+        },
+        "AU-Boy": {
+          "n_rows": 142651,
+          "n_valid": 138173,
+          "pct_missing": 3.1,
+          "min": 3.2817,
+          "max": 15.161,
+          "mean": 4.276,
+          "std": 0.9508,
+          "depth": -0.1
+        },
+        "AU-Col": {
+          "n_rows": 39819,
+          "n_valid": 39819,
+          "pct_missing": 0.0,
+          "min": 1.4538,
+          "max": 22.8248,
+          "mean": 6.3537,
+          "std": 4.1943,
+          "depth": -0.05
+        },
+        "AU-Cow": {
+          "n_rows": 282031,
+          "n_valid": 282031,
+          "pct_missing": 0.0,
+          "min": 10.6942,
+          "max": 47.4238,
+          "mean": 28.1626,
+          "std": 6.3033,
+          "depth": -0.15
+        },
+        "AU-Cpr": {
+          "n_rows": 271971,
+          "n_valid": 233297,
+          "pct_missing": 14.2,
+          "min": 0.77,
+          "max": 18.6417,
+          "mean": 3.3581,
+          "std": 1.2518,
+          "depth": -0.1
+        },
+        "AU-Cum": {
+          "n_rows": 200927,
+          "n_valid": 198655,
+          "pct_missing": 1.1,
+          "min": 7.3371,
+          "max": 41.4,
+          "mean": 14.316,
+          "std": 7.1036,
+          "depth": -0.08
+        },
+        "AU-DaS": {
+          "n_rows": 315600,
+          "n_valid": 295214,
+          "pct_missing": 6.5,
+          "min": 2.4236,
+          "max": 23.3968,
+          "mean": 5.4978,
+          "std": 2.9322,
+          "depth": -0.05
+        },
+        "AU-Dry": {
+          "n_rows": 267763,
+          "n_valid": 267763,
+          "pct_missing": 0.0,
+          "min": 1.2748,
+          "max": 33.3391,
+          "mean": 6.9122,
+          "std": 4.5396,
+          "depth": -0.015
+        },
+        "AU-Eme": {
+          "n_rows": 44927,
+          "n_valid": 44927,
+          "pct_missing": 0.0,
+          "min": 3.1447,
+          "max": 28.2514,
+          "mean": 10.6148,
+          "std": 3.7719,
+          "depth": null
+        },
+        "AU-Fle": {
+          "n_rows": 52325,
+          "n_valid": 52325,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 54.8033,
+          "mean": 22.1917,
+          "std": 10.4288,
+          "depth": -0.1
+        },
+        "AU-Fog": {
+          "n_rows": 47892,
+          "n_valid": 46954,
+          "pct_missing": 2.0,
+          "min": 67.645,
+          "max": 100.0,
+          "mean": 93.746,
+          "std": 9.025,
+          "depth": null
+        },
+        "AU-Gin": {
+          "n_rows": 244170,
+          "n_valid": 234330,
+          "pct_missing": 4.0,
+          "min": 2.03,
+          "max": 14.911,
+          "mean": 4.1183,
+          "std": 1.5142,
+          "depth": -0.06
+        },
+        "AU-Lit": {
+          "n_rows": 167783,
+          "n_valid": 167783,
+          "pct_missing": 0.0,
+          "min": 0.8981,
+          "max": 33.4928,
+          "mean": 9.3051,
+          "std": 6.3794,
+          "depth": -0.05
+        },
+        "AU-Lon": {
+          "n_rows": 100393,
+          "n_valid": 100393,
+          "pct_missing": 0.0,
+          "min": 8.6183,
+          "max": 77.2091,
+          "mean": 28.4272,
+          "std": 11.6063,
+          "depth": -0.1
+        },
+        "AU-MVA": {
+          "n_rows": 19901,
+          "n_valid": 19901,
+          "pct_missing": 0.0,
+          "min": 23.0724,
+          "max": 49.9967,
+          "mean": 39.0092,
+          "std": 7.8087,
+          "depth": -0.1
+        },
+        "AU-Rgf": {
+          "n_rows": 172695,
+          "n_valid": 172695,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 42.1073,
+          "mean": 13.5776,
+          "std": 8.8026,
+          "depth": -0.1
+        },
+        "AU-Rig": {
+          "n_rows": 114467,
+          "n_valid": 114467,
+          "pct_missing": 0.0,
+          "min": 0.7813,
+          "max": 64.2546,
+          "mean": 20.3656,
+          "std": 12.7413,
+          "depth": -0.05
+        },
+        "AU-Rob": {
+          "n_rows": 201710,
+          "n_valid": 201710,
+          "pct_missing": 0.0,
+          "min": 12.6189,
+          "max": 44.9654,
+          "mean": 27.1416,
+          "std": 5.8007,
+          "depth": -0.15
+        },
+        "AU-SiP": {
+          "n_rows": 88972,
+          "n_valid": 88972,
+          "pct_missing": 0.0,
+          "min": 11.6842,
+          "max": 83.1527,
+          "mean": 61.0868,
+          "std": 23.916,
+          "depth": -0.1
+        },
+        "AU-Stp": {
+          "n_rows": 288075,
+          "n_valid": 287936,
+          "pct_missing": 0.0,
+          "min": 0.001,
+          "max": 89.913,
+          "mean": 13.3615,
+          "std": 13.4521,
+          "depth": -0.05
+        },
+        "AU-TTE": {
+          "n_rows": 166608,
+          "n_valid": 137106,
+          "pct_missing": 17.7,
+          "min": 0.0,
+          "max": 41.8616,
+          "mean": 2.3231,
+          "std": 2.4792,
+          "depth": -0.05
+        },
+        "AU-Tum": {
+          "n_rows": 15299,
+          "n_valid": 15065,
+          "pct_missing": 1.5,
+          "min": 7.495,
+          "max": 30.05,
+          "mean": 15.9915,
+          "std": 5.0915,
+          "depth": -0.05
+        },
+        "AU-Wal": {
+          "n_rows": 58775,
+          "n_valid": 58775,
+          "pct_missing": 0.0,
+          "min": 6.282,
+          "max": 39.4002,
+          "mean": 30.3289,
+          "std": 3.8959,
+          "depth": -0.1
+        },
+        "AU-Wel": {
+          "n_rows": 22920,
+          "n_valid": 22920,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 32.745,
+          "mean": 12.3255,
+          "std": 5.0582,
+          "depth": -0.1
+        },
+        "AU-Whr": {
+          "n_rows": 218462,
+          "n_valid": 34091,
+          "pct_missing": 84.4,
+          "min": 12.9537,
+          "max": 49.9971,
+          "mean": 18.4821,
+          "std": 6.9734,
+          "depth": -0.1
+        },
+        "AU-Wom1": {
+          "n_rows": 199072,
+          "n_valid": 199072,
+          "pct_missing": 0.0,
+          "min": 1.3595,
+          "max": 43.4025,
+          "mean": 21.0954,
+          "std": 6.5443,
+          "depth": -0.1
+        },
+        "AU-Wom2": {
+          "n_rows": 14671,
+          "n_valid": 9726,
+          "pct_missing": 33.7,
+          "min": 6.1,
+          "max": 23.6,
+          "mean": 13.1571,
+          "std": 5.6718,
+          "depth": null
+        },
+        "AU-Yar": {
+          "n_rows": 91074,
+          "n_valid": 91074,
+          "pct_missing": 0.0,
+          "min": 0.1,
+          "max": 37.93,
+          "mean": 17.3367,
+          "std": 11.0673,
+          "depth": -0.05
+        }
+      },
+      "schema_compliant": true,
+      "unit_verified": true
+    },
+    "soil_temperature": {
+      "total_rows": 4103502,
+      "n_sites": 28,
+      "value_range": {
+        "min": -9.2061,
+        "max": 58.6396
+      },
+      "pct_missing": 7.0,
+      "per_site_stats": {
+        "AU-ASM": {
+          "n_rows": 252549,
+          "n_valid": 252549,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 55.7739,
+          "mean": 26.5667,
+          "std": 8.9796,
+          "depth": -0.04
+        },
+        "AU-Boy": {
+          "n_rows": 142651,
+          "n_valid": 138174,
+          "pct_missing": 3.1,
+          "min": 9.6288,
+          "max": 32.3625,
+          "mean": 19.9468,
+          "std": 5.8834,
+          "depth": -0.1
+        },
+        "AU-Col": {
+          "n_rows": 39819,
+          "n_valid": 39819,
+          "pct_missing": 0.0,
+          "min": 8.412,
+          "max": 30.0135,
+          "mean": 17.3281,
+          "std": 4.8426,
+          "depth": -0.05
+        },
+        "AU-Cow": {
+          "n_rows": 282031,
+          "n_valid": 282031,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 31.1049,
+          "mean": 23.2833,
+          "std": 4.3859,
+          "depth": -0.14
+        },
+        "AU-Cpr": {
+          "n_rows": 271971,
+          "n_valid": 240900,
+          "pct_missing": 11.4,
+          "min": 1.3232,
+          "max": 56.7596,
+          "mean": 22.5799,
+          "std": 10.43,
+          "depth": -0.08
+        },
+        "AU-Cum": {
+          "n_rows": 200927,
+          "n_valid": 198529,
+          "pct_missing": 1.2,
+          "min": 7.0882,
+          "max": 34.9764,
+          "mean": 18.7072,
+          "std": 4.9529,
+          "depth": -0.08
+        },
+        "AU-DaS": {
+          "n_rows": 315600,
+          "n_valid": 293566,
+          "pct_missing": 7.0,
+          "min": 15.2002,
+          "max": 54.7516,
+          "mean": 30.3239,
+          "std": 5.3267,
+          "depth": -0.08
+        },
+        "AU-Dry": {
+          "n_rows": 267763,
+          "n_valid": 267763,
+          "pct_missing": 0.0,
+          "min": 10.1653,
+          "max": 48.8186,
+          "mean": 32.0122,
+          "std": 4.9127,
+          "depth": -0.08
+        },
+        "AU-Eme": {
+          "n_rows": 44927,
+          "n_valid": 44927,
+          "pct_missing": 0.0,
+          "min": 6.3055,
+          "max": 40.6469,
+          "mean": 22.2256,
+          "std": 5.8297,
+          "depth": null
+        },
+        "AU-Fle": {
+          "n_rows": 52325,
+          "n_valid": 52325,
+          "pct_missing": 0.0,
+          "min": 10.9976,
+          "max": 44.5015,
+          "mean": 28.1434,
+          "std": 5.8761,
+          "depth": -0.06
+        },
+        "AU-Fog": {
+          "n_rows": 47892,
+          "n_valid": 47892,
+          "pct_missing": 0.0,
+          "min": 15.578,
+          "max": 33.01,
+          "mean": 25.4108,
+          "std": 3.5203,
+          "depth": null
+        },
+        "AU-Gin": {
+          "n_rows": 244170,
+          "n_valid": 229810,
+          "pct_missing": 5.9,
+          "min": 1.5818,
+          "max": 50.4802,
+          "mean": 20.1419,
+          "std": 8.3785,
+          "depth": -0.04
+        },
+        "AU-Lit": {
+          "n_rows": 167783,
+          "n_valid": 167783,
+          "pct_missing": 0.0,
+          "min": 16.7943,
+          "max": 41.0514,
+          "mean": 28.3042,
+          "std": 2.9931,
+          "depth": -0.05
+        },
+        "AU-Lon": {
+          "n_rows": 100393,
+          "n_valid": 100393,
+          "pct_missing": 0.0,
+          "min": 4.4036,
+          "max": 52.3413,
+          "mean": 27.4405,
+          "std": 8.0317,
+          "depth": -0.08
+        },
+        "AU-MVA": {
+          "n_rows": 19901,
+          "n_valid": 19901,
+          "pct_missing": 0.0,
+          "min": 5.6297,
+          "max": 40.1454,
+          "mean": 22.5362,
+          "std": 8.0341,
+          "depth": -0.1
+        },
+        "AU-Rgf": {
+          "n_rows": 172695,
+          "n_valid": 172695,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 41.59,
+          "mean": 20.1981,
+          "std": 7.6231,
+          "depth": -0.05
+        },
+        "AU-Rig": {
+          "n_rows": 114467,
+          "n_valid": 114467,
+          "pct_missing": 0.0,
+          "min": 3.3532,
+          "max": 41.7771,
+          "mean": 16.6579,
+          "std": 6.6264,
+          "depth": -0.08
+        },
+        "AU-Rob": {
+          "n_rows": 201710,
+          "n_valid": 201634,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 29.8865,
+          "mean": 19.5431,
+          "std": 3.9837,
+          "depth": -0.04
+        },
+        "AU-SiP": {
+          "n_rows": 88972,
+          "n_valid": 88972,
+          "pct_missing": 0.0,
+          "min": -9.2061,
+          "max": 33.2313,
+          "mean": 9.8974,
+          "std": 5.2117,
+          "depth": -0.1
+        },
+        "AU-Stp": {
+          "n_rows": 288075,
+          "n_valid": 288075,
+          "pct_missing": 0.0,
+          "min": 11.76,
+          "max": 55.4309,
+          "mean": 29.8074,
+          "std": 6.6287,
+          "depth": -0.08
+        },
+        "AU-TTE": {
+          "n_rows": 166608,
+          "n_valid": 145649,
+          "pct_missing": 12.6,
+          "min": 5.8364,
+          "max": 58.6396,
+          "mean": 29.4691,
+          "std": 10.0603,
+          "depth": -0.05
+        },
+        "AU-Tum": {
+          "n_rows": 15299,
+          "n_valid": 15065,
+          "pct_missing": 1.5,
+          "min": 1.5725,
+          "max": 19.3159,
+          "mean": 8.5579,
+          "std": 4.8406,
+          "depth": -0.02
+        },
+        "AU-Wal": {
+          "n_rows": 58775,
+          "n_valid": 58775,
+          "pct_missing": 0.0,
+          "min": 5.509,
+          "max": 17.01,
+          "mean": 10.6383,
+          "std": 2.8039,
+          "depth": -0.2
+        },
+        "AU-Wel": {
+          "n_rows": 22920,
+          "n_valid": 22920,
+          "pct_missing": 0.0,
+          "min": 0.0,
+          "max": 40.5573,
+          "mean": 21.4728,
+          "std": 7.7932,
+          "depth": -0.06
+        },
+        "AU-Whr": {
+          "n_rows": 218462,
+          "n_valid": 34126,
+          "pct_missing": 84.4,
+          "min": 3.4871,
+          "max": 38.5794,
+          "mean": 17.1852,
+          "std": 6.7857,
+          "depth": -0.08
+        },
+        "AU-Wom1": {
+          "n_rows": 199072,
+          "n_valid": 199072,
+          "pct_missing": 0.0,
+          "min": 3.4113,
+          "max": 31.9352,
+          "mean": 12.0358,
+          "std": 4.5504,
+          "depth": -0.1
+        },
+        "AU-Wom2": {
+          "n_rows": 14671,
+          "n_valid": 9726,
+          "pct_missing": 33.7,
+          "min": 6.317,
+          "max": 22.88,
+          "mean": 14.6238,
+          "std": 3.9096,
+          "depth": -0.05
+        },
+        "AU-Yar": {
+          "n_rows": 91074,
+          "n_valid": 90696,
+          "pct_missing": 0.4,
+          "min": 1.2115,
+          "max": 34.9979,
+          "mean": 17.352,
+          "std": 6.0948,
+          "depth": 0.0
+        }
+      },
+      "schema_compliant": true,
+      "unit_verified": true
+    }
+  },
+  "status": "PASS",
+  "issues": [],
+  "sites_expected": 28,
+  "missing_products": [
+    "soil_texture (not available in TERN OzFlux NetCDF data)"
+  ],
+  "sites_present": 28
+}

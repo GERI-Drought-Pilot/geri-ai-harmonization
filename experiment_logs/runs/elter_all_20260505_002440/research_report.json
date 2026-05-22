@@ -1,0 +1,33 @@
+{
+  "source": "eLTER (European Long-Term Ecosystem Research) network",
+  "network": "eLTER RI",
+  "sites": 15,
+  "countries": [
+    "Finland",
+    "Germany",
+    "Spain",
+    "Austria"
+  ],
+  "data_formats": {
+    "FI_Hyytiala": "Parquet (SOATM 1-min, SOHYD long-format, SOGEO categorical)",
+    "Germany_DE-HoH": "CSV (SOATM/SOHYD 10-min long-format, SOGEO profiles)",
+    "Hohes-Holz": "CSV (eLTER-schema intermediate, subset of DE-HoH)",
+    "Donana_El_Palacio": "CSV semicolon-delimited (daily manual observations since 1978)",
+    "Donana_HIDROMET": "CSV semicolon-delimited (daily automated, 7 stations since 2004)",
+    "Rosalia": "CSV semicolon-delimited (SOATM 10-min meteo + SOHYD 30-min soil)"
+  },
+  "temporal_resolution": "Mixed: 1-min (Hyytiala), 10-min (DE-HoH, Rosalia), daily (Donana); aggregated to daily",
+  "sensor_details": {
+    "FI_Hyytiala": "T168 Pt100 at 16.8m, OTT Pluvio at 1.5m, TDR SWC at -4cm, Pt100 Tsoil at -3.5cm",
+    "Germany_DE-HoH": "Tair50HMP at 49m, precip50 tipping bucket at 50m, TDR SM at -10cm, TC Tsoil at -5cm",
+    "Donana": "Manual thermometer at 1.3m (El Palacio), automated AWS at ~2m (HIDROMET)",
+    "Rosalia": "Vaisala HMP at 2.0m, tipping bucket at 1.5m, TDR soil at -10cm"
+  },
+  "unit_conversions": "None required - all source data already in degC, mm, vol%",
+  "qc_bounds": {
+    "air_temperature": "[-60, 60] degC",
+    "precipitation": "[0, 500] mm/day",
+    "soil_moisture": "[0, 100] vol%",
+    "soil_temperature": "[-30, 60] degC"
+  }
+}

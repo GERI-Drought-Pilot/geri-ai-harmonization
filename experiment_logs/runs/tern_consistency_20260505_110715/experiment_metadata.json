@@ -1,0 +1,9 @@
+{
+    "run_id": "tern_consistency_20260505_110715",
+    "network": "tern",
+    "experiment": "consistency",
+    "run_number": 1,
+    "timestamp": "2026-05-05T09:12:32Z",
+    "elapsed_seconds": 317,
+    "model": "opus"
+}

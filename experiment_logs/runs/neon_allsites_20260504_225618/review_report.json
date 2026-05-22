@@ -1,0 +1,59 @@
+{
+  "review_timestamp": "2026-05-04T22:58:42.582851+00:00",
+  "network": "NEON",
+  "products": {
+    "soil_texture": {
+      "product": "soil_texture",
+      "rows": 452,
+      "sites": 47,
+      "issues": [],
+      "null_pcts": {},
+      "status": "PASS"
+    },
+    "air_temperature": {
+      "product": "air_temperature",
+      "rows": 6319753,
+      "sites": 47,
+      "issues": [],
+      "null_pcts": {},
+      "status": "PASS"
+    },
+    "precipitation": {
+      "product": "precipitation",
+      "rows": 2850653,
+      "sites": 46,
+      "issues": [],
+      "null_pcts": {},
+      "status": "PASS"
+    },
+    "soil_moisture": {
+      "product": "soil_moisture",
+      "rows": 123634173,
+      "sites": 39,
+      "issues": [
+        {
+          "severity": "INFO",
+          "check": "nulls",
+          "msg": "depth is all NaN (known limitation: verticalPosition unavailable)"
+        }
+      ],
+      "null_pcts": {
+        "depth": 100.0
+      },
+      "status": "WARN"
+    },
+    "soil_temperature": {
+      "product": "soil_temperature",
+      "rows": 177112510,
+      "sites": 39,
+      "issues": [],
+      "null_pcts": {
+        "latitude": 5.41,
+        "longitude": 5.41,
+        "elevation": 5.41
+      },
+      "status": "PASS"
+    }
+  },
+  "status": "PASS_WITH_WARNINGS"
+}

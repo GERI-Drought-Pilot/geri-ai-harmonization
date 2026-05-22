@@ -1,0 +1,179 @@
+{
+  "network": "NEON",
+  "ingest_timestamp": "2026-05-04T22:22:23.539091+00:00",
+  "files": [
+    {
+      "product": "air_temperature",
+      "path": "Downloads/geri/geri-working/ri_data/proc_neon_airtemperature_data.parquet",
+      "format": "parquet",
+      "type": "proc",
+      "rows": 6744624,
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "meanAirTemp_degC"
+      ],
+      "size_bytes": 129109866,
+      "row_groups": 7
+    },
+    {
+      "product": "precipitation",
+      "path": "Downloads/geri/geri-working/ri_data/proc_neon_precipitation_data.parquet",
+      "format": "parquet",
+      "type": "proc",
+      "rows": 3063408,
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "bulkPrecipitation_mm"
+      ],
+      "size_bytes": 16827364,
+      "row_groups": 3
+    },
+    {
+      "product": "soil_moisture",
+      "path": "Downloads/geri/geri-working/ri_data/neon_soilmoisture_merged_data.parquet",
+      "format": "parquet",
+      "type": "merged",
+      "rows": 179436336,
+      "columns": [
+        "siteID",
+        "startDateTime",
+        "endDateTime",
+        "VSWCMean",
+        "latitude",
+        "longitude",
+        "elevation",
+        "height"
+      ],
+      "size_bytes": 1508608834,
+      "row_groups": 172
+    },
+    {
+      "product": "soil_texture",
+      "path": "Downloads/geri/geri-working/ri_data/proc_neon_soiltexture_data.parquet",
+      "format": "parquet",
+      "type": "proc",
+      "rows": 452,
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "pitID",
+        "dateCollected",
+        "depthMax_m",
+        "depthMin_m",
+        "sand_percent",
+        "silt_percent",
+        "clay_percent",
+        "latitude_deg",
+        "longitude_deg"
+      ],
+      "size_bytes": 16198,
+      "row_groups": 1
+    },
+    {
+      "product": "soil_temperature",
+      "path": "Downloads/geri/geri-working/ri_data_split/chunk_1_neon_soiltemperature_data.parquet",
+      "format": "parquet",
+      "type": "chunk",
+      "rows": 28445040,
+      "size_bytes": 470374180
+    },
+    {
+      "product": "soil_temperature",
+      "path": "Downloads/geri/geri-working/ri_data_split/chunk_2_neon_soiltemperature_data.parquet",
+      "format": "parquet",
+      "type": "chunk",
+      "rows": 25569168,
+      "size_bytes": 422056294
+    },
+    {
+      "product": "soil_temperature",
+      "path": "Downloads/geri/geri-working/ri_data_split/chunk_3_neon_soiltemperature_data.parquet",
+      "format": "parquet",
+      "type": "chunk",
+      "rows": 27436320,
+      "size_bytes": 446457767
+    },
+    {
+      "product": "soil_temperature",
+      "path": "Downloads/geri/geri-working/ri_data_split/chunk_4_neon_soiltemperature_data.parquet",
+      "format": "parquet",
+      "type": "chunk",
+      "rows": 24857232,
+      "size_bytes": 368801283
+    },
+    {
+      "product": "soil_temperature",
+      "path": "Downloads/geri/geri-working/ri_data_split/chunk_5_neon_soiltemperature_data.parquet",
+      "format": "parquet",
+      "type": "chunk",
+      "rows": 22641552,
+      "size_bytes": 442793495
+    },
+    {
+      "product": "soil_temperature",
+      "path": "Downloads/geri/geri-working/ri_data_split/chunk_6_neon_soiltemperature_data.parquet",
+      "format": "parquet",
+      "type": "chunk",
+      "rows": 27405360,
+      "size_bytes": 521938812
+    },
+    {
+      "product": "soil_temperature",
+      "path": "Downloads/geri/geri-working/ri_data_split/chunk_7_neon_soiltemperature_data.parquet",
+      "format": "parquet",
+      "type": "chunk",
+      "rows": 23333952,
+      "size_bytes": 358999174
+    },
+    {
+      "product": "soil_temperature",
+      "path": "Downloads/geri/geri-working/ri_data_split/chunk_8_neon_soiltemperature_data.parquet",
+      "format": "parquet",
+      "type": "chunk",
+      "rows": 24904320,
+      "size_bytes": 371012963
+    },
+    {
+      "path": "Downloads/geri/geri-working/ri_data/NEON_Field_Site_Metadata_20250722.csv",
+      "format": "csv",
+      "type": "metadata",
+      "size_bytes": 46842
+    },
+    {
+      "path": "Downloads/geri/geri-metadata/neon/sensor_positions_selected_00003.csv",
+      "format": "csv",
+      "type": "metadata",
+      "size_bytes": 5367
+    }
+  ],
+  "data_summary": {
+    "air_temperature": {
+      "rows": 6744624
+    },
+    "precipitation": {
+      "rows": 3063408
+    },
+    "soil_moisture": {
+      "rows": 179436336
+    },
+    "soil_texture": {
+      "rows": 452
+    },
+    "soil_temperature": {
+      "rows": 204592944,
+      "chunks": 8
+    }
+  }
+}

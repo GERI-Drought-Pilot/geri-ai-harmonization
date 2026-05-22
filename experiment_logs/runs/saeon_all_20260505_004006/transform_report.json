@@ -1,0 +1,95 @@
+{
+  "run_id": "saeon_all_20260505_004006",
+  "timestamp": "2026-05-05T00:40:19.108529",
+  "sites_processed": 8,
+  "products": {
+    "air_temperature": {
+      "rows": 151495,
+      "csv": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_saeon_air_temperature.csv",
+      "parquet": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_saeon_air_temperature.parquet",
+      "csv_size_mb": 21.86,
+      "parquet_size_mb": 2.25
+    },
+    "precipitation": {
+      "rows": 151970,
+      "csv": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_saeon_precipitation.csv",
+      "parquet": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_saeon_precipitation.parquet",
+      "csv_size_mb": 21.14,
+      "parquet_size_mb": 0.78
+    },
+    "soil_moisture": {
+      "rows": 150708,
+      "csv": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_saeon_soil_moisture.csv",
+      "parquet": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_saeon_soil_moisture.parquet",
+      "csv_size_mb": 22.15,
+      "parquet_size_mb": 2.26
+    },
+    "soil_temperature": {
+      "rows": 148428,
+      "csv": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_saeon_soil_temperature.csv",
+      "parquet": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_saeon_soil_temperature.parquet",
+      "csv_size_mb": 21.83,
+      "parquet_size_mb": 2.21
+    }
+  },
+  "site_stats": {
+    "ZA-BKa": {
+      "raw_rows": 21076,
+      "air_temp_rows": 21072,
+      "precip_rows": 21076,
+      "swc_rows": 21075,
+      "soil_temp_rows": 21070
+    },
+    "ZA-BSa": {
+      "raw_rows": 21052,
+      "air_temp_rows": 21050,
+      "precip_rows": 21052,
+      "swc_rows": 21051,
+      "soil_temp_rows": 21048
+    },
+    "ZA-CPk": {
+      "raw_rows": 16708,
+      "air_temp_rows": 16705,
+      "precip_rows": 16708,
+      "swc_rows": 16707,
+      "soil_temp_rows": 16699
+    },
+    "ZA-JFy": {
+      "raw_rows": 20989,
+      "air_temp_rows": 20987,
+      "precip_rows": 20989,
+      "swc_rows": 20583,
+      "soil_temp_rows": 20986
+    },
+    "ZA-MCC": {
+      "raw_rows": 15899,
+      "air_temp_rows": 15879,
+      "precip_rows": 15899,
+      "swc_rows": 15894,
+      "soil_temp_rows": 15845
+    },
+    "ZA-MUm": {
+      "raw_rows": 20178,
+      "air_temp_rows": 20174,
+      "precip_rows": 20178,
+      "swc_rows": 20169,
+      "soil_temp_rows": 20113
+    },
+    "ZA-Sku": {
+      "raw_rows": 16247,
+      "air_temp_rows": 15808,
+      "precip_rows": 16246,
+      "swc_rows": 15407,
+      "soil_temp_rows": 12978
+    },
+    "ZA-Spk": {
+      "raw_rows": 19822,
+      "air_temp_rows": 19820,
+      "precip_rows": 19822,
+      "swc_rows": 19822,
+      "soil_temp_rows": 19689
+    }
+  },
+  "errors": [],
+  "elapsed_seconds": 12.71
+}

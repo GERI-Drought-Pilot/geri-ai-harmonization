@@ -1,0 +1,9 @@
+{
+    "run_id": "elter_consistency_20260505_005052",
+    "network": "elter",
+    "experiment": "consistency",
+    "run_number": 4,
+    "timestamp": "2026-05-04T22:53:55Z",
+    "elapsed_seconds": 183,
+    "model": "opus"
+}

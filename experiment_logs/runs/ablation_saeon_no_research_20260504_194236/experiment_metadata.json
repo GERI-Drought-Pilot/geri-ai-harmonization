@@ -1,0 +1,8 @@
+{
+    "run_id": "ablation_saeon_no_research_20260504_194236",
+    "experiment": "ablation",
+    "ablation_name": "saeon_no_research",
+    "timestamp": "2026-05-04T17:47:10Z",
+    "elapsed_seconds": 267,
+    "model": "opus"
+}

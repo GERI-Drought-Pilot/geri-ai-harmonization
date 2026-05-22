@@ -1,0 +1,252 @@
+{
+  "network": "TERN / OzFlux",
+  "ingest_timestamp": "2026-05-05T09:09:21.775892Z",
+  "data_source": "/Users/karnst/Documents/Accelnet/Accelnet/Downloads/geri-data/tern/",
+  "total_files": 31,
+  "l3_files": 10,
+  "l6_files": 21,
+  "l6_only_sites": 18,
+  "unique_sites": 28,
+  "files": [
+    {
+      "path": "Boyagin_L3.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 142651,
+      "level": "L3",
+      "status": "ok"
+    },
+    {
+      "path": "Calperum_L3.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 271971,
+      "level": "L3",
+      "status": "ok"
+    },
+    {
+      "path": "CumberlandPlain_L3.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 200927,
+      "level": "L3",
+      "status": "ok"
+    },
+    {
+      "path": "DalyUncleared_L3.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 315600,
+      "level": "L3",
+      "status": "ok"
+    },
+    {
+      "path": "DryRiver_L3.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 267763,
+      "level": "L3",
+      "status": "corrupt (fallback: DryRiver_L6.nc)",
+      "fallback": "DryRiver_L6.nc"
+    },
+    {
+      "path": "Gingin_L3.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 244170,
+      "level": "L3",
+      "status": "ok"
+    },
+    {
+      "path": "TiTreeEast1_L3.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 166608,
+      "level": "L3",
+      "status": "ok"
+    },
+    {
+      "path": "Tumbarumba2_L3.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 15299,
+      "level": "L3",
+      "status": "ok"
+    },
+    {
+      "path": "Whroo1_L3.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 218462,
+      "level": "L3",
+      "status": "ok"
+    },
+    {
+      "path": "WombatStateForest2_L3.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 14671,
+      "level": "L3",
+      "status": "ok"
+    },
+    {
+      "path": "AliceSpringsMulga_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 252549,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "Collie_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 39819,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "CowBay_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 282031,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "Emerald_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 44927,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "FletcherviewTropicalRangeland_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 52325,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "FoggDam_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 47892,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "Litchfield_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 167783,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "Longreach_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 100393,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "MyallValeA_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 19901,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "Ridgefield_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 172695,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "RiggsCreek_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 114467,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "RobsonCreek_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 201710,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "SilverPlains_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 88972,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "SturtPlains_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 288075,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "WallabyCreek_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 58775,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "Wellington_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 22920,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "WombatStateForest1_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 199072,
+      "level": "L6",
+      "status": "ok"
+    },
+    {
+      "path": "YarramundiControl_L6.nc",
+      "format": "netcdf",
+      "role": "data",
+      "rows": 91074,
+      "level": "L6",
+      "status": "ok"
+    }
+  ],
+  "variables_found": {
+    "air_temperature": [
+      "Ta"
+    ],
+    "precipitation": [
+      "Precip"
+    ],
+    "soil_water_content": [
+      "Sws"
+    ],
+    "soil_temperature": [
+      "Ts"
+    ],
+    "soil_texture": []
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "source": "SAEON EFTEON Eddy Covariance Flux Tower CSV files",
+  "network": "South African Environmental Observation Network (SAEON)",
+  "sub_network": "Expanded Freshwater and Terrestrial Environmental Observation Network (EFTEON)",
+  "sites": 8,
+  "biomes": [
+    "Karoo",
+    "Savanna",
+    "Grassland",
+    "Fynbos",
+    "Coastal"
+  ],
+  "temporal_resolution": "30 minutes",
+  "file_format": "CSV with 2 comment header lines + 1 units row",
+  "timestamp_formats": {
+    "Timestamp": "ISO 8601 (YYYY-MM-DDTHH:MM:SS)",
+    "timestamp_start": "YYYYMMDDHHmm compact integer",
+    "timestamp_end": "YYYYMMDDHHmm compact integer"
+  },
+  "sensor_depths": {
+    "soil_moisture_s1": "-0.025 m (2.5 cm depth)",
+    "soil_moisture_s2": "-0.08 m (8 cm depth)",
+    "soil_temperature_s1": "-0.025 m (2.5 cm depth)",
+    "soil_temperature_s2": "-0.08 m (8 cm depth)"
+  },
+  "units": {
+    "temp_air_avg": "deg_c (Celsius)",
+    "rain_tot": "mm (per 30-min period)",
+    "moisture_soil_s1_avg": "pcnt (percent volumetric 0-100)",
+    "temp_soil_s1_avg": "deg_c (Celsius)"
+  },
+  "null_handling": "Empty fields in CSV = null; no sentinel fill values used",
+  "references": [
+    "EFTEON SOP: https://efteon.saeon.ac.za/wp-content/uploads/2021/02/Routine_SOP-Flux-Towers-V1-.pdf",
+    "SAEON Observatory Database: https://observations.saeon.ac.za/",
+    "DEIMS-SDR Site Registry"
+  ]
+}

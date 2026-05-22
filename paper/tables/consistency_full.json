@@ -1,0 +1,277 @@
+[
+  {
+    "network": "icos",
+    "n_runs": 5,
+    "decisions": {
+      "n_runs": 5,
+      "common_decisions": 9,
+      "total_unique_decisions": 9,
+      "jaccard_similarity": 1.0,
+      "all_identical": true
+    },
+    "qc_stats": {
+      "air_temperature": {
+        "n_runs": 5,
+        "rows_identical": true,
+        "sites_identical": true,
+        "min_range": [
+          -49.96,
+          -49.96
+        ],
+        "max_range": [
+          48.06,
+          48.06
+        ],
+        "mean_cv": 0.0
+      },
+      "precipitation": {
+        "n_runs": 5,
+        "rows_identical": true,
+        "sites_identical": true,
+        "min_range": [
+          0.0,
+          0.0
+        ],
+        "max_range": [
+          115.62,
+          115.62
+        ],
+        "mean_cv": 0.0
+      },
+      "soil_moisture": {
+        "n_runs": 5,
+        "rows_identical": true,
+        "sites_identical": true,
+        "min_range": [
+          0.0,
+          0.0
+        ],
+        "max_range": [
+          99.97,
+          99.97
+        ],
+        "mean_cv": 0.0
+      },
+      "soil_temperature": {
+        "n_runs": 5,
+        "rows_identical": true,
+        "sites_identical": true,
+        "min_range": [
+          -20.17,
+          -20.17
+        ],
+        "max_range": [
+          39.01,
+          39.01
+        ],
+        "mean_cv": 0.0
+      },
+      "soil_texture": {
+        "n_runs": 5,
+        "rows_identical": true,
+        "sites_identical": true,
+        "min_range": null,
+        "max_range": null,
+        "mean_cv": null
+      }
+    },
+    "data_identity": {
+      "air_temperature": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "precipitation": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_moisture": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_temperature": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_texture": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      }
+    },
+    "timing": {
+      "n_runs": 5,
+      "mean_seconds": 53.01870574951172,
+      "std_seconds": 0.4862130188016899,
+      "cv": 0.0091705938862185,
+      "min_seconds": 52.53114604949951,
+      "max_seconds": 53.8363618850708
+    }
+  },
+  {
+    "network": "neon",
+    "n_runs": 5,
+    "decisions": {
+      "n_runs": 0,
+      "agreement": null
+    },
+    "qc_stats": {},
+    "data_identity": {
+      "air_temperature": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "precipitation": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_moisture": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_temperature": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_texture": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      }
+    },
+    "timing": {
+      "n_runs": 0
+    }
+  },
+  {
+    "network": "tern",
+    "n_runs": 5,
+    "decisions": {
+      "n_runs": 5,
+      "common_decisions": 0,
+      "total_unique_decisions": 0,
+      "jaccard_similarity": 1.0,
+      "all_identical": true
+    },
+    "qc_stats": {},
+    "data_identity": {
+      "air_temperature": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "precipitation": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_moisture": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_temperature": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_texture": {
+        "n_runs_with_data": 0,
+        "identity_rate": null
+      }
+    },
+    "timing": {
+      "n_runs": 0
+    }
+  },
+  {
+    "network": "saeon",
+    "n_runs": 5,
+    "decisions": {
+      "n_runs": 5,
+      "common_decisions": 10,
+      "total_unique_decisions": 10,
+      "jaccard_similarity": 1.0,
+      "all_identical": true
+    },
+    "qc_stats": {},
+    "data_identity": {
+      "air_temperature": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "precipitation": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_moisture": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_temperature": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_texture": {
+        "n_runs_with_data": 0,
+        "identity_rate": null
+      }
+    },
+    "timing": {
+      "n_runs": 0
+    }
+  },
+  {
+    "network": "elter",
+    "n_runs": 5,
+    "decisions": {
+      "n_runs": 5,
+      "common_decisions": 12,
+      "total_unique_decisions": 12,
+      "jaccard_similarity": 1.0,
+      "all_identical": true
+    },
+    "qc_stats": {},
+    "data_identity": {
+      "air_temperature": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "precipitation": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_moisture": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_temperature": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      },
+      "soil_texture": {
+        "n_runs_with_data": 5,
+        "all_identical": true,
+        "identity_rate": 1.0
+      }
+    },
+    "timing": {
+      "n_runs": 0
+    }
+  }
+]

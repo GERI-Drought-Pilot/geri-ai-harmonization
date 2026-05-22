@@ -1,0 +1,617 @@
+{
+  "research_timestamp": "2026-05-04T22:22:42.931063Z",
+  "network": "TERN / OzFlux",
+  "documentation": {
+    "naming_conventions": "PyFluxPro naming: [BaseVar]_[Instrument]_[Location]_[Statistic]. Base vars: Ta (air temp), Precip (precipitation), Sws (soil water content), Ts (soil temp).",
+    "data_levels": "L3 = quality-controlled (QC flags applied, sentinel values); L6 = derived/gap-filled (gaps interpolated, energy balance corrected)",
+    "quality_flags": "Each variable has companion _QCFlag variable (dimensionless). QC applied at L3 level.",
+    "sources": [
+      "NETWORK_PROFILE_TERN.md",
+      "NetCDF variable attributes (units, height, instrument, standard_name)"
+    ]
+  },
+  "sites": {
+    "AU-Boy": {
+      "name": "Boyagin",
+      "country": "Australia",
+      "lat": -32.477093,
+      "lon": 116.938559,
+      "elevation_m": 300,
+      "data_level": "L3",
+      "actual_file": "Boyagin_L3.nc"
+    },
+    "AU-Cpr": {
+      "name": "Calperum",
+      "country": "Australia",
+      "lat": -34.0027,
+      "lon": 140.5877,
+      "elevation_m": 60,
+      "data_level": "L3",
+      "actual_file": "Calperum_L3.nc"
+    },
+    "AU-Cum": {
+      "name": "CumberlandPlain",
+      "country": "Australia",
+      "lat": -33.615278,
+      "lon": 150.723611,
+      "elevation_m": 27,
+      "data_level": "L3",
+      "actual_file": "CumberlandPlain_L3.nc"
+    },
+    "AU-DaS": {
+      "name": "DalyUncleared",
+      "country": "Australia",
+      "lat": -14.1592,
+      "lon": 131.3881,
+      "elevation_m": 110,
+      "data_level": "L3",
+      "actual_file": "DalyUncleared_L3.nc"
+    },
+    "AU-Dry": {
+      "name": "DryRiver",
+      "country": "Australia",
+      "lat": -15.2588,
+      "lon": 132.3706,
+      "elevation_m": 175,
+      "data_level": "L3",
+      "actual_file": "DryRiver_L6.nc"
+    },
+    "AU-Gin": {
+      "name": "Gingin",
+      "country": "Australia",
+      "lat": -31.376351,
+      "lon": 115.71377,
+      "elevation_m": 46.8,
+      "data_level": "L3",
+      "actual_file": "Gingin_L3.nc"
+    },
+    "AU-TTE": {
+      "name": "TiTreeEast1",
+      "country": "Australia",
+      "lat": -22.287,
+      "lon": 133.64,
+      "elevation_m": 600,
+      "data_level": "L3",
+      "actual_file": "TiTreeEast1_L3.nc"
+    },
+    "AU-Tum": {
+      "name": "Tumbarumba2",
+      "country": "Australia",
+      "lat": -35.6566,
+      "lon": 148.1517,
+      "elevation_m": 1200,
+      "data_level": "L3",
+      "actual_file": "Tumbarumba2_L3.nc"
+    },
+    "AU-Whr": {
+      "name": "Whroo1",
+      "country": "Australia",
+      "lat": -36.6732,
+      "lon": 145.0294,
+      "elevation_m": 165,
+      "data_level": "L3",
+      "actual_file": "Whroo1_L3.nc"
+    },
+    "AU-Wom2": {
+      "name": "WombatStateForest2",
+      "country": "Australia",
+      "lat": -37.422506,
+      "lon": 144.094046,
+      "elevation_m": 705,
+      "data_level": "L3",
+      "actual_file": "WombatStateForest2_L3.nc"
+    },
+    "AU-ASM": {
+      "name": "AliceSpringsMulga",
+      "country": "Australia",
+      "lat": -22.283,
+      "lon": 133.249,
+      "elevation_m": 600,
+      "data_level": "L6",
+      "actual_file": "AliceSpringsMulga_L6.nc"
+    },
+    "AU-Col": {
+      "name": "Collie",
+      "country": "Australia",
+      "lat": -33.42,
+      "lon": 116.237,
+      "elevation_m": null,
+      "data_level": "L6",
+      "actual_file": "Collie_L6.nc"
+    },
+    "AU-Cow": {
+      "name": "CowBay",
+      "country": "Australia",
+      "lat": -16.238189,
+      "lon": 145.42715,
+      "elevation_m": 86,
+      "data_level": "L6",
+      "actual_file": "CowBay_L6.nc"
+    },
+    "AU-Eme": {
+      "name": "Emerald",
+      "country": "Australia",
+      "lat": -23.85872,
+      "lon": 148.4746,
+      "elevation_m": null,
+      "data_level": "L6",
+      "actual_file": "Emerald_L6.nc"
+    },
+    "AU-Fle": {
+      "name": "FletcherviewTropicalRangeland",
+      "country": "Australia",
+      "lat": -19.887285,
+      "lon": 146.189138,
+      "elevation_m": 261,
+      "data_level": "L6",
+      "actual_file": "FletcherviewTropicalRangeland_L6.nc"
+    },
+    "AU-Fog": {
+      "name": "FoggDam",
+      "country": "Australia",
+      "lat": -12.5452,
+      "lon": 131.3072,
+      "elevation_m": null,
+      "data_level": "L6",
+      "actual_file": "FoggDam_L6.nc"
+    },
+    "AU-Lit": {
+      "name": "Litchfield",
+      "country": "Australia",
+      "lat": -13.17904178,
+      "lon": 130.7945459,
+      "elevation_m": 222,
+      "data_level": "L6",
+      "actual_file": "Litchfield_L6.nc"
+    },
+    "AU-Lon": {
+      "name": "Longreach",
+      "country": "Australia",
+      "lat": -23.523266,
+      "lon": 144.310416,
+      "elevation_m": 157,
+      "data_level": "L6",
+      "actual_file": "Longreach_L6.nc"
+    },
+    "AU-MVA": {
+      "name": "MyallValeA",
+      "country": "Australia",
+      "lat": -30.543,
+      "lon": 150.02,
+      "elevation_m": 241,
+      "data_level": "L6",
+      "actual_file": "MyallValeA_L6.nc"
+    },
+    "AU-Rgf": {
+      "name": "Ridgefield",
+      "country": "Australia",
+      "lat": -32.506102,
+      "lon": 116.966827,
+      "elevation_m": 330,
+      "data_level": "L6",
+      "actual_file": "Ridgefield_L6.nc"
+    },
+    "AU-Rig": {
+      "name": "RiggsCreek",
+      "country": "Australia",
+      "lat": -36.656,
+      "lon": 145.576,
+      "elevation_m": 152,
+      "data_level": "L6",
+      "actual_file": "RiggsCreek_L6.nc"
+    },
+    "AU-Rob": {
+      "name": "RobsonCreek",
+      "country": "Australia",
+      "lat": -17.11746943,
+      "lon": 145.6301375,
+      "elevation_m": 710,
+      "data_level": "L6",
+      "actual_file": "RobsonCreek_L6.nc"
+    },
+    "AU-SiP": {
+      "name": "SilverPlains",
+      "country": "Australia",
+      "lat": -42.090556,
+      "lon": 147.0875,
+      "elevation_m": 860,
+      "data_level": "L6",
+      "actual_file": "SilverPlains_L6.nc"
+    },
+    "AU-Stp": {
+      "name": "SturtPlains",
+      "country": "Australia",
+      "lat": -17.1507,
+      "lon": 133.3502,
+      "elevation_m": null,
+      "data_level": "L6",
+      "actual_file": "SturtPlains_L6.nc"
+    },
+    "AU-Wal": {
+      "name": "WallabyCreek",
+      "country": "Australia",
+      "lat": -37.4259,
+      "lon": 145.1878,
+      "elevation_m": null,
+      "data_level": "L6",
+      "actual_file": "WallabyCreek_L6.nc"
+    },
+    "AU-Wel": {
+      "name": "Wellington",
+      "country": "Australia",
+      "lat": -32.5727,
+      "lon": 148.9843,
+      "elevation_m": 324,
+      "data_level": "L6",
+      "actual_file": "Wellington_L6.nc"
+    },
+    "AU-Wom1": {
+      "name": "WombatStateForest1",
+      "country": "Australia",
+      "lat": -37.422506,
+      "lon": 144.094046,
+      "elevation_m": 705,
+      "data_level": "L6",
+      "actual_file": "WombatStateForest1_L6.nc"
+    },
+    "AU-Yar": {
+      "name": "YarramundiControl",
+      "country": "Australia",
+      "lat": -33.613469,
+      "lon": 150.734864,
+      "elevation_m": 20,
+      "data_level": "L6",
+      "actual_file": "YarramundiControl_L6.nc"
+    }
+  },
+  "sensor_metadata": {
+    "AU-Boy": {
+      "Ta_height_m": 23.0,
+      "Ta_instrument": "HMP45C",
+      "Sws_depth_m": -0.1,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616",
+      "Ts_depth_m": -0.1,
+      "Ts_instrument": "Campbell Scientific CS616",
+      "Precip_height_m": 1.2,
+      "Precip_instrument": "Hydrological Services CS7000"
+    },
+    "AU-Cpr": {
+      "Ta_height_m": 2.0,
+      "Ta_instrument": "HMP60,HMP45C",
+      "Sws_depth_m": -0.1,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS650,Campbell Scientific CS655,Campbell Scientific CS650,Campbell Scientific CS655",
+      "Ts_depth_m": -0.08,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Hydrological Services CS7000"
+    },
+    "AU-Cum": {
+      "Ta_height_m": 30.0,
+      "Ta_instrument": "HMP45C,HMP155",
+      "Sws_depth_m": -0.08,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616",
+      "Ts_depth_m": -0.08,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Hydrological Services CS7000"
+    },
+    "AU-DaS": {
+      "Ta_height_m": 21.0,
+      "Ta_instrument": "HMP45C",
+      "Sws_depth_m": -0.05,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616",
+      "Ts_depth_m": -0.08,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Hydrological Services CS7000"
+    },
+    "AU-Dry": {
+      "Ta_height_m": 15.0,
+      "Ta_instrument": "HMP45C",
+      "Sws_depth_m": -0.015,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616,Campbell Scientific CS650",
+      "Ts_depth_m": -0.08,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Hydrological Services CS7000"
+    },
+    "AU-Gin": {
+      "Ta_height_m": 14.7,
+      "Ta_instrument": "Not operating,HMP155",
+      "Sws_depth_m": -0.06,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS650,Campbell Scientific CS616",
+      "Ts_depth_m": -0.04,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Hydrological Services CS700"
+    },
+    "AU-TTE": {
+      "Ta_height_m": 9.8,
+      "Ta_instrument": "HMP45c",
+      "Sws_depth_m": -0.05,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "CS616",
+      "Ts_depth_m": -0.05,
+      "Ts_instrument": "TCAV",
+      "Precip_height_m": 2.0,
+      "Precip_instrument": "RIM-7499-BOM"
+    },
+    "AU-Tum": {
+      "Ta_height_m": 71.0,
+      "Ta_instrument": "HMP155",
+      "Sws_depth_m": -0.05,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS650",
+      "Ts_depth_m": -0.02,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 71.0,
+      "Precip_instrument": "Hydrological Services CS700"
+    },
+    "AU-Whr": {
+      "Ta_height_m": 36.0,
+      "Ta_instrument": "HMP45C",
+      "Sws_depth_m": -0.1,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616",
+      "Ts_depth_m": -0.08,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Hydrological Services CS7000"
+    },
+    "AU-Wom2": {
+      "Ta_height_m": NaN,
+      "Ta_instrument": "unknown",
+      "Sws_depth_m": NaN,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "unknown",
+      "Ts_depth_m": -0.05,
+      "Ts_instrument": "unknown",
+      "Precip_height_m": NaN,
+      "Precip_instrument": "unknown"
+    },
+    "AU-ASM": {
+      "Ta_height_m": 11.6,
+      "Ta_instrument": "HMP45c",
+      "Sws_depth_m": -0.05,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "CS616",
+      "Ts_depth_m": -0.04,
+      "Ts_instrument": "TCAV",
+      "Precip_height_m": 2.0,
+      "Precip_instrument": "RIM-7499-BOM"
+    },
+    "AU-Col": {
+      "Ta_height_m": 35.0,
+      "Ta_instrument": "HMP45C",
+      "Sws_depth_m": -0.05,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616",
+      "Ts_depth_m": -0.05,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": NaN,
+      "Precip_instrument": "unknown"
+    },
+    "AU-Cow": {
+      "Ta_height_m": 23.0,
+      "Ta_instrument": "Rotronics HC2S3,EnvW2K,HMP45C,Vaisalla WXT520",
+      "Sws_depth_m": -0.15,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616",
+      "Ts_depth_m": -0.14,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 23.0,
+      "Precip_instrument": "Environdata W2K,Rain_WXT520_Tot,Campbell RIM8000"
+    },
+    "AU-Eme": {
+      "Ta_height_m": 6.7,
+      "Ta_instrument": "HMP45C",
+      "Sws_depth_m": NaN,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616",
+      "Ts_depth_m": NaN,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": NaN,
+      "Precip_instrument": "BoM met station"
+    },
+    "AU-Fle": {
+      "Ta_height_m": 24.5,
+      "Ta_instrument": "HMP155a",
+      "Sws_depth_m": -0.1,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "CS650",
+      "Ts_depth_m": -0.06,
+      "Ts_instrument": "TCAV",
+      "Precip_height_m": 2.0,
+      "Precip_instrument": "RIM-7499-BOM"
+    },
+    "AU-Fog": {
+      "Ta_height_m": NaN,
+      "Ta_instrument": "unknown",
+      "Sws_depth_m": NaN,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616",
+      "Ts_depth_m": NaN,
+      "Ts_instrument": "unknown",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Hydrological Services CS7000"
+    },
+    "AU-Lit": {
+      "Ta_height_m": 32.0,
+      "Ta_instrument": "Vaisala  HMP-155A",
+      "Sws_depth_m": -0.05,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616",
+      "Ts_depth_m": -0.05,
+      "Ts_instrument": "Multi-parameter smart sensor CS650",
+      "Precip_height_m": 1.0,
+      "Precip_instrument": "Rain gauge, CS702"
+    },
+    "AU-Lon": {
+      "Ta_height_m": 2.0,
+      "Ta_instrument": "HMP45C,Vaisala HMP155",
+      "Sws_depth_m": -0.1,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616,CS616,CS650",
+      "Ts_depth_m": -0.08,
+      "Ts_instrument": "Campbell Scientific CS650,Campbell Scientific TCAV,TCAV-L",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Hydrological Services CS7000,Tipping Bucket"
+    },
+    "AU-MVA": {
+      "Ta_height_m": 2.5,
+      "Ta_instrument": "HMP155",
+      "Sws_depth_m": -0.1,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "CS616",
+      "Ts_depth_m": -0.1,
+      "Ts_instrument": "TCAV",
+      "Precip_height_m": 0.5,
+      "Precip_instrument": "<instrument_type>"
+    },
+    "AU-Rgf": {
+      "Ta_height_m": 2.5,
+      "Ta_instrument": "HMP155",
+      "Sws_depth_m": -0.1,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "CS650,Stevens Hydra Probe II",
+      "Ts_depth_m": -0.05,
+      "Ts_instrument": "Stevens Hydra Probe II",
+      "Precip_height_m": 8.0,
+      "Precip_instrument": "Texas Electronics, CS702"
+    },
+    "AU-Rig": {
+      "Ta_height_m": 2.0,
+      "Ta_instrument": "HMP45C",
+      "Sws_depth_m": -0.05,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616",
+      "Ts_depth_m": -0.08,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Hydrological Services CS7000"
+    },
+    "AU-Rob": {
+      "Ta_height_m": 40.0,
+      "Ta_instrument": "Vaisalla HMP45C,Rotronics HC2S3",
+      "Sws_depth_m": -0.15,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS616",
+      "Ts_depth_m": -0.04,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 40.0,
+      "Precip_instrument": "Campbell RIM8000"
+    },
+    "AU-SiP": {
+      "Ta_height_m": 2.0,
+      "Ta_instrument": "EE181",
+      "Sws_depth_m": -0.1,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "CS650",
+      "Ts_depth_m": -0.1,
+      "Ts_instrument": "TCAV",
+      "Precip_height_m": NaN,
+      "Precip_instrument": "CS701 rain gauge"
+    },
+    "AU-Stp": {
+      "Ta_height_m": 5.0,
+      "Ta_instrument": "HMP45C",
+      "Sws_depth_m": -0.05,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS650,Campbell Scientific CS616",
+      "Ts_depth_m": -0.08,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Hydrological Services CS7000"
+    },
+    "AU-Wal": {
+      "Ta_height_m": 45.0,
+      "Ta_instrument": "HMP45C",
+      "Sws_depth_m": -0.1,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS615",
+      "Ts_depth_m": -0.2,
+      "Ts_instrument": "Campbell Scientific TCAV",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Campbell Scientific CS702-L10m"
+    },
+    "AU-Wel": {
+      "Ta_height_m": 2.5,
+      "Ta_instrument": "HMP155a",
+      "Sws_depth_m": -0.1,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "CS650",
+      "Ts_depth_m": -0.06,
+      "Ts_instrument": "TCAV",
+      "Precip_height_m": 2.0,
+      "Precip_instrument": "RIM-7499-BOM"
+    },
+    "AU-Wom1": {
+      "Ta_height_m": 35.0,
+      "Ta_instrument": "HMP155,HMP155A,HMP45C,HMP115",
+      "Sws_depth_m": -0.1,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS650,Campbell Scientific CS616",
+      "Ts_depth_m": -0.1,
+      "Ts_instrument": "Campbell Scientific CS650,Campbell Scientific TCAV",
+      "Precip_height_m": 1.0,
+      "Precip_instrument": "Hydrological Services TB6,Hydrological Services CS7000,Hydrological Services CS702"
+    },
+    "AU-Yar": {
+      "Ta_height_m": 2.0,
+      "Ta_instrument": "HMP45C",
+      "Sws_depth_m": -0.05,
+      "Sws_units": "m^3/m^3",
+      "Sws_instrument": "Campbell Scientific CS650",
+      "Ts_depth_m": 0.0,
+      "Ts_instrument": "Campbell Scientific CS650",
+      "Precip_height_m": 0.6,
+      "Precip_instrument": "Tipping Bucket"
+    }
+  },
+  "unit_conventions": {
+    "air_temperature": {
+      "unit": "degC",
+      "conversion_needed": false
+    },
+    "precipitation": {
+      "unit": "mm",
+      "type": "interval_total",
+      "conversion_needed": false
+    },
+    "soil_water_content": {
+      "unit": "m^3/m^3 (fraction)",
+      "conversion_needed": true,
+      "conversion": "multiply by 100 to get percent (0-100)"
+    },
+    "soil_temperature": {
+      "unit": "degC",
+      "conversion_needed": false
+    }
+  },
+  "temporal_conventions": {
+    "timestamp_format": "CF-convention (days since epoch)",
+    "timezone": "UTC",
+    "convention": "period-beginning",
+    "interval": "30min"
+  },
+  "format_challenges": [
+    "CumberlandPlain: Sws height attribute '-<.08m' required special parsing",
+    "DryRiver_L3.nc is corrupt \u2014 fallback to DryRiver_L6.nc",
+    "TiTreeEast1: Sws height attribute '-0.1 to 0 m' required special parsing",
+    "TiTreeEast1: Ts height attribute '-0.1 to 0 m' required special parsing",
+    "Tumbarumba2: Ts height attribute '-0.02m to -0.16m' required special parsing",
+    "AliceSpringsMulga: Sws height attribute '0 to -0.1 m' required special parsing",
+    "AliceSpringsMulga: Ts height attribute '-0.02 to -0.06 m' required special parsing"
+  ],
+  "warnings": [
+    "SWC units are m^3/m^3 (fraction 0-1) \u2014 MUST multiply by 100 for percent",
+    "L6 data is gap-filled \u2014 100% coverage expected but quality differs from L3",
+    "Soil texture data not present in OzFlux NetCDF files"
+  ]
+}

@@ -1,0 +1,1297 @@
+{
+  "run_id": "tern_all_20260505_110920",
+  "transform_timestamp": "2026-05-05T11:12:23.336327",
+  "network": "TERN",
+  "duration_seconds": 182.402686,
+  "output_files": [
+    "harmonized_tern_air_temperature.csv",
+    "harmonized_tern_precipitation.csv",
+    "harmonized_tern_soil_moisture.csv",
+    "harmonized_tern_soil_temperature.csv",
+    "harmonized_tern_air_temperature.parquet",
+    "harmonized_tern_precipitation.parquet",
+    "harmonized_tern_soil_moisture.parquet",
+    "harmonized_tern_soil_temperature.parquet"
+  ],
+  "total_rows_per_product": {
+    "air_temperature": 4103502,
+    "precipitation": 4103502,
+    "soil_moisture": 4103502,
+    "soil_temperature": 4103502
+  },
+  "sites_processed": [
+    "AliceSpringsMulga",
+    "Boyagin",
+    "Calperum",
+    "Collie",
+    "CowBay",
+    "CumberlandPlain",
+    "DalyUncleared",
+    "DryRiver",
+    "Emerald",
+    "FletcherviewTropicalRangeland",
+    "FoggDam",
+    "Gingin",
+    "Litchfield",
+    "Longreach",
+    "MyallValeA",
+    "Ridgefield",
+    "RiggsCreek",
+    "RobsonCreek",
+    "SilverPlains",
+    "SturtPlains",
+    "TiTreeEast1",
+    "Tumbarumba2",
+    "WallabyCreek",
+    "Wellington",
+    "Whroo1",
+    "WombatStateForest1",
+    "WombatStateForest2",
+    "YarramundiControl"
+  ],
+  "sites_by_level": {
+    "L3": 9,
+    "L6_fallback": 1,
+    "L6_only": 18
+  },
+  "per_site_summary": {
+    "Boyagin": {
+      "data_level": "L3",
+      "actual_file": "Boyagin_L3.nc",
+      "air_temperature": {
+        "n_rows": 142651,
+        "n_valid": 139555,
+        "n_missing": 3096,
+        "min": 2.0467,
+        "max": 42.3842,
+        "mean": 16.2629,
+        "start": "2017-10-20 13:00:00",
+        "end": "2025-12-09 10:00:00"
+      },
+      "precipitation": {
+        "n_rows": 142651,
+        "n_valid": 136247,
+        "n_missing": 6404,
+        "min": 0.0,
+        "max": 21.0,
+        "mean": 0.0287,
+        "start": "2017-10-20 13:00:00",
+        "end": "2025-12-09 10:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 142651,
+        "n_valid": 138173,
+        "n_missing": 4478,
+        "min": 3.2817,
+        "max": 15.161,
+        "mean": 4.276,
+        "start": "2017-10-20 13:00:00",
+        "end": "2025-12-09 10:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 142651,
+        "n_valid": 138174,
+        "n_missing": 4477,
+        "min": 9.6288,
+        "max": 32.3625,
+        "mean": 19.9468,
+        "start": "2017-10-20 13:00:00",
+        "end": "2025-12-09 10:00:00"
+      }
+    },
+    "Calperum": {
+      "data_level": "L3",
+      "actual_file": "Calperum_L3.nc",
+      "air_temperature": {
+        "n_rows": 271971,
+        "n_valid": 264702,
+        "n_missing": 7269,
+        "min": 0.0,
+        "max": 48.1588,
+        "mean": 18.0172,
+        "start": "2010-07-30 11:00:00",
+        "end": "2026-02-02 12:00:00"
+      },
+      "precipitation": {
+        "n_rows": 271971,
+        "n_valid": 265121,
+        "n_missing": 6850,
+        "min": 0.0,
+        "max": 20.2,
+        "mean": 0.0135,
+        "start": "2010-07-30 11:00:00",
+        "end": "2026-02-02 12:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 271971,
+        "n_valid": 233297,
+        "n_missing": 38674,
+        "min": 0.77,
+        "max": 18.6417,
+        "mean": 3.3581,
+        "start": "2010-07-30 11:00:00",
+        "end": "2026-02-02 12:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 271971,
+        "n_valid": 240900,
+        "n_missing": 31071,
+        "min": 1.3232,
+        "max": 56.7596,
+        "mean": 22.5799,
+        "start": "2010-07-30 11:00:00",
+        "end": "2026-02-02 12:00:00"
+      }
+    },
+    "CumberlandPlain": {
+      "data_level": "L3",
+      "actual_file": "CumberlandPlain_L3.nc",
+      "air_temperature": {
+        "n_rows": 200927,
+        "n_valid": 198471,
+        "n_missing": 2456,
+        "min": -1.7994,
+        "max": 46.3162,
+        "mean": 18.4089,
+        "start": "2014-01-01 00:30:00",
+        "end": "2025-06-17 23:30:00"
+      },
+      "precipitation": {
+        "n_rows": 200927,
+        "n_valid": 199627,
+        "n_missing": 1300,
+        "min": 0.0,
+        "max": 30.0,
+        "mean": 0.0535,
+        "start": "2014-01-01 00:30:00",
+        "end": "2025-06-17 23:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 200927,
+        "n_valid": 198655,
+        "n_missing": 2272,
+        "min": 7.3371,
+        "max": 41.4,
+        "mean": 14.316,
+        "start": "2014-01-01 00:30:00",
+        "end": "2025-06-17 23:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 200927,
+        "n_valid": 198529,
+        "n_missing": 2398,
+        "min": 7.0882,
+        "max": 34.9764,
+        "mean": 18.7072,
+        "start": "2014-01-01 00:30:00",
+        "end": "2025-06-17 23:30:00"
+      }
+    },
+    "DalyUncleared": {
+      "data_level": "L3",
+      "actual_file": "DalyUncleared_L3.nc",
+      "air_temperature": {
+        "n_rows": 315600,
+        "n_valid": 298031,
+        "n_missing": 17569,
+        "min": 8.4147,
+        "max": 42.0625,
+        "mean": 26.8661,
+        "start": "2008-01-01 00:00:00",
+        "end": "2025-12-31 23:30:00"
+      },
+      "precipitation": {
+        "n_rows": 315600,
+        "n_valid": 265655,
+        "n_missing": 49945,
+        "min": 0.0,
+        "max": 35.0,
+        "mean": 0.066,
+        "start": "2008-01-01 00:00:00",
+        "end": "2025-12-31 23:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 315600,
+        "n_valid": 295214,
+        "n_missing": 20386,
+        "min": 2.4236,
+        "max": 23.3968,
+        "mean": 5.4978,
+        "start": "2008-01-01 00:00:00",
+        "end": "2025-12-31 23:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 315600,
+        "n_valid": 293566,
+        "n_missing": 22034,
+        "min": 15.2002,
+        "max": 54.7516,
+        "mean": 30.3239,
+        "start": "2008-01-01 00:00:00",
+        "end": "2025-12-31 23:30:00"
+      }
+    },
+    "DryRiver": {
+      "data_level": "L6_fallback",
+      "actual_file": "DryRiver_L6.nc",
+      "air_temperature": {
+        "n_rows": 267763,
+        "n_valid": 267763,
+        "n_missing": 0,
+        "min": 5.8657,
+        "max": 41.975,
+        "mean": 27.2195,
+        "start": "2009-10-25 15:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "precipitation": {
+        "n_rows": 267763,
+        "n_valid": 267763,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 47.0,
+        "mean": 0.0488,
+        "start": "2009-10-25 15:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 267763,
+        "n_valid": 267763,
+        "n_missing": 0,
+        "min": 1.2748,
+        "max": 33.3391,
+        "mean": 6.9122,
+        "start": "2009-10-25 15:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 267763,
+        "n_valid": 267763,
+        "n_missing": 0,
+        "min": 10.1653,
+        "max": 48.8186,
+        "mean": 32.0122,
+        "start": "2009-10-25 15:00:00",
+        "end": "2025-02-02 00:00:00"
+      }
+    },
+    "Gingin": {
+      "data_level": "L3",
+      "actual_file": "Gingin_L3.nc",
+      "air_temperature": {
+        "n_rows": 244170,
+        "n_valid": 230497,
+        "n_missing": 13673,
+        "min": -4.1366,
+        "max": 45.1143,
+        "mean": 18.4798,
+        "start": "2011-10-13 14:00:00",
+        "end": "2025-09-16 10:30:00"
+      },
+      "precipitation": {
+        "n_rows": 244170,
+        "n_valid": 228617,
+        "n_missing": 15553,
+        "min": 0.0,
+        "max": 21.4,
+        "mean": 0.0356,
+        "start": "2011-10-13 14:00:00",
+        "end": "2025-09-16 10:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 244170,
+        "n_valid": 234330,
+        "n_missing": 9840,
+        "min": 2.03,
+        "max": 14.911,
+        "mean": 4.1183,
+        "start": "2011-10-13 14:00:00",
+        "end": "2025-09-16 10:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 244170,
+        "n_valid": 229810,
+        "n_missing": 14360,
+        "min": 1.5818,
+        "max": 50.4802,
+        "mean": 20.1419,
+        "start": "2011-10-13 14:00:00",
+        "end": "2025-09-16 10:30:00"
+      }
+    },
+    "TiTreeEast1": {
+      "data_level": "L3",
+      "actual_file": "TiTreeEast1_L3.nc",
+      "air_temperature": {
+        "n_rows": 166608,
+        "n_valid": 149934,
+        "n_missing": 16674,
+        "min": 0.1687,
+        "max": 44.3018,
+        "mean": 23.6973,
+        "start": "2012-07-18 00:00:00",
+        "end": "2022-01-17 23:30:00"
+      },
+      "precipitation": {
+        "n_rows": 166608,
+        "n_valid": 135465,
+        "n_missing": 31143,
+        "min": 0.0,
+        "max": 41.4,
+        "mean": 0.0166,
+        "start": "2012-07-18 00:00:00",
+        "end": "2022-01-17 23:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 166608,
+        "n_valid": 137106,
+        "n_missing": 29502,
+        "min": 0.0,
+        "max": 41.8616,
+        "mean": 2.3231,
+        "start": "2012-07-18 00:00:00",
+        "end": "2022-01-17 23:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 166608,
+        "n_valid": 145649,
+        "n_missing": 20959,
+        "min": 5.8364,
+        "max": 58.6396,
+        "mean": 29.4691,
+        "start": "2012-07-18 00:00:00",
+        "end": "2022-01-17 23:30:00"
+      }
+    },
+    "Tumbarumba2": {
+      "data_level": "L3",
+      "actual_file": "Tumbarumba2_L3.nc",
+      "air_temperature": {
+        "n_rows": 15299,
+        "n_valid": 15231,
+        "n_missing": 68,
+        "min": -3.6451,
+        "max": 27.5817,
+        "mean": 9.1408,
+        "start": "2025-02-06 14:30:00",
+        "end": "2025-12-22 07:30:00"
+      },
+      "precipitation": {
+        "n_rows": 15299,
+        "n_valid": 15231,
+        "n_missing": 68,
+        "min": 0.0,
+        "max": 9.4,
+        "mean": 0.0568,
+        "start": "2025-02-06 14:30:00",
+        "end": "2025-12-22 07:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 15299,
+        "n_valid": 15065,
+        "n_missing": 234,
+        "min": 7.495,
+        "max": 30.05,
+        "mean": 15.9915,
+        "start": "2025-02-06 14:30:00",
+        "end": "2025-12-22 07:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 15299,
+        "n_valid": 15065,
+        "n_missing": 234,
+        "min": 1.5725,
+        "max": 19.3159,
+        "mean": 8.5579,
+        "start": "2025-02-06 14:30:00",
+        "end": "2025-12-22 07:30:00"
+      }
+    },
+    "Whroo1": {
+      "data_level": "L3",
+      "actual_file": "Whroo1_L3.nc",
+      "air_temperature": {
+        "n_rows": 218462,
+        "n_valid": 169784,
+        "n_missing": 48678,
+        "min": -2.4237,
+        "max": 43.8272,
+        "mean": 15.5827,
+        "start": "2011-12-01 13:30:00",
+        "end": "2024-05-17 20:00:00"
+      },
+      "precipitation": {
+        "n_rows": 218462,
+        "n_valid": 116806,
+        "n_missing": 101656,
+        "min": 0.0,
+        "max": 13.8,
+        "mean": 0.0165,
+        "start": "2011-12-01 13:30:00",
+        "end": "2024-05-17 20:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 218462,
+        "n_valid": 34091,
+        "n_missing": 184371,
+        "min": 12.9537,
+        "max": 49.9971,
+        "mean": 18.4821,
+        "start": "2011-12-01 13:30:00",
+        "end": "2024-05-17 20:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 218462,
+        "n_valid": 34126,
+        "n_missing": 184336,
+        "min": 3.4871,
+        "max": 38.5794,
+        "mean": 17.1852,
+        "start": "2011-12-01 13:30:00",
+        "end": "2024-05-17 20:00:00"
+      }
+    },
+    "WombatStateForest2": {
+      "data_level": "L3",
+      "actual_file": "WombatStateForest2_L3.nc",
+      "air_temperature": {
+        "n_rows": 14671,
+        "n_valid": 14402,
+        "n_missing": 269,
+        "min": 0.1515,
+        "max": 34.4194,
+        "mean": 11.2205,
+        "start": "2024-05-08 14:30:00",
+        "end": "2025-03-10 05:30:00"
+      },
+      "precipitation": {
+        "n_rows": 14671,
+        "n_valid": 14424,
+        "n_missing": 247,
+        "min": 0.0,
+        "max": 11.0,
+        "mean": 0.0334,
+        "start": "2024-05-08 14:30:00",
+        "end": "2025-03-10 05:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 14671,
+        "n_valid": 9726,
+        "n_missing": 4945,
+        "min": 6.1,
+        "max": 23.6,
+        "mean": 13.1571,
+        "start": "2024-05-08 14:30:00",
+        "end": "2025-03-10 05:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 14671,
+        "n_valid": 9726,
+        "n_missing": 4945,
+        "min": 6.317,
+        "max": 22.88,
+        "mean": 14.6238,
+        "start": "2024-05-08 14:30:00",
+        "end": "2025-03-10 05:30:00"
+      }
+    },
+    "AliceSpringsMulga": {
+      "data_level": "L6",
+      "actual_file": "AliceSpringsMulga_L6.nc",
+      "air_temperature": {
+        "n_rows": 252549,
+        "n_valid": 252549,
+        "n_missing": 0,
+        "min": -0.6141,
+        "max": 43.4059,
+        "mean": 23.072,
+        "start": "2010-09-03 00:00:00",
+        "end": "2025-01-28 10:00:00"
+      },
+      "precipitation": {
+        "n_rows": 252549,
+        "n_valid": 252549,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 43.6,
+        "mean": 0.0206,
+        "start": "2010-09-03 00:00:00",
+        "end": "2025-01-28 10:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 252549,
+        "n_valid": 252549,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 20.8163,
+        "mean": 4.7253,
+        "start": "2010-09-03 00:00:00",
+        "end": "2025-01-28 10:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 252549,
+        "n_valid": 252549,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 55.7739,
+        "mean": 26.5667,
+        "start": "2010-09-03 00:00:00",
+        "end": "2025-01-28 10:00:00"
+      }
+    },
+    "Collie": {
+      "data_level": "L6",
+      "actual_file": "Collie_L6.nc",
+      "air_temperature": {
+        "n_rows": 39819,
+        "n_valid": 39819,
+        "n_missing": 0,
+        "min": 0.8969,
+        "max": 38.4215,
+        "mean": 15.2975,
+        "start": "2017-08-04 00:30:00",
+        "end": "2019-11-11 13:30:00"
+      },
+      "precipitation": {
+        "n_rows": 39819,
+        "n_valid": 39819,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 10.6,
+        "mean": 0.0414,
+        "start": "2017-08-04 00:30:00",
+        "end": "2019-11-11 13:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 39819,
+        "n_valid": 39819,
+        "n_missing": 0,
+        "min": 1.4538,
+        "max": 22.8248,
+        "mean": 6.3537,
+        "start": "2017-08-04 00:30:00",
+        "end": "2019-11-11 13:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 39819,
+        "n_valid": 39819,
+        "n_missing": 0,
+        "min": 8.412,
+        "max": 30.0135,
+        "mean": 17.3281,
+        "start": "2017-08-04 00:30:00",
+        "end": "2019-11-11 13:30:00"
+      }
+    },
+    "CowBay": {
+      "data_level": "L6",
+      "actual_file": "CowBay_L6.nc",
+      "air_temperature": {
+        "n_rows": 282031,
+        "n_valid": 282031,
+        "n_missing": 0,
+        "min": 1.9998,
+        "max": 49.2626,
+        "mean": 24.4204,
+        "start": "2009-01-01 09:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "precipitation": {
+        "n_rows": 282031,
+        "n_valid": 282031,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 85.8,
+        "mean": 0.1824,
+        "start": "2009-01-01 09:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 282031,
+        "n_valid": 282031,
+        "n_missing": 0,
+        "min": 10.6942,
+        "max": 47.4238,
+        "mean": 28.1626,
+        "start": "2009-01-01 09:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 282031,
+        "n_valid": 282031,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 31.1049,
+        "mean": 23.2833,
+        "start": "2009-01-01 09:00:00",
+        "end": "2025-02-02 00:00:00"
+      }
+    },
+    "Emerald": {
+      "data_level": "L6",
+      "actual_file": "Emerald_L6.nc",
+      "air_temperature": {
+        "n_rows": 44927,
+        "n_valid": 44927,
+        "n_missing": 0,
+        "min": 0.6429,
+        "max": 41.6937,
+        "mean": 21.5016,
+        "start": "2011-06-10 00:30:00",
+        "end": "2013-12-31 23:30:00"
+      },
+      "precipitation": {
+        "n_rows": 44927,
+        "n_valid": 44927,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 33.6,
+        "mean": 0.0352,
+        "start": "2011-06-10 00:30:00",
+        "end": "2013-12-31 23:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 44927,
+        "n_valid": 44927,
+        "n_missing": 0,
+        "min": 3.1447,
+        "max": 28.2514,
+        "mean": 10.6148,
+        "start": "2011-06-10 00:30:00",
+        "end": "2013-12-31 23:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 44927,
+        "n_valid": 44927,
+        "n_missing": 0,
+        "min": 6.3055,
+        "max": 40.6469,
+        "mean": 22.2256,
+        "start": "2011-06-10 00:30:00",
+        "end": "2013-12-31 23:30:00"
+      }
+    },
+    "FletcherviewTropicalRangeland": {
+      "data_level": "L6",
+      "actual_file": "FletcherviewTropicalRangeland_L6.nc",
+      "air_temperature": {
+        "n_rows": 52325,
+        "n_valid": 52325,
+        "n_missing": 0,
+        "min": 2.5831,
+        "max": 43.4558,
+        "mean": 23.6725,
+        "start": "2022-01-22 22:00:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "precipitation": {
+        "n_rows": 52325,
+        "n_valid": 52325,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 43.6,
+        "mean": 0.0469,
+        "start": "2022-01-22 22:00:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 52325,
+        "n_valid": 52325,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 54.8033,
+        "mean": 22.1917,
+        "start": "2022-01-22 22:00:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 52325,
+        "n_valid": 52325,
+        "n_missing": 0,
+        "min": 10.9976,
+        "max": 44.5015,
+        "mean": 28.1434,
+        "start": "2022-01-22 22:00:00",
+        "end": "2025-01-17 00:00:00"
+      }
+    },
+    "FoggDam": {
+      "data_level": "L6",
+      "actual_file": "FoggDam_L6.nc",
+      "air_temperature": {
+        "n_rows": 47892,
+        "n_valid": 47892,
+        "n_missing": 0,
+        "min": 7.2712,
+        "max": 38.068,
+        "mean": 25.4837,
+        "start": "2006-02-07 00:00:00",
+        "end": "2008-10-31 17:30:00"
+      },
+      "precipitation": {
+        "n_rows": 47892,
+        "n_valid": 47892,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 45.6,
+        "mean": 0.0965,
+        "start": "2006-02-07 00:00:00",
+        "end": "2008-10-31 17:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 47892,
+        "n_valid": 46954,
+        "n_missing": 938,
+        "min": 67.645,
+        "max": 100.0,
+        "mean": 93.746,
+        "start": "2006-02-07 00:00:00",
+        "end": "2008-10-31 17:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 47892,
+        "n_valid": 47892,
+        "n_missing": 0,
+        "min": 15.578,
+        "max": 33.01,
+        "mean": 25.4108,
+        "start": "2006-02-07 00:00:00",
+        "end": "2008-10-31 17:30:00"
+      }
+    },
+    "Litchfield": {
+      "data_level": "L6",
+      "actual_file": "Litchfield_L6.nc",
+      "air_temperature": {
+        "n_rows": 167783,
+        "n_valid": 167783,
+        "n_missing": 0,
+        "min": 12.9151,
+        "max": 39.0555,
+        "mean": 26.402,
+        "start": "2015-06-23 13:00:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "precipitation": {
+        "n_rows": 167783,
+        "n_valid": 167783,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 49.0,
+        "mean": 0.0878,
+        "start": "2015-06-23 13:00:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 167783,
+        "n_valid": 167783,
+        "n_missing": 0,
+        "min": 0.8981,
+        "max": 33.4928,
+        "mean": 9.3051,
+        "start": "2015-06-23 13:00:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 167783,
+        "n_valid": 167783,
+        "n_missing": 0,
+        "min": 16.7943,
+        "max": 41.0514,
+        "mean": 28.3042,
+        "start": "2015-06-23 13:00:00",
+        "end": "2025-01-17 00:00:00"
+      }
+    },
+    "Longreach": {
+      "data_level": "L6",
+      "actual_file": "Longreach_L6.nc",
+      "air_temperature": {
+        "n_rows": 100393,
+        "n_valid": 100393,
+        "n_missing": 0,
+        "min": 0.1131,
+        "max": 43.8316,
+        "mean": 24.1175,
+        "start": "2018-10-09 12:00:00",
+        "end": "2024-07-01 00:00:00"
+      },
+      "precipitation": {
+        "n_rows": 100393,
+        "n_valid": 100393,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 30.6,
+        "mean": 0.0192,
+        "start": "2018-10-09 12:00:00",
+        "end": "2024-07-01 00:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 100393,
+        "n_valid": 100393,
+        "n_missing": 0,
+        "min": 8.6183,
+        "max": 77.2091,
+        "mean": 28.4272,
+        "start": "2018-10-09 12:00:00",
+        "end": "2024-07-01 00:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 100393,
+        "n_valid": 100393,
+        "n_missing": 0,
+        "min": 4.4036,
+        "max": 52.3413,
+        "mean": 27.4405,
+        "start": "2018-10-09 12:00:00",
+        "end": "2024-07-01 00:00:00"
+      }
+    },
+    "MyallValeA": {
+      "data_level": "L6",
+      "actual_file": "MyallValeA_L6.nc",
+      "air_temperature": {
+        "n_rows": 19901,
+        "n_valid": 19901,
+        "n_missing": 0,
+        "min": -1.3683,
+        "max": 41.3456,
+        "mean": 20.1043,
+        "start": "2023-11-29 10:00:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "precipitation": {
+        "n_rows": 19901,
+        "n_valid": 19901,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 33.0,
+        "mean": 0.0346,
+        "start": "2023-11-29 10:00:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 19901,
+        "n_valid": 19901,
+        "n_missing": 0,
+        "min": 23.0724,
+        "max": 49.9967,
+        "mean": 39.0092,
+        "start": "2023-11-29 10:00:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 19901,
+        "n_valid": 19901,
+        "n_missing": 0,
+        "min": 5.6297,
+        "max": 40.1454,
+        "mean": 22.5362,
+        "start": "2023-11-29 10:00:00",
+        "end": "2025-01-17 00:00:00"
+      }
+    },
+    "Ridgefield": {
+      "data_level": "L6",
+      "actual_file": "Ridgefield_L6.nc",
+      "air_temperature": {
+        "n_rows": 172695,
+        "n_valid": 172669,
+        "n_missing": 26,
+        "min": 0.0078,
+        "max": 44.808,
+        "mean": 16.4634,
+        "start": "2015-03-29 05:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "precipitation": {
+        "n_rows": 172695,
+        "n_valid": 172694,
+        "n_missing": 1,
+        "min": 0.0,
+        "max": 29.4,
+        "mean": 0.0357,
+        "start": "2015-03-29 05:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 172695,
+        "n_valid": 172695,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 42.1073,
+        "mean": 13.5776,
+        "start": "2015-03-29 05:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 172695,
+        "n_valid": 172695,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 41.59,
+        "mean": 20.1981,
+        "start": "2015-03-29 05:00:00",
+        "end": "2025-02-02 00:00:00"
+      }
+    },
+    "RiggsCreek": {
+      "data_level": "L6",
+      "actual_file": "RiggsCreek_L6.nc",
+      "air_temperature": {
+        "n_rows": 114467,
+        "n_valid": 114467,
+        "n_missing": 0,
+        "min": -4.8015,
+        "max": 43.0793,
+        "mean": 15.6808,
+        "start": "2011-01-01 00:30:00",
+        "end": "2017-07-12 17:30:00"
+      },
+      "precipitation": {
+        "n_rows": 114467,
+        "n_valid": 114463,
+        "n_missing": 4,
+        "min": 0.0,
+        "max": 28.6,
+        "mean": 0.0273,
+        "start": "2011-01-01 00:30:00",
+        "end": "2017-07-12 17:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 114467,
+        "n_valid": 114467,
+        "n_missing": 0,
+        "min": 0.7813,
+        "max": 64.2546,
+        "mean": 20.3656,
+        "start": "2011-01-01 00:30:00",
+        "end": "2017-07-12 17:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 114467,
+        "n_valid": 114467,
+        "n_missing": 0,
+        "min": 3.3532,
+        "max": 41.7771,
+        "mean": 16.6579,
+        "start": "2011-01-01 00:30:00",
+        "end": "2017-07-12 17:30:00"
+      }
+    },
+    "RobsonCreek": {
+      "data_level": "L6",
+      "actual_file": "RobsonCreek_L6.nc",
+      "air_temperature": {
+        "n_rows": 201710,
+        "n_valid": 201710,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 35.6429,
+        "mean": 19.2101,
+        "start": "2013-08-01 17:30:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "precipitation": {
+        "n_rows": 201710,
+        "n_valid": 201710,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 46.8,
+        "mean": 0.1321,
+        "start": "2013-08-01 17:30:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 201710,
+        "n_valid": 201710,
+        "n_missing": 0,
+        "min": 12.6189,
+        "max": 44.9655,
+        "mean": 27.1416,
+        "start": "2013-08-01 17:30:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 201710,
+        "n_valid": 201634,
+        "n_missing": 76,
+        "min": 0.0,
+        "max": 29.8865,
+        "mean": 19.5431,
+        "start": "2013-08-01 17:30:00",
+        "end": "2025-02-02 00:00:00"
+      }
+    },
+    "SilverPlains": {
+      "data_level": "L6",
+      "actual_file": "SilverPlains_L6.nc",
+      "air_temperature": {
+        "n_rows": 88972,
+        "n_valid": 88972,
+        "n_missing": 0,
+        "min": -14.848,
+        "max": 31.1536,
+        "mean": 7.5168,
+        "start": "2019-12-05 10:00:00",
+        "end": "2024-12-31 23:30:00"
+      },
+      "precipitation": {
+        "n_rows": 88972,
+        "n_valid": 88972,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 44.2,
+        "mean": 0.0432,
+        "start": "2019-12-05 10:00:00",
+        "end": "2024-12-31 23:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 88972,
+        "n_valid": 88972,
+        "n_missing": 0,
+        "min": 11.6842,
+        "max": 83.1527,
+        "mean": 61.0868,
+        "start": "2019-12-05 10:00:00",
+        "end": "2024-12-31 23:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 88972,
+        "n_valid": 88972,
+        "n_missing": 0,
+        "min": -9.2061,
+        "max": 33.2313,
+        "mean": 9.8974,
+        "start": "2019-12-05 10:00:00",
+        "end": "2024-12-31 23:30:00"
+      }
+    },
+    "SturtPlains": {
+      "data_level": "L6",
+      "actual_file": "SturtPlains_L6.nc",
+      "air_temperature": {
+        "n_rows": 288075,
+        "n_valid": 288075,
+        "n_missing": 0,
+        "min": 4.7361,
+        "max": 45.412,
+        "mean": 26.4709,
+        "start": "2008-08-28 11:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "precipitation": {
+        "n_rows": 288075,
+        "n_valid": 288075,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 46.344,
+        "mean": 0.0392,
+        "start": "2008-08-28 11:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 288075,
+        "n_valid": 287936,
+        "n_missing": 139,
+        "min": 0.001,
+        "max": 89.913,
+        "mean": 13.3615,
+        "start": "2008-08-28 11:00:00",
+        "end": "2025-02-02 00:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 288075,
+        "n_valid": 288075,
+        "n_missing": 0,
+        "min": 11.76,
+        "max": 55.4309,
+        "mean": 29.8074,
+        "start": "2008-08-28 11:00:00",
+        "end": "2025-02-02 00:00:00"
+      }
+    },
+    "WallabyCreek": {
+      "data_level": "L6",
+      "actual_file": "WallabyCreek_L6.nc",
+      "air_temperature": {
+        "n_rows": 58775,
+        "n_valid": 58775,
+        "n_missing": 0,
+        "min": -0.944,
+        "max": 35.1202,
+        "mean": 10.8108,
+        "start": "2005-08-25 12:30:00",
+        "end": "2008-12-31 23:30:00"
+      },
+      "precipitation": {
+        "n_rows": 58775,
+        "n_valid": 58763,
+        "n_missing": 12,
+        "min": 0.0,
+        "max": 19.8,
+        "mean": 0.0329,
+        "start": "2005-08-25 12:30:00",
+        "end": "2008-12-31 23:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 58775,
+        "n_valid": 58775,
+        "n_missing": 0,
+        "min": 6.282,
+        "max": 39.4002,
+        "mean": 30.3289,
+        "start": "2005-08-25 12:30:00",
+        "end": "2008-12-31 23:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 58775,
+        "n_valid": 58775,
+        "n_missing": 0,
+        "min": 5.509,
+        "max": 17.01,
+        "mean": 10.6383,
+        "start": "2005-08-25 12:30:00",
+        "end": "2008-12-31 23:30:00"
+      }
+    },
+    "Wellington": {
+      "data_level": "L6",
+      "actual_file": "Wellington_L6.nc",
+      "air_temperature": {
+        "n_rows": 22920,
+        "n_valid": 22914,
+        "n_missing": 6,
+        "min": -1.9791,
+        "max": 39.0486,
+        "mean": 17.7094,
+        "start": "2023-09-27 12:30:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "precipitation": {
+        "n_rows": 22920,
+        "n_valid": 22920,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 22.4,
+        "mean": 0.0425,
+        "start": "2023-09-27 12:30:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 22920,
+        "n_valid": 22920,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 32.745,
+        "mean": 12.3255,
+        "start": "2023-09-27 12:30:00",
+        "end": "2025-01-17 00:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 22920,
+        "n_valid": 22920,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 40.5573,
+        "mean": 21.4728,
+        "start": "2023-09-27 12:30:00",
+        "end": "2025-01-17 00:00:00"
+      }
+    },
+    "WombatStateForest1": {
+      "data_level": "L6",
+      "actual_file": "WombatStateForest1_L6.nc",
+      "air_temperature": {
+        "n_rows": 199072,
+        "n_valid": 199072,
+        "n_missing": 0,
+        "min": -4.9419,
+        "max": 37.7851,
+        "mean": 11.2258,
+        "start": "2010-01-20 14:00:00",
+        "end": "2021-05-29 21:30:00"
+      },
+      "precipitation": {
+        "n_rows": 199072,
+        "n_valid": 199072,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 19.8,
+        "mean": 0.0488,
+        "start": "2010-01-20 14:00:00",
+        "end": "2021-05-29 21:30:00"
+      },
+      "soil_moisture": {
+        "n_rows": 199072,
+        "n_valid": 199072,
+        "n_missing": 0,
+        "min": 1.3595,
+        "max": 43.4025,
+        "mean": 21.0954,
+        "start": "2010-01-20 14:00:00",
+        "end": "2021-05-29 21:30:00"
+      },
+      "soil_temperature": {
+        "n_rows": 199072,
+        "n_valid": 199072,
+        "n_missing": 0,
+        "min": 3.4113,
+        "max": 31.9352,
+        "mean": 12.0358,
+        "start": "2010-01-20 14:00:00",
+        "end": "2021-05-29 21:30:00"
+      }
+    },
+    "YarramundiControl": {
+      "data_level": "L6",
+      "actual_file": "YarramundiControl_L6.nc",
+      "air_temperature": {
+        "n_rows": 91074,
+        "n_valid": 91074,
+        "n_missing": 0,
+        "min": -4.7591,
+        "max": 46.1776,
+        "mean": 16.7228,
+        "start": "2019-10-22 15:30:00",
+        "end": "2025-01-01 00:00:00"
+      },
+      "precipitation": {
+        "n_rows": 91074,
+        "n_valid": 91074,
+        "n_missing": 0,
+        "min": 0.0,
+        "max": 28.8,
+        "mean": 0.0593,
+        "start": "2019-10-22 15:30:00",
+        "end": "2025-01-01 00:00:00"
+      },
+      "soil_moisture": {
+        "n_rows": 91074,
+        "n_valid": 91074,
+        "n_missing": 0,
+        "min": 0.1,
+        "max": 37.93,
+        "mean": 17.3367,
+        "start": "2019-10-22 15:30:00",
+        "end": "2025-01-01 00:00:00"
+      },
+      "soil_temperature": {
+        "n_rows": 91074,
+        "n_valid": 90696,
+        "n_missing": 378,
+        "min": 1.2115,
+        "max": 34.9979,
+        "mean": 17.352,
+        "start": "2019-10-22 15:30:00",
+        "end": "2025-01-01 00:00:00"
+      }
+    }
+  },
+  "errors": [],
+  "warnings": [
+    "Soil texture not available in TERN OzFlux NetCDF files",
+    "L6-only sites use gap-filled data (higher coverage, different quality characteristics)",
+    "Sws converted from m^3/m^3 (fraction) to percent (0-100) for all sites"
+  ]
+}

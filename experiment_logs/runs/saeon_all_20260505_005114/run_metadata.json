@@ -1,0 +1,150 @@
+{
+  "pipeline": "saeon_harmonization",
+  "version": "1.0.0",
+  "run_id": "saeon_all_20260505_005114",
+  "run_timestamp": "2026-05-05T00:51:27.562404Z",
+  "research_infrastructure": "SAEON",
+  "country": "South Africa",
+  "datasets": {
+    "air_temperature": {
+      "rows": 151495,
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "airTemp_mean_degC",
+        "latitude_deg",
+        "longitude_deg",
+        "elevation",
+        "height_m",
+        "instrument"
+      ],
+      "sites": 8,
+      "null_pct": {
+        "researchInfrastructure": 0.0,
+        "country": 0.0,
+        "siteID": 0.0,
+        "siteName": 0.0,
+        "startDateTime": 0.0,
+        "endDateTime": 0.0,
+        "airTemp_mean_degC": 0.0,
+        "latitude_deg": 0.0,
+        "longitude_deg": 0.0,
+        "elevation": 0.0,
+        "height_m": 0.0,
+        "instrument": 100.0
+      }
+    },
+    "precipitation": {
+      "rows": 151970,
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "precip_tot_mm",
+        "latitude",
+        "longitude",
+        "elevation",
+        "height_m",
+        "instrument"
+      ],
+      "sites": 8,
+      "null_pct": {
+        "researchInfrastructure": 0.0,
+        "country": 0.0,
+        "siteID": 0.0,
+        "siteName": 0.0,
+        "startDateTime": 0.0,
+        "endDateTime": 0.0,
+        "precip_tot_mm": 0.0,
+        "latitude": 0.0,
+        "longitude": 0.0,
+        "elevation": 0.0,
+        "height_m": 0.0,
+        "instrument": 100.0
+      }
+    },
+    "soil_moisture": {
+      "rows": 150708,
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "sws_mean_percent",
+        "latitude",
+        "longitude",
+        "elevation",
+        "depth",
+        "instrument"
+      ],
+      "sites": 8,
+      "null_pct": {
+        "researchInfrastructure": 0.0,
+        "country": 0.0,
+        "siteID": 0.0,
+        "siteName": 0.0,
+        "startDateTime": 0.0,
+        "endDateTime": 0.0,
+        "sws_mean_percent": 0.0,
+        "latitude": 0.0,
+        "longitude": 0.0,
+        "elevation": 0.0,
+        "depth": 0.0,
+        "instrument": 100.0
+      }
+    },
+    "soil_temperature": {
+      "rows": 148428,
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "soilTemp_Mean_degC",
+        "latitude",
+        "longitude",
+        "elevation",
+        "depth",
+        "instrument"
+      ],
+      "sites": 8,
+      "null_pct": {
+        "researchInfrastructure": 0.0,
+        "country": 0.0,
+        "siteID": 0.0,
+        "siteName": 0.0,
+        "startDateTime": 0.0,
+        "endDateTime": 0.0,
+        "soilTemp_Mean_degC": 0.0,
+        "latitude": 0.0,
+        "longitude": 0.0,
+        "elevation": 0.0,
+        "depth": 0.0,
+        "instrument": 100.0
+      }
+    }
+  },
+  "decisions": [
+    "Air temperature: selected temp_air_avg (averaged from multiple sensors)",
+    "Soil moisture: moisture_soil_s1_avg already in percent (0-100); no unit conversion needed",
+    "Soil sensor depth: s1 = -0.025m (2.5cm), per EFTEON SOP documentation",
+    "Precipitation: rain_tot already in mm per 30-min; no conversion needed",
+    "Soil temperature: temp_soil_s1_avg already in degC; no conversion needed",
+    "Timestamps: parsed from YYYYMMDDHHmm compact format; ISO 8601 Timestamp as fallback",
+    "Coordinates: extracted from Latitude/Longitude columns in each data file",
+    "Elevations: sourced from DEIMS-SDR registry, SAEON Obs DB, and published literature",
+    "Tower heights: estimated from EFTEON documentation (site-specific tower specifications)",
+    "QC bounds: TA [-50,60], TS [-20,70], SWC [0,100], P [0,200] mm/30min"
+  ]
+}

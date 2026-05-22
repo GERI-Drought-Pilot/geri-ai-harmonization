@@ -1,0 +1,172 @@
+{
+  "pipeline": "elter_harmonization",
+  "version": "1.0.0",
+  "run_id": "elter_all_20260505_005547",
+  "run_timestamp": "2026-05-05T00:56:18.772945Z",
+  "research_infrastructure": "eLTER",
+  "countries": [
+    "Finland",
+    "Germany",
+    "Spain",
+    "Austria"
+  ],
+  "stations": 15,
+  "datasets": {
+    "air_temperature": {
+      "rows": 62132,
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "airTemp_mean_degC",
+        "latitude_deg",
+        "longitude_deg",
+        "elevation",
+        "height_m",
+        "instrument"
+      ],
+      "null_pct": {
+        "researchInfrastructure": 0.0,
+        "country": 0.0,
+        "siteID": 0.0,
+        "siteName": 0.0,
+        "startDateTime": 0.0,
+        "endDateTime": 0.0,
+        "airTemp_mean_degC": 0.0,
+        "latitude_deg": 0.0,
+        "longitude_deg": 0.0,
+        "elevation": 0.0,
+        "height_m": 0.0,
+        "instrument": 0.0
+      }
+    },
+    "precipitation": {
+      "rows": 61180,
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "precip_tot_mm",
+        "latitude",
+        "longitude",
+        "elevation",
+        "height_m",
+        "instrument"
+      ],
+      "null_pct": {
+        "researchInfrastructure": 0.0,
+        "country": 0.0,
+        "siteID": 0.0,
+        "siteName": 0.0,
+        "startDateTime": 0.0,
+        "endDateTime": 0.0,
+        "precip_tot_mm": 0.0,
+        "latitude": 0.0,
+        "longitude": 0.0,
+        "elevation": 0.0,
+        "height_m": 11.94,
+        "instrument": 0.0
+      }
+    },
+    "soil_moisture": {
+      "rows": 13569,
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "sws_mean_percent",
+        "latitude",
+        "longitude",
+        "elevation",
+        "depth",
+        "instrument"
+      ],
+      "null_pct": {
+        "researchInfrastructure": 0.0,
+        "country": 0.0,
+        "siteID": 0.0,
+        "siteName": 0.0,
+        "startDateTime": 0.0,
+        "endDateTime": 0.0,
+        "sws_mean_percent": 0.0,
+        "latitude": 0.0,
+        "longitude": 0.0,
+        "elevation": 0.0,
+        "depth": 0.0,
+        "instrument": 0.0
+      }
+    },
+    "soil_temperature": {
+      "rows": 15626,
+      "columns": [
+        "researchInfrastructure",
+        "country",
+        "siteID",
+        "siteName",
+        "startDateTime",
+        "endDateTime",
+        "soilTemp_Mean_degC",
+        "latitude",
+        "longitude",
+        "elevation",
+        "depth",
+        "instrument"
+      ],
+      "null_pct": {
+        "researchInfrastructure": 0.0,
+        "country": 0.0,
+        "siteID": 0.0,
+        "siteName": 0.0,
+        "startDateTime": 0.0,
+        "endDateTime": 0.0,
+        "soilTemp_Mean_degC": 0.0,
+        "latitude": 0.0,
+        "longitude": 0.0,
+        "elevation": 0.0,
+        "depth": 0.0,
+        "instrument": 0.0
+      }
+    },
+    "soil_texture": {
+      "rows": 56,
+      "columns": [
+        "researchInfrastructure",
+        "siteID",
+        "plotID",
+        "latitude",
+        "longitude",
+        "dateCollected",
+        "depthMax_m",
+        "depthMin_m",
+        "sand_percent",
+        "clay_percent",
+        "silt_percent",
+        "instrument"
+      ],
+      "null_pct": {}
+    }
+  },
+  "decisions": [
+    "Air temperature: site-specific sensor selection (T168 Hyytiala, Tair50HMP DE-HoH, Tair14PT Hohes-Holz, (TA_Z+TA_A)/2 El Palacio, TA_X HIDROMET, Vaisala HMP Rosalia)",
+    "Precipitation: primary/fallback strategy (Precipacc_GPM/Precip Hyytiala, precip50/precip_back DE-HoH, P_RAIN El Palacio, P_RAIN_S1 HIDROMET)",
+    "Soil moisture: shallowest available sensor (SWC at -4cm Hyytiala, SM at -10cm DE-HoH/Rosalia)",
+    "Soil temperature: shallowest available sensor (Tsoil at -3.5cm Hyytiala, ST at -5cm DE-HoH, -10cm Rosalia)",
+    "Temporal aggregation: all data aggregated to daily resolution (mean for temp/SWC, sum for precip, daily diff for accumulated precip)",
+    "QC bounds: TA [-60,60], P [0,500], SWC [0,100], TS [-30,60] - values outside replaced with NaN",
+    "Sensor heights from eLTER METHOD files and documentation (VERT_OFFSET in cm -> meters)",
+    "Donana HIDROMET: 7 sub-stations with shared DEIMS siteID, individual lat/lon/elev from STATION file",
+    "Germany DE-HoH large CSV files (438 MB SOATM, 1.4 GB SOHYD) processed in 1M-row chunks",
+    "Hohes-Holz and Germany_DE-HoH are the same physical site in different data formats - both included",
+    "Rosalia particle size data: normalized to sand/silt/clay excluding >2mm gravel fraction",
+    "No unit conversions needed - all source data already in degC, mm, vol%"
+  ]
+}

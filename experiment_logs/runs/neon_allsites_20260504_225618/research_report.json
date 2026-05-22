@@ -1,0 +1,663 @@
+{
+  "network": "NEON",
+  "research_timestamp": "2026-05-04T22:56:18.952089+00:00",
+  "network_info": {
+    "full_name": "National Ecological Observatory Network",
+    "country": "United States",
+    "data_access": "NEON API (data.neonscience.org)",
+    "temporal_resolution": "30-minute",
+    "timestamp_convention": "ISO 8601 UTC"
+  },
+  "sensor_info": {
+    "air_temperature": {
+      "instrument": "triple aspirated air temperature sensor",
+      "unit": "degC (no conversion)",
+      "sensor_selection": "topmost tower level per site (from sensor_positions_selected_00003.csv)"
+    },
+    "precipitation": {
+      "instrument": "tipping bucket rain gauge",
+      "unit": "mm (no conversion)"
+    },
+    "soil_moisture": {
+      "instrument": "soil water content sensor",
+      "unit_raw": "FRACTION (0-1)",
+      "unit_target": "PERCENT (0-100)",
+      "conversion": "MULTIPLY BY 100",
+      "depth_source": "verticalPosition code (501-508) \u2192 nominal depth map",
+      "depth_limitation": "verticalPosition lost in merged data; depth will be NaN"
+    },
+    "soil_temperature": {
+      "instrument": "soil temperature sensor",
+      "unit": "degC (no conversion)",
+      "depth_source": "height field from sensor positions (already negative meters)"
+    },
+    "soil_texture": {
+      "instrument": "laboratory analysis (megapit)",
+      "unit": "percent (no conversion)"
+    }
+  },
+  "unit_conventions": {
+    "temperature": "Celsius",
+    "precipitation": "mm",
+    "soil_water_content": "FRACTION in raw \u2192 PERCENT in target",
+    "depth": "negative meters below ground",
+    "height": "positive meters above ground",
+    "missing_data": "NaN (replace -9999, NA, empty)"
+  },
+  "sites": {
+    "ABBY": {
+      "name": "Abby Road NEON",
+      "latitude": 45.762439,
+      "longitude": -122.330317,
+      "elevation_m": 365,
+      "state": "WA",
+      "airtemp_height_m": 17.84
+    },
+    "ARIK": {
+      "name": "Arikaree River NEON",
+      "latitude": 39.758206,
+      "longitude": -102.44715,
+      "elevation_m": 1179,
+      "state": "CO"
+    },
+    "BARC": {
+      "name": "Lake Barco NEON",
+      "latitude": 29.675982,
+      "longitude": -82.008414,
+      "elevation_m": 27,
+      "state": "FL"
+    },
+    "BARR": {
+      "name": "Utqia\u0121vik NEON",
+      "latitude": 71.28241,
+      "longitude": -156.61936,
+      "elevation_m": 4,
+      "state": "AK",
+      "airtemp_height_m": 8.22
+    },
+    "BART": {
+      "name": "Bartlett Experimental Forest NEON",
+      "latitude": 44.063889,
+      "longitude": -71.287375,
+      "elevation_m": 274,
+      "state": "NH",
+      "airtemp_height_m": 34.96
+    },
+    "BIGC": {
+      "name": "Upper Big Creek NEON",
+      "latitude": 37.059719,
+      "longitude": -119.257549,
+      "elevation_m": 1197,
+      "state": "CA"
+    },
+    "BLAN": {
+      "name": "Blandy Experimental Farm NEON",
+      "latitude": 39.033698,
+      "longitude": -78.041788,
+      "elevation_m": 183,
+      "state": "VA",
+      "airtemp_height_m": 7.94
+    },
+    "BLDE": {
+      "name": "Blacktail Deer Creek NEON",
+      "latitude": 44.95011,
+      "longitude": -110.58715,
+      "elevation_m": 2053,
+      "state": "WY"
+    },
+    "BLUE": {
+      "name": "Blue River NEON",
+      "latitude": 34.444218,
+      "longitude": -96.624201,
+      "elevation_m": 289,
+      "state": "OK"
+    },
+    "BLWA": {
+      "name": "Black Warrior River NEON",
+      "latitude": 32.541529,
+      "longitude": -87.798151,
+      "elevation_m": 22,
+      "state": "AL"
+    },
+    "BONA": {
+      "name": "Caribou-Poker Creeks Research Watershed NEON",
+      "latitude": 65.15401,
+      "longitude": -147.50258,
+      "elevation_m": 230,
+      "state": "AK",
+      "airtemp_height_m": 18.66
+    },
+    "CARI": {
+      "name": "Caribou Creek NEON",
+      "latitude": 65.153224,
+      "longitude": -147.50397,
+      "elevation_m": 225,
+      "state": "AK"
+    },
+    "CLBJ": {
+      "name": "Lyndon B. Johnson National Grassland NEON",
+      "latitude": 33.40123,
+      "longitude": -97.57,
+      "elevation_m": 272,
+      "state": "TX",
+      "airtemp_height_m": 21.79
+    },
+    "COMO": {
+      "name": "Como Creek NEON",
+      "latitude": 40.034962,
+      "longitude": -105.544164,
+      "elevation_m": 3021,
+      "state": "CO"
+    },
+    "CPER": {
+      "name": "Central Plains Experimental Range NEON",
+      "latitude": 40.815536,
+      "longitude": -104.74559,
+      "elevation_m": 1654,
+      "state": "CO",
+      "airtemp_height_m": 7.7
+    },
+    "CRAM": {
+      "name": "Crampton Lake NEON",
+      "latitude": 46.209675,
+      "longitude": -89.473688,
+      "elevation_m": 509,
+      "state": "WI"
+    },
+    "CUPE": {
+      "name": "R\u00edo Cupeyes NEON",
+      "latitude": 18.11352,
+      "longitude": -66.98676,
+      "elevation_m": 157,
+      "state": "PR"
+    },
+    "DCFS": {
+      "name": "Dakota Coteau Field Site NEON",
+      "latitude": 47.16165,
+      "longitude": -99.10656,
+      "elevation_m": 575,
+      "state": "ND",
+      "airtemp_height_m": 7.88
+    },
+    "DEJU": {
+      "name": "Delta Junction NEON",
+      "latitude": 63.88112,
+      "longitude": -145.75136,
+      "elevation_m": 517,
+      "state": "AK",
+      "airtemp_height_m": 21.63
+    },
+    "DELA": {
+      "name": "Dead Lake NEON",
+      "latitude": 32.541727,
+      "longitude": -87.803877,
+      "elevation_m": 25,
+      "state": "AL",
+      "airtemp_height_m": 41.27
+    },
+    "DSNY": {
+      "name": "Disney Wilderness Preserve NEON",
+      "latitude": 28.12505,
+      "longitude": -81.43619,
+      "elevation_m": 20,
+      "state": "FL",
+      "airtemp_height_m": 7.83
+    },
+    "FLNT": {
+      "name": "Flint River NEON",
+      "latitude": 31.185424,
+      "longitude": -84.437403,
+      "elevation_m": 30,
+      "state": "GA"
+    },
+    "GRSM": {
+      "name": "Great Smoky Mountains National Park NEON",
+      "latitude": 35.68896,
+      "longitude": -83.50195,
+      "elevation_m": 575,
+      "state": "TN",
+      "airtemp_height_m": 45.13
+    },
+    "GUAN": {
+      "name": "Gu\u00e1nica Forest NEON",
+      "latitude": 17.96955,
+      "longitude": -66.8687,
+      "elevation_m": 125,
+      "state": "PR",
+      "airtemp_height_m": 22.25
+    },
+    "GUIL": {
+      "name": "R\u00edo Yahuecas NEON",
+      "latitude": 18.17406,
+      "longitude": -66.79868,
+      "elevation_m": 551,
+      "state": "PR"
+    },
+    "HARV": {
+      "name": "Harvard Forest & Quabbin Watershed NEON",
+      "latitude": 42.53691,
+      "longitude": -72.17265,
+      "elevation_m": 348,
+      "state": "MA",
+      "airtemp_height_m": 38.39
+    },
+    "HEAL": {
+      "name": "Healy NEON",
+      "latitude": 63.875798,
+      "longitude": -149.21335,
+      "elevation_m": 677,
+      "state": "AK",
+      "airtemp_height_m": 8.1
+    },
+    "HOPB": {
+      "name": "Lower Hop Brook NEON",
+      "latitude": 42.471941,
+      "longitude": -72.329526,
+      "elevation_m": 203,
+      "state": "MA"
+    },
+    "JERC": {
+      "name": "The Jones Center At Ichauway NEON",
+      "latitude": 31.194839,
+      "longitude": -84.468623,
+      "elevation_m": 47,
+      "state": "GA",
+      "airtemp_height_m": 41.73
+    },
+    "JORN": {
+      "name": "Jornada Experimental Range NEON",
+      "latitude": 32.590694,
+      "longitude": -106.84254,
+      "elevation_m": 1324,
+      "state": "NM",
+      "airtemp_height_m": 7.78
+    },
+    "KING": {
+      "name": "Kings Creek NEON",
+      "latitude": 39.105061,
+      "longitude": -96.603829,
+      "elevation_m": 324,
+      "state": "KS"
+    },
+    "KONA": {
+      "name": "Konza Prairie Agroecosystem NEON",
+      "latitude": 39.110446,
+      "longitude": -96.612935,
+      "elevation_m": 323,
+      "state": "KS",
+      "airtemp_height_m": 7.64
+    },
+    "KONZ": {
+      "name": "Konza Prairie Biological Station NEON",
+      "latitude": 39.100774,
+      "longitude": -96.563075,
+      "elevation_m": 414,
+      "state": "KS",
+      "airtemp_height_m": 7.66
+    },
+    "LAJA": {
+      "name": "Lajas Experimental Station NEON",
+      "latitude": 18.021261,
+      "longitude": -67.076889,
+      "elevation_m": 16,
+      "state": "PR",
+      "airtemp_height_m": 7.84
+    },
+    "LECO": {
+      "name": "LeConte Creek NEON",
+      "latitude": 35.690428,
+      "longitude": -83.50379,
+      "elevation_m": 579,
+      "state": "TN"
+    },
+    "LENO": {
+      "name": "Lenoir Landing NEON",
+      "latitude": 31.853861,
+      "longitude": -88.161181,
+      "elevation_m": 13,
+      "state": "AL",
+      "airtemp_height_m": 46.38
+    },
+    "LEWI": {
+      "name": "Lewis Run NEON",
+      "latitude": 39.095637,
+      "longitude": -77.983216,
+      "elevation_m": 152,
+      "state": "VA"
+    },
+    "LIRO": {
+      "name": "Little Rock Lake NEON",
+      "latitude": 45.998269,
+      "longitude": -89.704767,
+      "elevation_m": 502,
+      "state": "WI"
+    },
+    "MART": {
+      "name": "Martha Creek NEON",
+      "latitude": 45.790835,
+      "longitude": -121.933788,
+      "elevation_m": 337,
+      "state": "WA"
+    },
+    "MAYF": {
+      "name": "Mayfield Creek NEON",
+      "latitude": 32.960365,
+      "longitude": -87.407688,
+      "elevation_m": 77,
+      "state": "AL"
+    },
+    "MCDI": {
+      "name": "McDiffett Creek NEON",
+      "latitude": 38.945861,
+      "longitude": -96.443022,
+      "elevation_m": 396,
+      "state": "KS"
+    },
+    "MCRA": {
+      "name": "McRae Creek NEON",
+      "latitude": 44.259598,
+      "longitude": -122.16555,
+      "elevation_m": 876,
+      "state": "OR"
+    },
+    "MLBS": {
+      "name": "Mountain Lake Biological Station NEON",
+      "latitude": 37.378314,
+      "longitude": -80.524847,
+      "elevation_m": 1170,
+      "state": "VA",
+      "airtemp_height_m": 28.32
+    },
+    "MOAB": {
+      "name": "Moab NEON",
+      "latitude": 38.248283,
+      "longitude": -109.38827,
+      "elevation_m": 1799,
+      "state": "UT",
+      "airtemp_height_m": 7.73
+    },
+    "NIWO": {
+      "name": "Niwot Ridge NEON",
+      "latitude": 40.05425,
+      "longitude": -105.58237,
+      "elevation_m": 3490,
+      "state": "CO",
+      "airtemp_height_m": 7.7
+    },
+    "NOGP": {
+      "name": "Northern Great Plains Research Laboratory NEON",
+      "latitude": 46.76972,
+      "longitude": -100.91535,
+      "elevation_m": 589,
+      "state": "ND",
+      "airtemp_height_m": 7.68
+    },
+    "OAES": {
+      "name": "Marvin Klemme Range Research Station NEON",
+      "latitude": 35.410599,
+      "longitude": -99.058779,
+      "elevation_m": 519,
+      "state": "OK",
+      "airtemp_height_m": 0.0
+    },
+    "OKSR": {
+      "name": "Oksrukuyik Creek NEON",
+      "latitude": 68.669753,
+      "longitude": -149.14302,
+      "elevation_m": 766,
+      "state": "AK"
+    },
+    "ONAQ": {
+      "name": "Onaqui NEON",
+      "latitude": 40.177599,
+      "longitude": -112.45245,
+      "elevation_m": 1662,
+      "state": "UT",
+      "airtemp_height_m": 7.94
+    },
+    "ORNL": {
+      "name": "Oak Ridge NEON",
+      "latitude": 35.964128,
+      "longitude": -84.282588,
+      "elevation_m": 344,
+      "state": "TN",
+      "airtemp_height_m": 38.3
+    },
+    "OSBS": {
+      "name": "Ordway-Swisher Biological Station NEON",
+      "latitude": 29.689282,
+      "longitude": -81.993431,
+      "elevation_m": 46,
+      "state": "FL",
+      "airtemp_height_m": 34.94
+    },
+    "POSE": {
+      "name": "Posey Creek NEON",
+      "latitude": 38.89431,
+      "longitude": -78.147258,
+      "elevation_m": 276,
+      "state": "VA"
+    },
+    "PRIN": {
+      "name": "Pringle Creek NEON",
+      "latitude": 33.378517,
+      "longitude": -97.782312,
+      "elevation_m": 253,
+      "state": "TX"
+    },
+    "PRLA": {
+      "name": "Prairie Lake NEON",
+      "latitude": 47.15909,
+      "longitude": -99.11388,
+      "elevation_m": 565,
+      "state": "ND"
+    },
+    "PRPO": {
+      "name": "Prairie Pothole NEON",
+      "latitude": 47.129839,
+      "longitude": -99.253147,
+      "elevation_m": 579,
+      "state": "ND"
+    },
+    "PUUM": {
+      "name": "Pu'u Maka'ala Natural Area Reserve NEON",
+      "latitude": 19.55309,
+      "longitude": -155.31731,
+      "elevation_m": 1685,
+      "state": "HI",
+      "airtemp_height_m": 31.71
+    },
+    "REDB": {
+      "name": "Red Butte Creek NEON",
+      "latitude": 40.783934,
+      "longitude": -111.79789,
+      "elevation_m": 1694,
+      "state": "UT"
+    },
+    "RMNP": {
+      "name": "Rocky Mountains NEON",
+      "latitude": 40.275903,
+      "longitude": -105.54596,
+      "elevation_m": 2742,
+      "state": "CO",
+      "airtemp_height_m": 24.57
+    },
+    "SCBI": {
+      "name": "Smithsonian Conservation Biology Institute NEON",
+      "latitude": 38.892925,
+      "longitude": -78.139494,
+      "elevation_m": 352,
+      "state": "VA",
+      "airtemp_height_m": 51.01
+    },
+    "SERC": {
+      "name": "Smithsonian Environmental Research Center NEON",
+      "latitude": 38.890131,
+      "longitude": -76.560014,
+      "elevation_m": 33,
+      "state": "MD",
+      "airtemp_height_m": 61.09
+    },
+    "SJER": {
+      "name": "San Joaquin Experimental Range NEON",
+      "latitude": 37.10878,
+      "longitude": -119.73228,
+      "elevation_m": 400,
+      "state": "CA",
+      "airtemp_height_m": 38.71
+    },
+    "SOAP": {
+      "name": "Soaproot Saddle NEON",
+      "latitude": 37.03337,
+      "longitude": -119.26219,
+      "elevation_m": 1210,
+      "state": "CA",
+      "airtemp_height_m": 51.74
+    },
+    "SRER": {
+      "name": "Santa Rita Experimental Range NEON",
+      "latitude": 31.91068,
+      "longitude": -110.83549,
+      "elevation_m": 997,
+      "state": "AZ",
+      "airtemp_height_m": 7.6
+    },
+    "STEI": {
+      "name": "Steigerwaldt-Chequamegon NEON",
+      "latitude": 45.50894,
+      "longitude": -89.58637,
+      "elevation_m": 476,
+      "state": "WI",
+      "airtemp_height_m": 21.69
+    },
+    "STER": {
+      "name": "North Sterling NEON",
+      "latitude": 40.461894,
+      "longitude": -103.02929,
+      "elevation_m": 1365,
+      "state": "CO",
+      "airtemp_height_m": 7.71
+    },
+    "SUGG": {
+      "name": "Lake Suggs NEON",
+      "latitude": 29.68778,
+      "longitude": -82.017745,
+      "elevation_m": 32,
+      "state": "FL"
+    },
+    "SYCA": {
+      "name": "Sycamore Creek NEON",
+      "latitude": 33.750993,
+      "longitude": -111.50809,
+      "elevation_m": 645,
+      "state": "AZ"
+    },
+    "TALL": {
+      "name": "Talladega National Forest NEON",
+      "latitude": 32.95047,
+      "longitude": -87.393259,
+      "elevation_m": 166,
+      "state": "AL",
+      "airtemp_height_m": 34.94
+    },
+    "TEAK": {
+      "name": "Lower Teakettle NEON",
+      "latitude": 37.00583,
+      "longitude": -119.00602,
+      "elevation_m": 2149,
+      "state": "CA",
+      "airtemp_height_m": 58.46
+    },
+    "TECR": {
+      "name": "Teakettle Creek - Watershed 2 NEON",
+      "latitude": 36.955931,
+      "longitude": -119.02736,
+      "elevation_m": 2011,
+      "state": "CA"
+    },
+    "TOMB": {
+      "name": "Lower Tombigbee River NEON",
+      "latitude": 31.853431,
+      "longitude": -88.158872,
+      "elevation_m": 20,
+      "state": "AL"
+    },
+    "TOOK": {
+      "name": "Toolik Lake NEON",
+      "latitude": 68.630692,
+      "longitude": -149.61064,
+      "elevation_m": 715,
+      "state": "AK"
+    },
+    "TOOL": {
+      "name": "Toolik Field Station NEON",
+      "latitude": 68.66109,
+      "longitude": -149.37047,
+      "elevation_m": 832,
+      "state": "AK",
+      "airtemp_height_m": 8.25
+    },
+    "TREE": {
+      "name": "Treehaven NEON",
+      "latitude": 45.49369,
+      "longitude": -89.58571,
+      "elevation_m": 467,
+      "state": "WI",
+      "airtemp_height_m": 35.19
+    },
+    "UKFS": {
+      "name": "University of Kansas Field Station NEON",
+      "latitude": 39.040431,
+      "longitude": -95.19215,
+      "elevation_m": 322,
+      "state": "KS",
+      "airtemp_height_m": 35.01
+    },
+    "UNDE": {
+      "name": "University of Notre Dame Environmental Research Center NEON",
+      "latitude": 46.23391,
+      "longitude": -89.537254,
+      "elevation_m": 521,
+      "state": "MI",
+      "airtemp_height_m": 38.04
+    },
+    "WALK": {
+      "name": "Walker Branch NEON",
+      "latitude": 35.957378,
+      "longitude": -84.279251,
+      "elevation_m": 264,
+      "state": "TN"
+    },
+    "WLOU": {
+      "name": "West St. Louis Creek NEON",
+      "latitude": 39.891366,
+      "longitude": -105.9154,
+      "elevation_m": 2908,
+      "state": "CO"
+    },
+    "WOOD": {
+      "name": "Chase Lake National Wildlife Refuge NEON",
+      "latitude": 47.1282,
+      "longitude": -99.241334,
+      "elevation_m": 591,
+      "state": "ND",
+      "airtemp_height_m": 7.82
+    },
+    "WREF": {
+      "name": "Wind River Experimental Forest NEON",
+      "latitude": 45.82049,
+      "longitude": -121.95191,
+      "elevation_m": 351,
+      "state": "WA",
+      "airtemp_height_m": 73.49
+    },
+    "YELL": {
+      "name": "Yellowstone National Park NEON",
+      "latitude": 44.95348,
+      "longitude": -110.53914,
+      "elevation_m": 2133,
+      "state": "WY",
+      "airtemp_height_m": 17.32
+    }
+  }
+}

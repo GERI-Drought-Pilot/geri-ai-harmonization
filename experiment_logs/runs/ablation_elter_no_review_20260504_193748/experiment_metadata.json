@@ -1,0 +1,8 @@
+{
+    "run_id": "ablation_elter_no_review_20260504_193748",
+    "experiment": "ablation",
+    "ablation_name": "elter_no_review",
+    "timestamp": "2026-05-04T17:42:36Z",
+    "elapsed_seconds": 280,
+    "model": "opus"
+}

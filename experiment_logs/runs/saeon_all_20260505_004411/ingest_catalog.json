@@ -1,0 +1,46 @@
+{
+  "source_directory": "/Users/karnst/Documents/Accelnet/Accelnet/Downloads/geri-data/saeon",
+  "file_count": 8,
+  "files": {
+    "Benfontein_Karoo_Eddy_Covariance": {
+      "filename": "saeonflux_Benfontein_Karoo_Eddy_Covariance.csv",
+      "size_bytes": 11890232,
+      "size_mb": 11.9
+    },
+    "Benfontein_Savanna_Eddy_Covariance": {
+      "filename": "saeonflux_Benfontein_Savanna_Eddy_Covariance.csv",
+      "size_bytes": 12334121,
+      "size_mb": 12.3
+    },
+    "Cath_Peak_Grassland_Eddy_Covariance": {
+      "filename": "saeonflux_Cath_Peak_Grassland_Eddy_Covariance.csv",
+      "size_bytes": 9433865,
+      "size_mb": 9.4
+    },
+    "Jonkershoek_Fynbos_Eddy_Covariance": {
+      "filename": "saeonflux_Jonkershoek_Fynbos_Eddy_Covariance.csv",
+      "size_bytes": 10852189,
+      "size_mb": 10.9
+    },
+    "Maputaland_Coastal_Cashews_Grassland_Eddy_Covariance": {
+      "filename": "saeonflux_Maputaland_Coastal_Cashews_Grassland_Eddy_Covariance.csv",
+      "size_bytes": 8940192,
+      "size_mb": 8.9
+    },
+    "Maputaland_Umhlabuyalingana_Grassland_Eddy_Covariance": {
+      "filename": "saeonflux_Maputaland_Umhlabuyalingana_Grassland_Eddy_Covariance.csv",
+      "size_bytes": 11554705,
+      "size_mb": 11.6
+    },
+    "Skukuza_Savanna_Eddy_Covariance": {
+      "filename": "saeonflux_Skukuza_Savanna_Eddy_Covariance.csv",
+      "size_bytes": 9172231,
+      "size_mb": 9.2
+    },
+    "Spioenkop_Savanna_Eddy_Covariance": {
+      "filename": "saeonflux_Spioenkop_Savanna_Eddy_Covariance.csv",
+      "size_bytes": 11423478,
+      "size_mb": 11.4
+    }
+  }
+}

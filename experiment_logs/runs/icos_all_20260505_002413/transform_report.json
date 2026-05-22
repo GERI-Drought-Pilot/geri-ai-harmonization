@@ -1,0 +1,276 @@
+{
+  "timestamp": "2026-05-05T00:24:13.981088",
+  "sites_processed": 39,
+  "ancillary_files_processed": 40,
+  "products": {
+    "air_temperature": {
+      "rows": 2444325,
+      "csv": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_icos_air_temperature.csv",
+      "parquet": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_icos_air_temperature.parquet"
+    },
+    "precipitation": {
+      "rows": 2335582,
+      "csv": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_icos_precipitation.csv",
+      "parquet": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_icos_precipitation.parquet"
+    },
+    "soil_moisture": {
+      "rows": 2422153,
+      "csv": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_icos_soil_moisture.csv",
+      "parquet": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_icos_soil_moisture.parquet"
+    },
+    "soil_temperature": {
+      "rows": 2424843,
+      "csv": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_icos_soil_temperature.csv",
+      "parquet": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_icos_soil_temperature.parquet"
+    },
+    "soil_texture": {
+      "rows": 28,
+      "csv": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_icos_soil_texture.csv",
+      "parquet": "/Users/karnst/Documents/Accelnet/Accelnet/harmonized_icos_soil_texture.parquet"
+    }
+  },
+  "site_stats": {
+    "BE-Bra": {
+      "air_temp_rows": 72050,
+      "precip_rows": 67864,
+      "swc_rows": 72191,
+      "soil_temp_rows": 72191,
+      "soil_tex_rows": 5
+    },
+    "BE-Dor": {
+      "air_temp_rows": 36738,
+      "precip_rows": 31736,
+      "swc_rows": 36651,
+      "soil_temp_rows": 36868,
+      "soil_tex_rows": 5
+    },
+    "BE-Lon": {
+      "air_temp_rows": 100043,
+      "precip_rows": 105108,
+      "swc_rows": 110650,
+      "soil_temp_rows": 105893
+    },
+    "BE-Maa": {
+      "air_temp_rows": 80624,
+      "precip_rows": 80780,
+      "swc_rows": 81299,
+      "soil_temp_rows": 81299
+    },
+    "BE-Vie": {
+      "air_temp_rows": 73156,
+      "precip_rows": 67811,
+      "swc_rows": 72024,
+      "soil_temp_rows": 72533
+    },
+    "CH-Dav": {
+      "air_temp_rows": 86036,
+      "precip_rows": 89445,
+      "swc_rows": 89151,
+      "soil_temp_rows": 33691
+    },
+    "CZ-BK1": {
+      "air_temp_rows": 45295,
+      "precip_rows": 45229,
+      "swc_rows": 3817,
+      "soil_temp_rows": 45605,
+      "soil_tex_rows": 4
+    },
+    "CZ-Lnz": {
+      "air_temp_rows": 45348,
+      "precip_rows": 41457,
+      "swc_rows": 45562,
+      "soil_temp_rows": 45562
+    },
+    "DE-Geb": {
+      "air_temp_rows": 71087,
+      "precip_rows": 67275,
+      "swc_rows": 68368,
+      "soil_temp_rows": 68368
+    },
+    "DE-HoH": {
+      "air_temp_rows": 91550,
+      "precip_rows": 87630,
+      "swc_rows": 94034,
+      "soil_temp_rows": 94204
+    },
+    "DE-RuS": {
+      "air_temp_rows": 92311,
+      "precip_rows": 97599,
+      "swc_rows": 98590,
+      "soil_temp_rows": 94931
+    },
+    "DE-Tha": {
+      "air_temp_rows": 67731,
+      "precip_rows": 68624,
+      "swc_rows": 70416,
+      "soil_temp_rows": 70416
+    },
+    "DK-Sor": {
+      "air_temp_rows": 52921,
+      "precip_rows": 49607,
+      "swc_rows": 54565,
+      "soil_temp_rows": 54443
+    },
+    "DK-Vng": {
+      "air_temp_rows": 52965,
+      "precip_rows": 53782,
+      "swc_rows": 52876,
+      "soil_temp_rows": 52876
+    },
+    "FI-Hyy": {
+      "air_temp_rows": 105190,
+      "precip_rows": 103889,
+      "swc_rows": 107564,
+      "soil_temp_rows": 107899
+    },
+    "FI-Sii": {
+      "air_temp_rows": 123875,
+      "precip_rows": 124439,
+      "swc_rows": 125740,
+      "soil_temp_rows": 125749
+    },
+    "FI-Sod": {
+      "air_temp_rows": 24403,
+      "precip_rows": 22317,
+      "swc_rows": 25420,
+      "soil_temp_rows": 25413
+    },
+    "FR-Bil": {
+      "air_temp_rows": 87324,
+      "precip_rows": 87156,
+      "swc_rows": 87781,
+      "soil_temp_rows": 87806
+    },
+    "FR-FBn": {
+      "air_temp_rows": 36821,
+      "precip_rows": 36852,
+      "swc_rows": 36864,
+      "soil_temp_rows": 36864
+    },
+    "FR-Fon": {
+      "air_temp_rows": 82486,
+      "precip_rows": 80448,
+      "swc_rows": 83531,
+      "soil_temp_rows": 87109,
+      "soil_tex_rows": 5
+    },
+    "FR-Gri": {
+      "air_temp_rows": 53735,
+      "precip_rows": 32248,
+      "swc_rows": 48477,
+      "soil_temp_rows": 48466
+    },
+    "FR-Hes": {
+      "air_temp_rows": 33281,
+      "precip_rows": 44222,
+      "swc_rows": 46022,
+      "soil_temp_rows": 46032
+    },
+    "FR-Lqu": {
+      "air_temp_rows": 32704,
+      "precip_rows": 35389,
+      "swc_rows": 36546,
+      "soil_temp_rows": 36250
+    },
+    "FR-Lus": {
+      "air_temp_rows": 34508,
+      "precip_rows": 34440,
+      "swc_rows": 35700,
+      "soil_temp_rows": 35700
+    },
+    "FR-Pue": {
+      "air_temp_rows": 52167,
+      "precip_rows": 52409,
+      "swc_rows": 53470,
+      "soil_temp_rows": 53470
+    },
+    "GL-ZaF": {
+      "air_temp_rows": 22443,
+      "precip_rows": 26809,
+      "swc_rows": 31210,
+      "soil_temp_rows": 31210
+    },
+    "IT-BCi": {
+      "air_temp_rows": 28786,
+      "precip_rows": 28854,
+      "swc_rows": 28435,
+      "soil_temp_rows": 28435
+    },
+    "IT-Cp2": {
+      "air_temp_rows": 49463,
+      "precip_rows": 51079,
+      "swc_rows": 34066,
+      "soil_temp_rows": 34068
+    },
+    "IT-MBo": {
+      "air_temp_rows": 36440,
+      "precip_rows": 36440,
+      "swc_rows": 36475,
+      "soil_temp_rows": 36406
+    },
+    "IT-Ren": {
+      "air_temp_rows": 47616,
+      "precip_rows": 53568,
+      "swc_rows": 52224,
+      "soil_temp_rows": 52224
+    },
+    "IT-SR2": {
+      "air_temp_rows": 77984,
+      "precip_rows": 47836,
+      "swc_rows": 74844,
+      "soil_temp_rows": 74843
+    },
+    "NL-Loo": {
+      "air_temp_rows": 28771,
+      "precip_rows": 28796,
+      "swc_rows": 28799,
+      "soil_temp_rows": 28799
+    },
+    "NO-Hur": {
+      "air_temp_rows": 19600,
+      "precip_rows": 20828,
+      "swc_rows": 19731,
+      "soil_temp_rows": 19678
+    },
+    "SE-Deg": {
+      "air_temp_rows": 89272,
+      "precip_rows": 67839,
+      "swc_rows": 75613,
+      "soil_temp_rows": 90513
+    },
+    "SE-Htm": {
+      "air_temp_rows": 113610,
+      "precip_rows": 115572,
+      "swc_rows": 116655,
+      "soil_temp_rows": 113709,
+      "soil_tex_rows": 4
+    },
+    "SE-Nor": {
+      "air_temp_rows": 105964,
+      "precip_rows": 86312,
+      "swc_rows": 107636,
+      "soil_temp_rows": 107757
+    },
+    "SE-Sto": {
+      "air_temp_rows": 45322,
+      "precip_rows": 44929,
+      "swc_rows": 45347,
+      "soil_temp_rows": 45488
+    },
+    "SE-Svb": {
+      "air_temp_rows": 99059,
+      "precip_rows": 67916,
+      "swc_rows": 96200,
+      "soil_temp_rows": 89979,
+      "soil_tex_rows": 5
+    },
+    "UK-AMo": {
+      "air_temp_rows": 45646,
+      "precip_rows": 51048,
+      "swc_rows": 37609,
+      "soil_temp_rows": 52096
+    }
+  },
+  "errors": [],
+  "elapsed_seconds": 65.11948108673096
+}

@@ -1,0 +1,32 @@
+{
+  "air_temperature": {
+    "FI_Hyytiala": "T168 (Pt100, 16.8m) -> airTemp_mean_degC; daily mean; degC",
+    "Germany_DE-HoH": "Tair50HMP (HMP45, 49m) -> airTemp_mean_degC; daily mean; degC; fallback Tair45HMP",
+    "Hohes-Holz": "Tair14PT (Pt100, 14.2m) -> airTemp_mean_degC; daily mean; degC; fallback Tair50HMP",
+    "Donana_El_Palacio": "(TA_Z + TA_A)/2 (max+min/2, 1.3m) -> airTemp_mean_degC; daily; degC",
+    "Donana_HIDROMET": "TA_X (daily mean, sensor height from data) -> airTemp_mean_degC; degC",
+    "Rosalia": "air temperature column (Vaisala HMP, 2.0m) -> airTemp_mean_degC; daily mean; degC"
+  },
+  "precipitation": {
+    "FI_Hyytiala": "Precipacc_GPM (OTT Pluvio, 1.5m) daily diff -> precip_tot_mm; mm; fallback Precip tipping bucket",
+    "Germany_DE-HoH": "precip50 (tipping bucket, 50m) daily sum -> precip_tot_mm; mm",
+    "Hohes-Holz": "precip50 daily sum -> precip_tot_mm; mm",
+    "Donana_El_Palacio": "P_RAIN (rain gauge, 1.48m) -> precip_tot_mm; mm",
+    "Donana_HIDROMET": "P_RAIN_S1 (tipping bucket) -> precip_tot_mm; mm",
+    "Rosalia": "precipitation column (tipping bucket, 1.5m) daily sum -> precip_tot_mm; mm"
+  },
+  "soil_moisture": {
+    "FI_Hyytiala": "VALUE where VARIABLE='soil water content', VERT_OFFSET=-4.0cm -> sws_mean_percent",
+    "Germany_DE-HoH": "SMa010/SMb010 (TDR, -10cm) -> sws_mean_percent; vol%",
+    "Rosalia_DRAIN": "soilmoisture (TDR, -10cm) -> sws_mean_percent; vol%"
+  },
+  "soil_temperature": {
+    "FI_Hyytiala": "VALUE where VARIABLE='soil water temperature', VERT_OFFSET=-3.5cm -> soilTemp_Mean_degC",
+    "Germany_DE-HoH": "STa005/STb005 (thermocouple, -5cm) -> soilTemp_Mean_degC; degC",
+    "Rosalia_DRAIN": "soiltemp (thermocouple, -10cm) -> soilTemp_Mean_degC; degC"
+  },
+  "soil_texture": {
+    "Germany_DE-HoH": "SOGEO clay/sand/silt proportions (%) with depth ranges",
+    "Rosalia": "tidy_particle_size.csv: sand = (2-0.2mm + 0.2-0.02mm), silt = (0.02-0.002mm), clay = (<0.002mm)"
+  }
+}

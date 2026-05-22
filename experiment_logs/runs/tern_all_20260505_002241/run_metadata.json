@@ -1,0 +1,95 @@
+{
+  "run_id": "tern_all_20260505_002241",
+  "timestamp_start": "2026-05-05T00:22:41.726569",
+  "timestamp_end": "2026-05-05T00:26:10.785272",
+  "duration_seconds": 209.1,
+  "network": "TERN / OzFlux",
+  "model": "claude-opus-4-6",
+  "data_source": "/Users/karnst/Documents/Accelnet/Accelnet/Downloads/geri-data/tern/",
+  "processing_levels": [
+    "L3 (primary)",
+    "L6 (fallback for corrupt L3)",
+    "L6 (L6-only sites)"
+  ],
+  "n_sites_processed": 28,
+  "n_sites_l3": 9,
+  "n_sites_l6_fallback": 1,
+  "n_sites_l6_only": 18,
+  "sites_processed": [
+    "AU-ASM (AliceSpringsMulga)",
+    "AU-Boy (Boyagin)",
+    "AU-Col (Collie)",
+    "AU-Cow (CowBay)",
+    "AU-Cpr (Calperum)",
+    "AU-Cum (CumberlandPlain)",
+    "AU-DaS (DalyUncleared)",
+    "AU-Dry (DryRiver)",
+    "AU-Eme (Emerald)",
+    "AU-Fle (FletcherviewTropicalRangeland)",
+    "AU-Fog (FoggDam)",
+    "AU-Gin (Gingin)",
+    "AU-Lit (Litchfield)",
+    "AU-Lon (Longreach)",
+    "AU-MVA (MyallValeA)",
+    "AU-Rgf (Ridgefield)",
+    "AU-Rig (RiggsCreek)",
+    "AU-Rob (RobsonCreek)",
+    "AU-SiP (SilverPlains)",
+    "AU-Stp (SturtPlains)",
+    "AU-TTE (TiTreeEast1)",
+    "AU-Tum (Tumbarumba2)",
+    "AU-Wal (WallabyCreek)",
+    "AU-Wel (Wellington)",
+    "AU-Whr (Whroo1)",
+    "AU-Wom1 (WombatStateForest1)",
+    "AU-Wom2 (WombatStateForest2)",
+    "AU-Yar (YarramundiControl)"
+  ],
+  "products": {
+    "air_temperature": {
+      "output_csv": "harmonized_tern_air_temperature.csv",
+      "output_parquet": "harmonized_tern_air_temperature.parquet",
+      "total_rows": 4103502,
+      "n_sites": 28
+    },
+    "precipitation": {
+      "output_csv": "harmonized_tern_precipitation.csv",
+      "output_parquet": "harmonized_tern_precipitation.parquet",
+      "total_rows": 4103502,
+      "n_sites": 28
+    },
+    "soil_moisture": {
+      "output_csv": "harmonized_tern_soil_moisture.csv",
+      "output_parquet": "harmonized_tern_soil_moisture.parquet",
+      "total_rows": 4103502,
+      "n_sites": 28
+    },
+    "soil_temperature": {
+      "output_csv": "harmonized_tern_soil_temperature.csv",
+      "output_parquet": "harmonized_tern_soil_temperature.parquet",
+      "total_rows": 4103502,
+      "n_sites": 28
+    },
+    "soil_texture": {
+      "status": "not_available",
+      "reason": "TERN OzFlux NetCDF files do not contain soil texture data"
+    }
+  },
+  "pipeline_stages": {
+    "schema": "schema_report.json",
+    "ingest": "ingest_catalog.json",
+    "research": "research_report.json",
+    "mapping": "mapping.json",
+    "transform": "transform_report.json",
+    "review": "review_report.json"
+  },
+  "review_status": "PASS",
+  "human_intervention": false,
+  "python_version": "3.9.6",
+  "packages": [
+    "netCDF4",
+    "pandas",
+    "numpy",
+    "pyarrow"
+  ]
+}

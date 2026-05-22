@@ -1,0 +1,35 @@
+{
+  "source": "ICOS Ecosystem Thematic Centre (ETC) METEO L2 + ANCILLARY L2",
+  "references": [
+    "Op de Beeck et al. (2018) - Soil-meteorological measurements at ICOS monitoring stations",
+    "Rebmann et al. (2018) - ICOS eddy covariance flux-station site setup: a review",
+    "Nicolini et al. (2018) - Standardized precipitation measurements within ICOS"
+  ],
+  "swc_unit": "percent_volumetric (0-100)",
+  "swc_sensor_depths_m": {
+    "SWC_1": -0.05,
+    "SWC_2": -0.1,
+    "SWC_3": -0.2,
+    "SWC_4": -0.5,
+    "SWC_5": -1.0,
+    "SWC_6": -1.5,
+    "SWC_7": -2.0,
+    "SWC_8": -2.5,
+    "SWC_9": -3.0
+  },
+  "ts_sensor_depths_m": {
+    "TS_1": -0.015,
+    "TS_2": -0.05,
+    "TS_3": -0.1,
+    "TS_4": -0.2,
+    "TS_5": -0.5,
+    "TS_6": -1.0,
+    "TS_7": -1.5,
+    "TS_8": -2.0,
+    "TS_9": -3.0
+  },
+  "precipitation_gauge_height_m": 1.0,
+  "fill_value": -9999,
+  "timestamp_format": "YYYYMMDDHHmm integer",
+  "temporal_resolution": "30 minutes"
+}

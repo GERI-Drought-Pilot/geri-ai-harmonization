@@ -1,0 +1,9 @@
+{
+    "run_id": "icos_consistency_20260505_002009",
+    "network": "icos",
+    "experiment": "consistency",
+    "run_number": 1,
+    "timestamp": "2026-05-04T22:24:29Z",
+    "elapsed_seconds": 260,
+    "model": "opus"
+}

@@ -1,0 +1,9 @@
+{
+    "run_id": "neon_consistency_20260505_005425",
+    "network": "neon",
+    "experiment": "consistency",
+    "run_number": 4,
+    "timestamp": "2026-05-04T22:59:31Z",
+    "elapsed_seconds": 305,
+    "model": "opus"
+}

@@ -1,0 +1,471 @@
+[
+  {
+    "id": "D001",
+    "category": "unit_standardization",
+    "question": "Should canonical soil water content (SWC) units be fraction (0-1, m3/m3) or percent (0-100)?",
+    "evidence": {
+      "ICOS": "SWC_1..7 values typically 4-99 range at most sites (e.g., BE-Bra: 12.15-12.26, BE-Dor: 45.06-45.22, FI-Hyy: 11.47-11.48, FR-Gri: 40.71-40.90). Exception: FI-Sod: 0.52-0.58 (see D014). No explicit unit declaration in CSV; units inferred from value ranges.",
+      "SAEON": "moisture_soil_s1_avg with explicit unit 'pcnt' in unit row. Values 5.17-5.84 (Benfontein Karoo, arid site).",
+      "eLTER_Germany": "SMa010 with explicit unit '%'. Values 26.46-26.59. Profile confirms 'Volumetric percentage (0-100%)'.",
+      "eLTER_Austria": "soilmoisture[volpercent] with unit embedded in header. Values 29.63-31.18.",
+      "eLTER_Finland": "SOHYD 'soil water content' with declared unit '%' BUT values 0.003-0.689. THIS IS FRACTION despite the '%' label (see D013).",
+      "eLTER_Spain": "Structurally absent -- no SWC data in profile.",
+      "TERN": "Sws with NetCDF units attribute 'm^3/m^3'. Sample values 0.104, 0.361. Confirmed fraction.",
+      "NEON": "VSWCMean values 0.0000-0.9971, mean=0.1625. Confirmed fraction."
+    },
+    "alternatives_considered": [
+      "Percent (0-100) -- matches 3 networks (ICOS, SAEON, eLTER DE/AT) and is more human-readable.",
+      "Fraction m3/m3 (0-1) -- matches CF Conventions and TERN/NEON native form.",
+      "Allow both with explicit unit column -- pushes ambiguity downstream."
+    ],
+    "decision": "Canonical unit = m3 m-3 (fraction 0-1).",
+    "rationale": "(1) CF Convention canonical form for volume_fraction_of_water_in_soil is dimensionless m3/m3. (2) TERN and NEON store fraction natively; choosing fraction means lossless passthrough for them and a simple /100 for ICOS/SAEON/eLTER. (3) 'Percent' is overloaded (volumetric vs gravimetric vs saturation); fraction-of-volume is unambiguous. (4) Most downstream scientific tooling (xarray, NetCDF-CF) expects fraction.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "All 5 networks profiled with concrete sample values; CF Convention alignment is unambiguous; only choice between equivalent representations."
+  },
+  {
+    "id": "D002",
+    "category": "variable_identification",
+    "question": "Which variables qualify as Tier 1 (core, all/nearly all networks)?",
+    "evidence": {
+      "ICOS": "TA, RH, PA, SW_IN/OUT, LW_IN/OUT, P, SWC_1..7, TS_1..8, WS, WD, NETRAD in all 39 files.",
+      "SAEON": "temp_air_avg, humid_rel_avg, pressure_atm_avg, rad_short_in_avg, rain_tot, moisture_soil_s1_avg, temp_soil_s1_avg, wind_speed_avg in all 8 files.",
+      "eLTER": "Air temp, RH, WS, WD, Pamb, Precip across 4 countries. SWC and soil temp in DE/AT/FI.",
+      "TERN": "Ta, Precip, Sws, Ts in 30/31 files. RH, ps, Ws, Wd in subsets.",
+      "NEON": "soilTempMean, VSWCMean, precipBulk have data. Air temp file was empty (0 bytes)."
+    },
+    "alternatives_considered": [
+      "Strict 5-of-5 with data -- would limit Tier 1 to precipitation, SWC, soil temp only.",
+      "4-of-5 plus reasoning -- the Draft 1 approach.",
+      "Tier 1a (data-confirmed) / Tier 1b (known-available) -- adopted in Draft 2."
+    ],
+    "decision": "Tier 1a (data-confirmed in 4+ profiles): precipitation, soil_water_content, soil_temperature. Tier 1b (known-available but NEON not profiled): air_temperature, relative_humidity, atmospheric_pressure, wind_speed, wind_direction.",
+    "rationale": "The Tier 1a/1b split is honest about evidence boundaries. Only precipitation, SWC, and soil temperature have concrete data in all 5 network profiles. The atmospheric variables are known to exist in NEON (DP1.00003 for air temp) but the downloaded file was empty, so we cannot claim profiled evidence.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Variables verified per profile; 1a/1b distinction matches the actual evidence state."
+  },
+  {
+    "id": "D003",
+    "category": "variable_identification",
+    "question": "Should soil texture (sand/silt/clay) be Tier 1 or Tier 2?",
+    "evidence": {
+      "ICOS": "REVISED (Issue 3 fix): 6 of 40 ANCILLARY files contain SOIL_TEX_SAND, SOIL_TEX_SILT, SOIL_TEX_CLAY (BE-Bra, BE-Dor, CZ-BK1, FR-Fon, SE-Htm, SE-Svb). Example: BE-Bra 0-5cm: sand=91.67%, silt=4.87%, clay=3.47%. Remaining 34 sites have only SOIL_TEX_ROCK or no texture data. Draft 1's claim that sand/silt/clay are NOT in METEO ANCILLARY was incorrect.",
+      "SAEON": "No soil texture data in any of the 8 CSV files.",
+      "eLTER": "Germany SOGEO has sand/silt/clay % per depth (e.g., clay=18.15%, sand=11.18%, silt=70.03% at 60-65cm). Spain has texture data in XLSX. Austria uses 5-class Wentworth particle size (requires aggregation). Finland has texture categories (Sandy loam) and proportions.",
+      "TERN": "tern_soil_texture_data.xlsx: sand_percentage, clay_percentage, silt_percentage for 242 rows across sites.",
+      "NEON": "neon_soiltexture_data.parquet: sandTotal (1.6-97.6%), clayTotal (0.0-61.9%), siltTotal (1.3-78.8%) -- 452 records, 0 nulls."
+    },
+    "alternatives_considered": [
+      "Tier 1 -- would force SAEON into a structurally absent variable.",
+      "Tier 2 -- present in 4 networks (ICOS partial, eLTER, TERN, NEON); SAEON absent.",
+      "Drop entirely -- loses critical site context."
+    ],
+    "decision": "Tier 2. Present in 4 of 5 networks: ICOS partial (6/40 sites), eLTER, TERN, NEON. SAEON absent. Austria's Wentworth scheme requires aggregation to USDA 3-class.",
+    "rationale": "Corrected from Draft 1: ICOS does have sand/silt/clay for a subset of sites. With 4 of 5 networks providing at least partial data, soil texture is Tier 2. Lives in the static soil_profiles table. The single consistent count '4 of 5 (ICOS partial, eLTER, TERN, NEON; SAEON absent)' replaces Draft 1's contradictory '3 of 5' / '4 of 5' wording (Issue 16 fix).",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Per-network presence verified by file inspection; SAEON structural absence is conclusive."
+  },
+  {
+    "id": "D004",
+    "category": "naming",
+    "question": "What naming convention should canonical variable names use?",
+    "evidence": {
+      "ICOS": "SCREAMING_SNAKE (TA, SWC_1). No units in name.",
+      "SAEON": "lower_snake_case with some unit-embedding (co2_flux_umol).",
+      "eLTER": "Mixed (T336, Tair50HMP, soilmoisture[volpercent]).",
+      "TERN": "PascalCase abbreviated (Ta, Sws) with suffixes (Sws_10cm_a).",
+      "NEON": "camelCase (soilTempMean, VSWCMean, precipBulk)."
+    },
+    "alternatives_considered": [
+      "camelCase (NEON-style)",
+      "UPPER_SNAKE (ICOS-style)",
+      "snake_case -- pandas/xarray idiomatic, CF-friendly",
+      "Embed units in name (SAEON/Austria style)"
+    ],
+    "decision": "snake_case for variable names; units in separate 'unit' column, never embedded in name.",
+    "rationale": "snake_case is the most portable and CF-compatible choice. Embedding units creates fragility. Sensor/depth info goes into structured columns (depth_m, sensor_id, replicate).",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Industry-standard choice; aligned with CF, xarray, pandas conventions."
+  },
+  {
+    "id": "D005",
+    "category": "schema_structure",
+    "question": "Single wide table, multiple tables, or single long-format table?",
+    "evidence": {
+      "ICOS": "Wide METEO L2 (57-92 columns). ANCILLARY in long key-value.",
+      "SAEON": "Wide CSV (67 columns).",
+      "eLTER": "Mixed: Finland wide Parquet; Germany/Spain/Austria long CSV.",
+      "TERN": "NetCDF wide (1,827 unique variables across files).",
+      "NEON": "Long-ish (one parquet per product)."
+    },
+    "alternatives_considered": [
+      "Single wide table -- column explosion from TERN's 1,827 vars",
+      "One wide table per measurement type -- fragments the schema",
+      "Single long-format + static metadata -- lowest common denominator"
+    ],
+    "decision": "Single long-format 'observations' table + static 'sites', 'soil_profiles', 'sensors' tables.",
+    "rationale": "Long format is the only structure all 5 networks can be reshaped into without column explosion. Scales to new variables without schema migration.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Empirically grounded in network counts; eLTER already uses long for 3 of 4 sites."
+  },
+  {
+    "id": "D006",
+    "category": "temporal_model",
+    "question": "Canonical timestamp format and resolution?",
+    "evidence": {
+      "ICOS": "YYYYMMDDHHmm, 30-min, implied UTC.",
+      "SAEON": "ISO 8601, 30-min.",
+      "eLTER": "Mixed (1-min Finland, 10-min Germany, daily Spain, 30-min Austria). Austria in local CET.",
+      "TERN": "NetCDF numeric, 30-min.",
+      "NEON": "datetime UTC, 30-min (soil) / hourly (precip)."
+    },
+    "alternatives_considered": [
+      "UNIX epoch",
+      "ISO 8601 in native local time",
+      "ISO 8601 in UTC with explicit start/end"
+    ],
+    "decision": "ISO 8601 in UTC, timestamp_start + timestamp_end, 30-min default. eLTER Austria converted from CET to UTC.",
+    "rationale": "UTC is universal. ISO 8601 is the W3C/ISO standard. Explicit start/end handles averaging convention.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Industry standard; explicit-start/end resolves the most common ambiguity (which side of the interval the timestamp denotes)."
+  },
+  {
+    "id": "D007",
+    "category": "missing_data",
+    "question": "How should missing data be represented?",
+    "evidence": {
+      "ICOS": "-9999 sentinel.",
+      "SAEON": "Empty cells; QC code 9.",
+      "eLTER": "NaN / empty.",
+      "TERN": "-9999.0.",
+      "NEON": "Native NULL."
+    },
+    "alternatives_considered": [
+      "Keep -9999 as canonical sentinel",
+      "Use NULL/NaN",
+      "Both (NULL + raw_value column)"
+    ],
+    "decision": "Canonical: NULL. All sentinels (-9999) converted to NULL. quality_flag=9 for missing.",
+    "rationale": "Prevents accidental inclusion of -9999 in statistics. quality_flag carries the reason.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Universally safer than sentinels; aligned with all modern data tooling."
+  },
+  {
+    "id": "D008",
+    "category": "depth_height_convention",
+    "question": "Sign and unit convention for depth and height?",
+    "evidence": {
+      "ICOS": "ANCILLARY depths in positive cm. METEO depths not in headers.",
+      "SAEON": "Layer codes (_s1.._s4), no numeric depth.",
+      "eLTER": "Finland/Austria negative cm. Germany mixed (mm headers, cm values).",
+      "TERN": "Variable name suffixes (Sws_10cm); height attribute in m (negative for soil).",
+      "NEON_corrected": "REVISED (Issue 8 fix): verticalPosition is a depth-level CODE ('501'..'509'), NOT meters. Actual depths are in the sensor position metadata file's 'height' column (m). Draft 1's negation of the position code (yielding -501 m) was wrong."
+    },
+    "alternatives_considered": [
+      "Positive cm for depth",
+      "Positive m for depth",
+      "Negative m for depth + positive m for height in two columns"
+    ],
+    "decision": "Two columns: depth_m (negative meters below surface) and height_m (positive meters above surface). One is NULL per row.",
+    "rationale": "CF Convention negative-down. Two columns prevent NEON-style ambiguity. Meters is SI. NEON conversion now correctly joins data files with sensor position metadata to recover actual depth.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "All five networks accommodated; NEON correction grounded in profile §3."
+  },
+  {
+    "id": "D009",
+    "category": "quality_flags",
+    "question": "How should quality flags be harmonized?",
+    "evidence": {
+      "ICOS": "No QC column in METEO L2; -9999 indicates missing.",
+      "SAEON": "ss_itc_test {1=good, 2=uncertain, 3=poor, 9=missing}.",
+      "eLTER": "FLAGQUA {0=good, 1=other}; FLAGSTA (status flag, e.g., 900000.0) semantics undocumented.",
+      "TERN": "{var}_QCFlag int; 0=good per profile; 1+ semantics undocumented.",
+      "NEON": "finalQF {0=pass, 1=fail}; VSWCFinalQFSciRvw {0=pass, 1=suspect, 2=fail}."
+    },
+    "alternatives_considered": [
+      "Binary 0/1",
+      "Network-native passthrough",
+      "Unified {0,1,2,9}"
+    ],
+    "decision": "Canonical {0=pass, 1=suspect, 2=fail, 9=missing}. Per-network mapping uses EXPLICIT LOOKUP, not arithmetic.",
+    "rationale": "Issue 4 fix: SAEON 1->0, 2->1, 3->2, 9->9 (lookup; Draft 1's 'subtract 1, keep 9' is arithmetically inconsistent: 9-1=8, not 9). Issue 5 fix: eLTER FLAGQUA 1->1 (suspect, not fail) -- 'other' is ambiguous (could be unchecked or manual override). FLAGSTA dropped on ingest with logged justification, pending eLTER documentation. TERN provisional: 0->0, 1..8->1, >=9->2 pending TERN QC documentation. NEON finalQF 0->0, 1->2; VSWCFinalQFSciRvw direct passthrough. ICOS sentinel-driven: -9999 -> {value:NULL, QF:9}; otherwise QF=0.",
+    "confidence_qualitative": "MEDIUM",
+    "confidence_criteria": "ICOS, SAEON, NEON mappings well-grounded. TERN non-zero codes and eLTER FLAGSTA semantics are undocumented; provisional rules are conservative pending external lookup."
+  },
+  {
+    "id": "D010",
+    "category": "unit_standardization",
+    "question": "Canonical units for radiation, pressure, VPD, and secondary variables?",
+    "evidence": {
+      "ICOS": "Radiation W/m2, PPFD umol/m2/s. PA labeled 'Likely Unit: kPa' with values 96-98 (Issue 2 evidence). VPD labeled 'Likely Unit: hPa' (per profile §2 Other Variables).",
+      "SAEON": "Radiation w_per_m2, pressure 'hpa', VPD 'hpa'.",
+      "eLTER": "Pressure hPa across sites (Pamb / Pamb0 / 'Surface Air Pressure [hPa]').",
+      "TERN": "Radiation W/m2, ps hPa, VPD hPa (NetCDF units attributes).",
+      "NEON": "Precipitation mm, soil temp degC, VSWC fraction. Pressure not profiled."
+    },
+    "alternatives_considered": [
+      "Pa for pressure (SI base)",
+      "hPa (matches 4/5 networks once ICOS is converted)",
+      "kPa for VPD vs hPa for VPD"
+    ],
+    "decision": "Pressure: hPa. Radiation: W m-2. PAR: umol m-2 s-1. VPD: hPa. ICOS pressure (PA) requires multiplication by 10.0 (kPa -> hPa). ICOS VPD passthrough provisionally with empirical verification (see §4.3).",
+    "rationale": "Issue 2 fix: per-network pressure conversion table now exists in §4.2. ICOS PA values 96-98 are kPa (= 960-980 hPa standard surface pressure). Treating them as hPa would record ~96 hPa -- absurd. Issue 9 fix: per-network VPD conversion table now in §4.3. ICOS profile lists VPD 'Likely Unit: hPa'; Draft 1's 'ICOS x10 from kPa' contradicted this. Conservative provisional: passthrough with runtime sanity check (>25 hPa or <0.5 hPa flags reinvestigation).",
+    "confidence_qualitative": "HIGH for radiation/PAR/precipitation; MEDIUM for ICOS VPD pending sample verification.",
+    "confidence_criteria": "Radiation/PAR units uniform across networks. ICOS PA conversion grounded in physical reasoning. ICOS VPD provisional pending profile sample values."
+  },
+  {
+    "id": "D011",
+    "category": "metadata_separation",
+    "question": "Where should sensor type and replicate information live?",
+    "evidence": {
+      "ICOS": "Suffix _1.._9 in variable names.",
+      "SAEON": "Sensor type in name (temp_air_EC100_avg, temp_air_sonic_avg).",
+      "eLTER": "SMa010/SMb020 -- sensor and depth in name. Finland T336/T270icos.",
+      "TERN": "Sensor type/depth/replicate all in name (Ta_HMP_2m, Sws_10cm_a).",
+      "NEON": "HOR.VER position codes in separate columns."
+    },
+    "alternatives_considered": [
+      "Keep in name (TERN style) -- explodes variable count",
+      "Separate structured columns"
+    ],
+    "decision": "Separate columns: sensor_id, replicate, depth_m, height_m. Variable column carries only canonical kind.",
+    "rationale": "TERN's 1,827 variables collapse to ~30 canonical variables. Enables 'all SWC at 10cm' as single filter.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Concrete TERN counts demonstrate the value; NEON already uses this structure."
+  },
+  {
+    "id": "D012",
+    "category": "soil_texture_encoding",
+    "question": "How should soil texture be encoded in the schema?",
+    "evidence": {
+      "ICOS": "Long key-value format in ANCILLARY. SOIL_TEX_SAND, SOIL_TEX_SILT, SOIL_TEX_CLAY (6/40 sites).",
+      "eLTER_Germany": "One row per particle type.",
+      "eLTER_Spain": "String tuple (order ambiguous).",
+      "eLTER_Austria": "Five Wentworth columns.",
+      "TERN": "Three columns in xlsx (sand_percentage, clay_percentage, silt_percentage).",
+      "NEON": "Three columns in parquet (sandTotal, clayTotal, siltTotal)."
+    },
+    "alternatives_considered": [
+      "Three columns in soil_profiles table (wide)",
+      "Three rows in long observations table",
+      "Single tuple column"
+    ],
+    "decision": "Three columns in static soil_profiles table: soil_texture_sand, soil_texture_silt, soil_texture_clay (each 0-100%).",
+    "rationale": "Texture is static metadata, not time-series. Three columns make sum-to-100 validation trivial. Austria's Wentworth aggregates: >2mm=gravel (excluded); 2-0.02mm=sand; 0.02-0.002mm=silt; <0.002mm=clay.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Aligns with USDA convention used by TERN and NEON; aggregation rule from Wentworth is well-defined."
+  },
+  {
+    "id": "D013",
+    "category": "unit_standardization",
+    "question": "How should eLTER Finland Hyytiala SWC be converted when the declared unit is '%' but values are clearly fraction (0-0.689)?",
+    "evidence": {
+      "eLTER_Finland_SOHYD": "Variable 'soil water content' with UNIT='%' but VALUE ranges 0.003-0.689 across 612,390 rows at depths -5 to -50 cm.",
+      "eLTER_Germany_SOHYD": "SMa010 with UNIT='%' and values 26.46-26.59 -- this IS percent.",
+      "eLTER_Austria_SOHYD": "soilmoisture[volpercent] values 29.63-31.18 -- this IS percent.",
+      "Physical_reasoning": "Maximum volumetric water content for mineral soils is ~0.5-0.6 m3/m3 (porosity-limited). 0.689 is consistent with organic/peat soils. 0.689% would be below the hygroscopic water content of any natural soil."
+    },
+    "alternatives_considered": [
+      "Trust the label and divide by 100 -- would produce values 0.00003-0.00689, physically impossible.",
+      "Passthrough (treat as already fraction) -- produces physically plausible values.",
+      "Flag as data quality issue and exclude -- loses valuable long-term record."
+    ],
+    "decision": "Passthrough: eLTER Finland Hyytiala SWC values are already in m3/m3 fraction despite the '%' unit label. Do NOT divide by 100. Document this as a known mislabeling in the eLTER SOHYD-168 product.",
+    "rationale": "Values are unambiguously fraction based on physical constraints. No mineral soil can have 0.689% volumetric water content in situ. The mislabeling is a data quality issue in the source data, not an ambiguity to resolve.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Physical plausibility argument is decisive; eLTER profile explicitly flags this as a CRITICAL FINDING."
+  },
+  {
+    "id": "D014",
+    "category": "unit_standardization",
+    "question": "Is ICOS FI-Sod SWC in fraction or percent? Values are 0.52-0.58 while all other ICOS sites show 4-99.",
+    "evidence": {
+      "FI-Sod": "SWC_1 values 0.52-0.58.",
+      "All_other_ICOS": "SWC_1 values: BE-Bra 12.15-12.26, BE-Dor 45.06-45.22, CH-Dav 20.87-20.99, FI-Hyy 11.47-11.48, FI-Sii 82.25-82.39, FR-Gri 40.71-40.90, IT-BCi 42.32-48.13, SE-Deg 58.9-99.16. All clearly in 0-100% range.",
+      "Physical_reasoning": "FI-Sod is a boreal forest site (Sodankyla, Finland). 0.52% SWC = oven-dry (impossible for continuously-monitored boreal site). 0.52 m3/m3 = 52% saturation, plausible for organic/peat soils common in northern Finland.",
+      "Comparison": "FI-Sii (another Finnish peatland) shows 82.25-82.39 (clearly percent). FI-Hyy 11.47-11.48 (sandy soil, percent). FI-Sod is anomalous within ICOS."
+    },
+    "alternatives_considered": [
+      "Assume percent like all other ICOS sites -- would produce 0.0052-0.0058, physically impossible.",
+      "Assume fraction and passthrough -- physically plausible at 52-58% saturation.",
+      "Exclude the site until verified -- loses data unnecessarily."
+    ],
+    "decision": "Treat FI-Sod SWC as fraction. Passthrough without dividing by 100. Flag for verification with ICOS data providers.",
+    "rationale": "0.52% SWC is physically impossible for a boreal monitoring site. Site-level unit inconsistency within ICOS, similar to eLTER FI mislabeling. Conservative approach: passthrough and flag.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Physical plausibility argument is decisive. Verification with ICOS providers recommended (Open Question 12)."
+  },
+  {
+    "id": "D015",
+    "category": "variable_identification",
+    "question": "Should the tier system distinguish between data-confirmed and known-available variables?",
+    "evidence": {
+      "NEON_gap": "The NEON air temperature parquet file is 0 bytes (empty). NEON's DP1.00003 product (triple-aspirated air temperature) is a well-known product but was not successfully downloaded/extracted.",
+      "All_other_networks": "Air temperature has concrete data in ICOS (TA), SAEON (temp_air_avg), eLTER (Tair*, T###), and TERN (Ta). Only NEON lacks data in the profiled files.",
+      "Review_1_feedback": "Claiming air_temperature as Tier 1 when NEON profile has no data 'goes beyond what the raw data evidence supports.'"
+    },
+    "alternatives_considered": [
+      "Single Tier 1 for all -- over-extends beyond evidence.",
+      "Strict data-only Tier 1 -- under-represents known capabilities.",
+      "Tier 1a (data-confirmed) / Tier 1b (known-available) -- honest distinction."
+    ],
+    "decision": "Tier 1a (data in 4+ profiles): precipitation, soil_water_content, soil_temperature. Tier 1b (known-available in 4+ networks but not all profiled): air_temperature, relative_humidity, atmospheric_pressure, wind_speed, wind_direction.",
+    "rationale": "Scientific integrity requires distinguishing what we can prove from raw data versus what we know from external network documentation.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Clear evidence boundary; per-network presence verified for 1a."
+  },
+  {
+    "id": "D016",
+    "category": "temporal_model",
+    "question": "How should precipitation be resampled across different temporal resolutions?",
+    "evidence": {
+      "ICOS": "30-min precipitation totals.",
+      "SAEON": "30-min precipitation totals.",
+      "eLTER_Germany": "10-min data.",
+      "eLTER_Spain": "Daily totals.",
+      "TERN": "30-min precipitation totals.",
+      "NEON": "Hourly precipitation totals (precipBulk)."
+    },
+    "alternatives_considered": [
+      "Split hourly into two 30-min records -- introduces false precision.",
+      "Keep all at native resolution with different timestamp_start/end spans.",
+      "Sum sub-30-min to 30-min; keep super-30-min as-is."
+    ],
+    "decision": "Never split larger intervals into smaller ones. Sum smaller intervals (10-min) to 30-min. Keep hourly (NEON) and daily (eLTER ES) at native resolution. Always SUM (never mean) for precipitation aggregation.",
+    "rationale": "Issue 10 fix: explicit rule for coarser-than-canonical (NEON hourly) data -- store at native resolution with timestamp span, never disaggregate. Precipitation is cumulative; averaging changes physical meaning. Splitting introduces false within-interval precision.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Physically grounded; consistent with FLUXNET / AmeriFlux precipitation handling conventions."
+  },
+  {
+    "id": "D017",
+    "category": "schema_structure",
+    "question": "Should the observations table include a data product provenance field?",
+    "evidence": {
+      "ICOS": "Product is METEO_L2.",
+      "SAEON": "Product is saeonflux Eddy Covariance.",
+      "eLTER": "Products are SOATM-027, SOHYD-168, SOGEO-001.",
+      "TERN": "Products are L3 and L6.",
+      "NEON": "Products are DP1.00003, DP1.00006, DP1.00044, DP1.00094, DP1.00096."
+    },
+    "alternatives_considered": [
+      "No provenance field -- simpler schema but loses traceability.",
+      "Separate provenance table -- over-engineered.",
+      "Optional data_product column in observations -- simple and sufficient."
+    ],
+    "decision": "Add optional 'data_product' string field to observations table.",
+    "rationale": "Enables tracing any harmonized value back to its source product. Helps distinguish temporal resolution differences (NEON hourly precip vs ICOS 30-min precip). Low overhead.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Concrete distinct products per network; minimal storage cost."
+  },
+  {
+    "id": "D018",
+    "category": "unit_standardization",
+    "question": "What is the canonical unit for atmospheric pressure, and how must each network be converted?",
+    "evidence": {
+      "ICOS": "PA 'Likely Unit: kPa' per profile, values ~96-98. 96 kPa = 960 hPa = standard surface pressure.",
+      "SAEON": "pressure_atm_avg unit 'hpa'.",
+      "eLTER": "Pamb / Pamb0 / 'Surface Air Pressure [hPa]' across sites.",
+      "TERN": "ps with NetCDF 'units' attribute hPa.",
+      "NEON": "Pressure not profiled."
+    },
+    "alternatives_considered": [
+      "Pa (SI base) -- requires conversion from all 4 reporting networks.",
+      "hPa (matches SAEON, eLTER, TERN natively; ICOS requires x10).",
+      "kPa (matches ICOS natively; requires x0.1 elsewhere)."
+    ],
+    "decision": "Canonical = hPa. Per-network conversions: ICOS PA = value * 10.0; SAEON, eLTER, TERN passthrough; NEON not profiled.",
+    "rationale": "Issue 2 fix. Draft 1 lacked a per-network pressure table; Decision D010 narrative incorrectly claimed 'hPa matches all 4 networks that report it' -- but ICOS reports kPa. Treating ICOS values 96-98 as hPa would record Mars-like surface pressure. Now formalized in §4.2 with empirical validation [800, 1050] hPa to catch missed conversions.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "ICOS profile explicitly lists 'Likely Unit: kPa' with sample values 96-98; physical reasoning unambiguous."
+  },
+  {
+    "id": "D019",
+    "category": "quality_flags",
+    "question": "How should SAEON quality flags be mapped to canonical {0,1,2,9}?",
+    "evidence": {
+      "SAEON": "ss_itc_test {1=good, 2=uncertain, 3=poor, 9=missing} (per SAEON profile Key Observation #6)."
+    },
+    "alternatives_considered": [
+      "Arithmetic 'subtract 1, keep 9' -- self-contradictory: 9-1=8, not 9.",
+      "Explicit lookup table -- correct."
+    ],
+    "decision": "Lookup: 1->0, 2->1, 3->2, 9->9.",
+    "rationale": "Issue 4 fix. Draft 1's arithmetic rule was internally inconsistent. Explicit lookup is unambiguous, easy to implement, and easy to test.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Lookup table is exhaustive over the 4 known native values."
+  },
+  {
+    "id": "D020",
+    "category": "quality_flags",
+    "question": "How should eLTER FLAGQUA and FLAGSTA be mapped?",
+    "evidence": {
+      "eLTER_FLAGQUA": "{0=good, 1=other}. 'Other' semantics undocumented.",
+      "eLTER_FLAGSTA": "Float values like 900000.0; semantics undocumented in profile."
+    },
+    "alternatives_considered": [
+      "FLAGQUA 1 -> QF=2 (fail) -- aggressive, would exclude potentially usable data.",
+      "FLAGQUA 1 -> QF=1 (suspect) -- conservative, retains data with flag.",
+      "FLAGSTA mixed into QF -- would conflate semantics; not safe without documentation.",
+      "FLAGSTA dropped pending documentation -- conservative, loggable."
+    ],
+    "decision": "FLAGQUA: 0->0, 1->1 (suspect, NOT fail). FLAGSTA: drop on ingest with logged justification, pending eLTER documentation review.",
+    "rationale": "Issue 5 fix. 'Other' could mean unchecked, manual override, or suspect; mapping to fail is data-destructive. Suspect is the conservative interpretation that preserves data while signaling reduced confidence. FLAGSTA with no documented semantics cannot be safely mapped; dropping with logged justification is auditable.",
+    "confidence_qualitative": "MEDIUM",
+    "confidence_criteria": "Conservative interpretation pending eLTER documentation. Tracked in Open Questions 5 (TERN), 9 (FLAGSTA)."
+  },
+  {
+    "id": "D021",
+    "category": "depth_height_convention",
+    "question": "How is NEON soil depth recovered from verticalPosition, given that it is a code (501..509), not meters?",
+    "evidence": {
+      "NEON_profile": "verticalPosition values are codes '501' through '509' representing depth levels. Actual depths are NOT in the data files -- must be looked up in sensor position metadata (file: 'all_sensor_positions_00044_00006'). The metadata 'height' column carries the actual depth in meters (negative for soil sensors).",
+      "Draft_1_error": "Negated the position code -- would yield depth_m = -501 m, which is absurd."
+    },
+    "alternatives_considered": [
+      "Treat verticalPosition as meters (Draft 1) -- yields absurd values.",
+      "Use a hardcoded 501..509 -> depth lookup -- brittle and incomplete.",
+      "Join with sensor position metadata file -- correct and per-site-accurate."
+    ],
+    "decision": "Join NEON data files with the sensor position metadata file using siteID + HOR.VER. Extract actual depth from metadata 'height' column (already in m, negative for soil). Atmospheric sensors (e.g., precipitation gauge at 0.44-9.07 m) -> height_m = positive value.",
+    "rationale": "Issue 8 fix. The position code is meaningless without the metadata join. NEON profile §3 explicitly documents this requirement. Treating the code as meters silently produces nonsense; the metadata join is the only correct approach.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "NEON profile documents the metadata join explicitly; method is per-site accurate."
+  },
+  {
+    "id": "D022",
+    "category": "validation",
+    "question": "Should every canonical variable have an explicit validation range?",
+    "evidence": {
+      "Draft_1": "Only SWC had validation ranges. All other variables had none.",
+      "Risk": "Sentinel values like -9999 that escape detection (e.g., a network introduces a new sentinel) corrupt the dataset. Plausible-range checks catch this and detect unit-conversion errors (e.g., ICOS PA 96 hPa would fail the [800, 1050] pass range).",
+      "Standards": "FLUXNET, AmeriFlux, and CMIP all use plausibility ranges as a routine ingest QA step."
+    },
+    "alternatives_considered": [
+      "No validation -- unsafe.",
+      "Validation only on selected variables -- inconsistent.",
+      "Validation table for every variable -- robust and standard."
+    ],
+    "decision": "Add a validation table (§6) with pass / suspect / fail ranges for every canonical variable. Values outside fail are quality_flag=2; values in suspect are quality_flag=1.",
+    "rationale": "Issue 15 fix. Validation ranges are the standard ingest-QA mechanism. Tight pass ranges catch unit errors; wide fail ranges catch sentinel-conversion misses. Combined with §4.2 (pressure) and §4.3 (VPD) per-network conversions, the validation table is the safety net.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Industry-standard practice; ranges chosen with margin to avoid false positives at extremes (e.g., Vostok -89.2 degC is below the -80 fail threshold)."
+  },
+  {
+    "id": "D023",
+    "category": "presentation",
+    "question": "Should decision-log confidence scores be calibrated, qualitative, or removed?",
+    "evidence": {
+      "Review_1_Issue_19": "Numeric confidence scores 0.80-0.95 had no calibration definition. D001 (SWC, well-evidenced) had 0.85; D003 (soil texture, contained Issue-3 factual error) had 0.95. Scores did not correlate with evidence quality.",
+      "Standards": "Decision logs commonly use qualitative ratings (HIGH/MEDIUM/LOW) with explicit criteria, or omit ratings entirely."
+    },
+    "alternatives_considered": [
+      "Calibrated numeric scores -- requires durable scale definition.",
+      "Qualitative HIGH/MEDIUM/LOW with criteria -- standard.",
+      "Remove ratings entirely -- evidence speaks for itself."
+    ],
+    "decision": "Replace numeric `confidence` with `confidence_qualitative` (HIGH/MEDIUM/LOW) and add `confidence_criteria` describing why each rating applies. Calibration: HIGH = all networks verified or physically unambiguous; MEDIUM = majority verified with some inference or pending documentation; LOW = significant uncertainty.",
+    "rationale": "Issue 19 fix. Qualitative ratings with explicit criteria are honest about evidence quality and easy for reviewers to spot-check. The numeric scores in Draft 1 implied a precision the evidence did not support.",
+    "confidence_qualitative": "HIGH",
+    "confidence_criteria": "Self-applying calibration: criteria are documented and used consistently."
+  }
+]

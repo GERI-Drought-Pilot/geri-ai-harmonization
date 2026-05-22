@@ -1,0 +1,9 @@
+{
+    "run_id": "saeon_consistency_20260505_004436",
+    "network": "saeon",
+    "experiment": "consistency",
+    "run_number": 4,
+    "timestamp": "2026-05-04T22:47:16Z",
+    "elapsed_seconds": 160,
+    "model": "opus"
+}
