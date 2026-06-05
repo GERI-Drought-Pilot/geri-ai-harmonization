@@ -1,0 +1,92 @@
+[
+  {
+    "target": "air_temperature",
+    "chosen_source": {
+      "dp_id": "DP1.00003.001",
+      "file": "TAAT_30min.csv",
+      "variable": "tempTripleMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00003.001 (Triple Aspirated Air Temperature) is the only NEON product measuring air temperature. The TAAT_30min table provides 30-minute mean air temperature from triplicate platinum resistance thermometers in a fan-aspirated shield at tower top. The variable tempTripleMean is 'Arithmetic mean of triple aspirated air temperature' in Celsius — a direct semantic match to the GERI target airTemp_mean_degC (degree C). No unit conversion needed. No competing products exist.",
+    "escalation_steps_used": [
+      "Step 1: Schema semantics — target is 'Mean air temperature' in degC; tempTripleMean is exactly that. Unambiguous single candidate."
+    ],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "precipitation",
+    "chosen_source": {
+      "dp_id": "DP1.00044.001",
+      "file": "WEIPRE_60min.csv",
+      "variable": "precipBulk"
+    },
+    "alternatives_rejected": [
+      {
+        "dp_id": "DP1.00006.001",
+        "file": "SECPRE_30min.csv",
+        "variable": "secPrecipBulk",
+        "reason": "SECPRE is the 'secondary' tipping-bucket precipitation sensor located at tower top. NEON documentation explicitly states: 'Bulk precipitation measured using a DFIR and a weighing gauge is known to provide improved results over tipping bucket measurements. Thus, the weighing gauge surrounded by the DFIR is considered the primary method, while the tipping bucket is referred to as the secondary method.' SECPRE is the legacy bundled version of what is now DP1.00045.001 (TIPPRE); NEON is removing it from DP1.00006.001. Less accurate than the weighing gauge for total precipitation."
+      },
+      {
+        "dp_id": "DP1.00006.001",
+        "file": "THRPRE_30min.csv",
+        "variable": "TFPrecipBulk",
+        "reason": "THRPRE is throughfall precipitation — measured below the canopy with troughs. It represents precipitation that passes through or drips from the canopy, NOT total precipitation. By definition it excludes canopy interception, making it semantically wrong for the target 'Total precipitation (precip_tot_mm)'. Additionally, throughfall sensors are unheated (solid precipitation only recorded when it melts), further reducing reliability as a total precipitation measure."
+      },
+      {
+        "dp_id": "DP1.00045.001",
+        "file": "TIPPRE_30min.csv",
+        "variable": "precipBulk",
+        "reason": "TIPPRE is the tower-top tipping bucket (secondary precipitation). While it does measure bulk above-canopy precipitation, NEON designates it as the 'secondary' method. The weighing gauge (DP1.00044.001) is the 'primary' method with superior accuracy for total precipitation, especially for mixed and solid precipitation. DP1.00045.001 is deployed at gradient terrestrial sites and some aquatic sites where no weighing gauge exists, so it may serve as a fallback for those sites, but the weighing gauge is the better semantic match to 'total precipitation'."
+      }
+    ],
+    "reasoning": "The GERI target is precip_tot_mm = 'Total precipitation' in mm. Four NEON precipitation streams were evaluated across three data products. Anchoring on schema semantics (Step 1): the target is bulk total precipitation above the canopy. This immediately eliminates THRPRE (throughfall, below-canopy). Among the three above-canopy candidates, NEON's own documentation hierarchy designates the weighing gauge in DFIR (DP1.00044.001, WEIPRE) as the 'primary' method and tipping buckets as 'secondary'. The WEIPRE product was split from DP1.00006.001 in Dec 2024 with a rewritten algorithm that significantly reduces spurious trace precipitation — a long-standing known issue. The variable precipBulk = 'Bulk precipitation accumulated over the aggregation interval' in mm is a direct match. Note: WEIPRE is deployed at core terrestrial sites only; gradient sites without a weighing gauge would need TIPPRE as a secondary source, which should be flagged during transformation.",
+    "escalation_steps_used": [
+      "Step 1: Schema semantics — target is 'Total precipitation' in mm. Throughfall (below-canopy) immediately eliminated. Weighing gauge is NEON's designated primary method for bulk total precipitation.",
+      "Step 2: Research candidates — read readme_00006.csv, readme_00044.csv, readme_00045.csv, and variables files. Confirmed NEON instrument hierarchy: weighing gauge (primary) > tipping bucket (secondary) > throughfall (canopy-intercepted subset). DP1.00044.001 reprocessed Dec 2024 with improved algorithm for spurious precipitation removal."
+    ],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_water_content",
+    "chosen_source": {
+      "dp_id": "DP1.00094.001",
+      "file": "SWS_30_minute.parquet",
+      "variable": "VSWCMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00094.001 (Soil Water Content and Salinity) is the only NEON product measuring volumetric soil water content. The SWS_30_minute table provides 30-minute mean volumetric soil water content (VSWCMean). CRITICAL UNIT NOTE: the source variable VSWCMean is in units of 'cubicCentimetersPerCubicCentimeter' (volumetric fraction, 0-1 range). The GERI target sws_mean_percent requires percent (0-100), so a ×100 multiplication is needed during transformation. Data spans 8 chunk files across sites. The SWS product also includes VSICMean (volumetric soil ion content) which is not needed for the target variable. Sensor positions provide depth information via zOffset (negative = below ground), which maps to the schema's depth column.",
+    "escalation_steps_used": [
+      "Step 1: Schema semantics — target is 'Mean volumetric soil water content' in percent (0-100). VSWCMean is exactly volumetric soil water content. Unambiguous single candidate. Unit conversion (fraction→percent) flagged."
+    ],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_temperature",
+    "chosen_source": {
+      "dp_id": "DP1.00041.001",
+      "file": "ST_30_minute.csv",
+      "variable": "soilTempMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00041.001 (Soil Temperature) is the only NEON product measuring soil temperature. The ST_30_minute table provides 30-minute mean soil temperature (soilTempMean) in Celsius — a direct semantic match to the GERI target soilTemp_Mean_degC. No unit conversion needed. Data spans 8 chunk files across sites. Sensor positions provide depth information via zOffset, which maps to the schema's depth column (negative = below ground).",
+    "escalation_steps_used": [
+      "Step 1: Schema semantics — target is 'Mean soil temperature' in degC; soilTempMean is exactly that. Unambiguous single candidate."
+    ],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_texture",
+    "chosen_source": {
+      "dp_id": "DP1.00096.001",
+      "file": "mgp_perbiogeosample.csv",
+      "variable": "sandTotal, siltTotal, clayTotal"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00096.001 (Soil Physical and Chemical Properties, Megapit) is the only NEON product providing soil texture data. The mgp_perbiogeosample table contains sandTotal ('Total sand content on a weight basis of the <2 mm fraction', percent), siltTotal ('Total silt content', percent), and clayTotal ('Total clay content', percent) — direct matches to the GERI target columns sand_percent, silt_percent, clay_percent. Depth information comes from biogeoTopDepth and biogeoBottomDepth (in centimeters — need ÷100 for meters). Collection date from collectDate. Site coordinates and elevation must be joined from the companion mgp_permegapit table (decimalLatitude, decimalLongitude, elevation). Plot ID from pitID. This is static (one-time sampled) data, consistent with the schema's characterization of soil texture as a static product.",
+    "escalation_steps_used": [
+      "Step 1: Schema semantics — target is sand/silt/clay percent with depth intervals. sandTotal/siltTotal/clayTotal in mgp_perbiogeosample are exactly that. Unambiguous single candidate."
+    ],
+    "confidence": "HIGH"
+  }
+]

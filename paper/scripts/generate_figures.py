@@ -11,7 +11,7 @@ import matplotlib.patches as mpatches
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 from matplotlib.path import Path
 
-BASE = "Accelnet"
+BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 FIG_DIR = os.path.join(BASE, "paper/figures")
 os.makedirs(FIG_DIR, exist_ok=True)
 

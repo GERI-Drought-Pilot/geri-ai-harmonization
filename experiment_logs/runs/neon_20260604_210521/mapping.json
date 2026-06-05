@@ -1,0 +1,176 @@
+{
+  "mapping_timestamp": "2026-06-04T21:05:21Z",
+  "target_schema": "AccelNet/GERI Governance Handbook",
+  "source_network": "NEON",
+  "source_selection_decisions": [
+    {
+      "target_variable": "precip_tot_mm",
+      "candidates_considered": [
+        {
+          "product": "DP1.00045.001",
+          "table": "TIPPRE_30min",
+          "column": "precipBulk",
+          "description": "Bulk precipitation accumulated over the aggregation interval (tipping bucket, above canopy at tower)",
+          "sites": 44,
+          "resolution": "30min",
+          "qf_field": "finalQF",
+          "units": "millimeter"
+        },
+        {
+          "product": "DP1.00044.001",
+          "table": "WEIPRE_60min",
+          "column": "precipBulk",
+          "description": "Bulk precipitation accumulated over the aggregation interval (weighing gauge, field site)",
+          "sites": 24,
+          "resolution": "60min",
+          "qf_field": "finalQF",
+          "units": "millimeter"
+        },
+        {
+          "product": "DP1.00006.001",
+          "table": "SECPRE_30min",
+          "column": "secPrecipBulk",
+          "description": "Bulk secondary precipitation (tower)",
+          "sites": 44,
+          "resolution": "30min",
+          "qf_field": "secPrecipRangeQF (no unified finalQF)",
+          "units": "millimeter"
+        },
+        {
+          "product": "DP1.00006.001",
+          "table": "THRPRE_30min",
+          "column": "TFPrecipBulk",
+          "description": "Bulk throughfall precipitation (below canopy)",
+          "sites": 44,
+          "resolution": "30min",
+          "qf_field": "TFPrecipRangeQF",
+          "units": "millimeter",
+          "excluded_reason": "Throughfall measures below-canopy precipitation, not total atmospheric precipitation. Does not match schema definition of 'Total precipitation'."
+        }
+      ],
+      "selection": "DP1.00045.001 / TIPPRE_30min / precipBulk",
+      "escalation_steps_used": ["Step 1: Schema semantics", "Step 2: Research candidates"],
+      "rationale": "Schema defines precip_tot_mm as 'Total precipitation'. Both TIPPRE and WEIPRE measure above-canopy bulk precipitation in mm, matching this definition. TIPPRE selected because: (1) it measures the same physical quantity as WEIPRE (above-canopy bulk precipitation); (2) it uses the unified finalQF quality flag (0=pass, 1=fail) consistent with other NEON products, enabling uniform QC; (3) available in parquet format for efficient processing; (4) SECPRE excluded because it uses non-standard QF fields (secPrecipRangeQF/secPrecipSciRvwQF instead of finalQF); (5) THRPRE excluded as throughfall is below-canopy, not total precipitation. WEIPRE is NEON's designated 'Primary Precipitation' (weighing gauge, more accurate in freezing conditions) but uses a different sensor placement philosophy (ground-level field site vs tower-top). The tipping bucket at tower top is analogous to how other RIs (ICOS, TERN) measure precipitation.",
+      "confidence": "HIGH"
+    }
+  ],
+  "file_mappings": [
+    {
+      "source_file": "Downloads/geri-data/neon/DP1.00003.001/TAAT_30min.parquet",
+      "data_product": "air_temperature",
+      "mappings": {
+        "airTemp_mean_degC": {
+          "source_column": "tempTripleMean",
+          "unit_conversion": "none (already celsius)",
+          "confidence": "HIGH",
+          "rationale": "NEON TAAT tempTripleMean is the arithmetic mean of triple aspirated air temperature, documented in celsius. Direct match to schema airTemp_mean_degC."
+        },
+        "startDateTime": {"source_column": "startDateTime", "unit_conversion": "none (already UTC ISO 8601)"},
+        "endDateTime": {"source_column": "endDateTime", "unit_conversion": "none"},
+        "siteID": {"source_column": "siteID"},
+        "height_m": {"source": "sensor_positions_00003.csv zOffset, joined by siteID + HOR.VER"}
+      },
+      "quality_flag": {"field": "finalQF", "pass_value": 0, "fail_value": 1},
+      "sensor_position_join": "horizontalPosition='000', verticalPosition from data → HOR.VER = '0.{verticalPosition}' in sensor_positions",
+      "notes": "All TAAT data is at horizontalPosition=000. verticalPosition varies by site (040-080, representing tower levels 4-8)."
+    },
+    {
+      "source_file": "Downloads/geri-data/neon/DP1.00045.001/TIPPRE_30min.parquet",
+      "data_product": "precipitation",
+      "mappings": {
+        "precip_tot_mm": {
+          "source_column": "precipBulk",
+          "unit_conversion": "none (already millimeter)",
+          "confidence": "HIGH",
+          "rationale": "NEON TIPPRE precipBulk is bulk precipitation accumulated over 30-min interval, in millimeter. Direct match to schema precip_tot_mm."
+        },
+        "startDateTime": {"source_column": "startDateTime"},
+        "endDateTime": {"source_column": "endDateTime"},
+        "siteID": {"source_column": "siteID"},
+        "height_m": {"source": "sensor_positions_00045.csv zOffset, joined by siteID + HOR.VER"}
+      },
+      "quality_flag": {"field": "finalQF", "pass_value": 0, "fail_value": 1},
+      "notes": "Tipping bucket gauge at tower. horizontalPosition varies (000 for tower, 220/900 for off-tower)."
+    },
+    {
+      "source_file": "Downloads/geri-data/neon/DP1.00094.001chunk_{1-8}/SWS_30_minute.parquet",
+      "data_product": "soil_moisture",
+      "mappings": {
+        "sws_mean_percent": {
+          "source_column": "VSWCMean",
+          "unit_conversion": "MULTIPLY BY 100 (fraction 0-1 → percent 0-100)",
+          "confidence": "HIGH",
+          "rationale": "NEON VSWCMean is volumetric soil water content in cubicCentimetersPerCubicCentimeter (fraction 0-1). Schema requires percent (0-100). Confirmed by data range: max=1.0, mean=0.17."
+        },
+        "startDateTime": {"source_column": "startDateTime"},
+        "endDateTime": {"source_column": "endDateTime"},
+        "siteID": {"source_column": "siteID"},
+        "depth": {"source": "sensor_positions_00094.csv zOffset (already negative for below-ground)"}
+      },
+      "quality_flag": {"field": "VSWCFinalQF", "pass_value": 0, "fail_value": 1},
+      "sensor_position_join": "HOR.VER from horizontalPosition.verticalPosition in data",
+      "notes": "8 parquet chunks covering all sites. Multi-depth per soil plot (HOR=plot, VER=depth level 501-508). Preserve all depths."
+    },
+    {
+      "source_file": "Downloads/geri-data/neon/DP1.00041.001chunk_{1-8}/ST_30_minute.csv",
+      "data_product": "soil_temperature",
+      "mappings": {
+        "soilTemp_Mean_degC": {
+          "source_column": "soilTempMean",
+          "unit_conversion": "none (already celsius)",
+          "confidence": "HIGH",
+          "rationale": "NEON soilTempMean is the arithmetic mean of soil temperature in celsius. Direct match."
+        },
+        "startDateTime": {"source_column": "startDateTime"},
+        "endDateTime": {"source_column": "endDateTime"},
+        "siteID": {"source_column": "siteID"},
+        "depth": {"source": "sensor_positions_00041.csv zOffset (already negative for below-ground)"}
+      },
+      "quality_flag": {"field": "finalQF", "pass_value": 0, "fail_value": 1},
+      "notes": "8 CSV chunks (3-4GB each). Must use chunked reading. Multi-depth per soil plot."
+    },
+    {
+      "source_file": "Downloads/geri-data/neon/DP1.00096.001/mgp_perbiogeosample.csv",
+      "data_product": "soil_texture",
+      "mappings": {
+        "sand_percent": {
+          "source_column": "sandTotal",
+          "unit_conversion": "none (already percent)",
+          "confidence": "HIGH",
+          "rationale": "NEON sandTotal is total sand content as percent of <2mm fraction."
+        },
+        "silt_percent": {
+          "source_column": "siltTotal",
+          "unit_conversion": "none (already percent)",
+          "confidence": "HIGH"
+        },
+        "clay_percent": {
+          "source_column": "clayTotal",
+          "unit_conversion": "none (already percent)",
+          "confidence": "HIGH"
+        },
+        "depthMin_m": {
+          "source_column": "biogeoTopDepth",
+          "unit_conversion": "DIVIDE BY 100 (cm → m)",
+          "confidence": "HIGH"
+        },
+        "depthMax_m": {
+          "source_column": "biogeoBottomDepth",
+          "unit_conversion": "DIVIDE BY 100 (cm → m)",
+          "confidence": "HIGH"
+        },
+        "dateCollected": {"source_column": "collectDate"},
+        "siteID": {"source_column": "siteID"},
+        "plotID": {"source_column": "pitID"}
+      },
+      "coordinate_source": "mgp_permegapit.csv (joined by siteID + pitID)",
+      "notes": "Static soil texture data. Depths in source are cm, convert to m. Join with mgp_permegapit for coordinates/elevation."
+    }
+  ],
+  "global_warnings": [
+    "SWC unit conversion (fraction→percent) is critical - verified from NEON documentation and data range",
+    "Soil texture depths are in cm in source, must convert to meters",
+    "Soil temp/moisture have multi-depth records - all depths preserved per schema depth column",
+    "NEON timestamps are UTC, period-beginning convention"
+  ]
+}

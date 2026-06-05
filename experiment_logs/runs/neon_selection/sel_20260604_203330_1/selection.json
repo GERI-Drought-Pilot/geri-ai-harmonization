@@ -1,0 +1,81 @@
+[
+  {
+    "target": "air_temperature",
+    "chosen_source": {
+      "dp_id": "DP1.00003.001",
+      "file": "TAAT_30min.csv",
+      "variable": "tempTripleMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00003.001 is the only NEON data product in the download that measures air temperature. The target schema defines airTemp_mean_degC as 'Mean air temperature' in degrees Celsius at sensor height above ground. The Triple Aspirated Air Temperature product measures exactly this quantity: air temperature at the tower top using triplicate platinum resistance thermometers in a fan-aspirated shield to minimize radiative biases. The variable tempTripleMean is the arithmetic mean of these measurements, already in Celsius. No other candidate air temperature products are present in the download.",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "precipitation",
+    "chosen_source": {
+      "dp_id": "DP1.00044.001",
+      "file": "WEIPRE_60min.csv",
+      "variable": "precipBulk"
+    },
+    "alternatives_rejected": [
+      {
+        "dp_id": "DP1.00006.001",
+        "file": "SECPRE_30min.csv",
+        "variable": "secPrecipBulk",
+        "why_rejected": "Secondary precipitation uses a tipping bucket at the tower top, which NEON designates as the 'secondary' method. Tipping buckets have known issues with solid precipitation measurement, wind-induced undercatch, and spurious readings. The weighing gauge (DP1.00044.001) is NEON's designated 'primary' measurement method and provides higher accuracy bulk precipitation. NEON's own documentation states: 'Bulk precipitation measured using a DFIR and a weighing gauge is known to provide improved results over tipping bucket measurements.'"
+      },
+      {
+        "dp_id": "DP1.00006.001",
+        "file": "THRPRE_30min.csv",
+        "variable": "TFPrecipBulk",
+        "why_rejected": "Throughfall measures precipitation that passes through the forest canopy to the soil surface — a fundamentally different physical quantity than total precipitation. It excludes canopy-intercepted precipitation and is therefore always less than or equal to total precipitation. The target schema defines precip_tot_mm as 'Total precipitation', which is the gross bulk precipitation falling at the site, not the below-canopy throughfall fraction."
+      },
+      {
+        "dp_id": "DP1.00045.001",
+        "file": "TIPPRE_30min.csv",
+        "variable": "precipBulk",
+        "why_rejected": "This is the tipping bucket precipitation product (split from DP1.00006.001). While it does measure bulk precipitation at the tower top, it uses the 'secondary' tipping bucket method (Met One 372/379), which is less accurate than the weighing gauge. NEON explicitly designates the weighing gauge as the 'primary' method. Additionally, DP1.00044.001 has been reprocessed with a new algorithm that removes spurious trace precipitation artifacts. The tipping bucket is deployed at gradient sites and some core sites where no weighing gauge is available, but where both exist, the weighing gauge is the preferred source."
+      }
+    ],
+    "reasoning": "The target schema defines precip_tot_mm as 'Total precipitation' in mm. Three NEON products measure some form of precipitation: (1) DP1.00044.001 weighing gauge (primary, DFIR-shielded), (2) DP1.00045.001 tipping bucket (secondary), and (3) DP1.00006.001 containing secondary tipping bucket and throughfall. Throughfall is a different physical quantity (below-canopy) and is immediately excluded. Between the weighing gauge and tipping bucket, both measure bulk precipitation, but the weighing gauge in a DFIR is the WMO-standard reference method, designated by NEON as 'primary', and has been reprocessed with improved algorithms to remove spurious precipitation. Schema semantics alone resolve this: precipBulk in WEIPRE_60min from DP1.00044.001 is the most accurate measurement of total bulk precipitation.",
+    "escalation_steps_used": ["schema", "research"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_moisture",
+    "chosen_source": {
+      "dp_id": "DP1.00094.001",
+      "file": "SWS_30_minute.parquet",
+      "variable": "VSWCMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00094.001 (Soil water content and water salinity) is the only NEON product in the download that measures soil moisture. The target schema defines sws_mean_percent as 'Mean volumetric soil water content' in percent (0-100). VSWCMean provides the arithmetic mean of volumetric soil water content, measured by Sentek EnviroSCAN TriSCAN sensors at multiple depths (approximately 6 cm to 200 cm) across five instrumented soil plots per site. CRITICAL UNIT NOTE: VSWCMean is in cubicCentimetersPerCubicCentimeter (fraction 0-1), which must be multiplied by 100 to convert to percent (0-100) during transformation. The schema's depth column should be populated from sensor_positions_00094 zOffset values (negative = below ground, matching the schema convention).",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_temperature",
+    "chosen_source": {
+      "dp_id": "DP1.00041.001",
+      "file": "ST_30_minute.csv",
+      "variable": "soilTempMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00041.001 (Soil temperature) is the only NEON product in the download that measures soil temperature. The target schema defines soilTemp_Mean_degC as 'Mean soil temperature' in degrees Celsius at sensor depth below ground (negative value). soilTempMean provides the arithmetic mean of soil temperature, already in Celsius, measured by Thermometrics Climate RTD 100-ohm probes at up to nine depths (approximately 2 cm to 200 cm) across five instrumented soil plots per site. Sensor depths are available in sensor_positions_00041 as zOffset values (negative = below ground surface, matching the schema convention). No other candidate soil temperature products are present.",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_texture",
+    "chosen_source": {
+      "dp_id": "DP1.00096.001",
+      "file": "mgp_perbiogeosample.csv",
+      "variable": "sandTotal,siltTotal,clayTotal"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00096.001 (Soil physical and chemical properties, Megapit) is the only NEON product in the download that provides soil texture data. The target schema requires sand_percent, clay_percent, and silt_percent as percentage values, plus depth interval (depthMin_m, depthMax_m) and collection date. The mgp_perbiogeosample table contains sandTotal, siltTotal, and clayTotal (all in percent of the <2mm fraction), along with biogeoTopDepth and biogeoBottomDepth (in centimeters, need /100 for meters). This is static data collected once per site during construction at a representative Megapit, analyzed by the USDA NRCS Kellogg Soil Survey Laboratory. The mgp_perhorizon table provides horizon-level depth boundaries but not texture fractions; texture data reside in mgp_perbiogeosample. Collection date is available as collectDate. The pitID can serve as plotID in the target schema.",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  }
+]

@@ -8,10 +8,10 @@
 
 set -euo pipefail
 
-PROJECT_ROOT="Accelnet"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 RUNS_DIR="$PROJECT_ROOT/experiment_logs/runs"
 
-SAEON_PROMPT="Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the SAEON flux tower data for all 8 sites. Raw data is in Downloads/geri-data/saeon/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID."
+SAEON_PROMPT="Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the SAEON flux tower data for all 8 sites. Raw data is in ${PROJECT_ROOT}/Downloads/geri-data/saeon/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID."
 
 run_model() {
     local model="$1"

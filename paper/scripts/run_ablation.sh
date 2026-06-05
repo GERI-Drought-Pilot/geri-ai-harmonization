@@ -11,7 +11,7 @@
 
 set -euo pipefail
 
-PROJECT_ROOT="Accelnet"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 RUNS_DIR="$PROJECT_ROOT/experiment_logs/runs"
 
 run_ablation() {
@@ -70,12 +70,12 @@ echo ""
 # Test 1: eLTER without review
 # The critical test — does the SWC fraction-vs-percent bug at Hyytiälä slip through?
 run_ablation "elter_no_review" \
-    "Run the harmonization pipeline on the eLTER data for all 15 stations, but SKIP the review skill entirely. Run only: schema, ingest, research, map, transform. Do NOT run the review step. Raw data is in Downloads/geri-data/elter/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID. IMPORTANT: Do not perform any cross-site comparison or review of the outputs."
+    "Run the harmonization pipeline on the eLTER data for all 15 stations, but SKIP the review skill entirely. Run only: schema, ingest, research, map, transform. Do NOT run the review step. Raw data is in ${PROJECT_ROOT}/Downloads/geri-data/elter/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID. IMPORTANT: Do not perform any cross-site comparison or review of the outputs."
 
 # Test 2: SAEON without research
 # What happens when the agent can't look up external metadata?
 run_ablation "saeon_no_research" \
-    "Run the harmonization pipeline on the SAEON flux tower data for all 8 sites, but SKIP the research skill entirely. Run only: schema, ingest, map, transform, review. Do NOT perform any web searches or external metadata lookups. Use only what is available in the data files themselves. Raw data is in Downloads/geri-data/saeon/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID."
+    "Run the harmonization pipeline on the SAEON flux tower data for all 8 sites, but SKIP the research skill entirely. Run only: schema, ingest, map, transform, review. Do NOT perform any web searches or external metadata lookups. Use only what is available in the data files themselves. Raw data is in ${PROJECT_ROOT}/Downloads/geri-data/saeon/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID."
 
 echo "============================================================"
 echo "Ablation runs complete."

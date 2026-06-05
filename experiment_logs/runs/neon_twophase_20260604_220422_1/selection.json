@@ -1,0 +1,88 @@
+[
+  {
+    "target": "air_temperature",
+    "chosen_source": {
+      "dp_id": "DP1.00003.001",
+      "file": "TAAT_30min",
+      "variable": "tempTripleMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00003.001 is the only air temperature product in the downloaded NEON data. It measures triple-aspirated air temperature (TAAT) using three platinum resistance thermometers in a fan-aspirated shield, providing tempTripleMean in degrees Celsius. This directly maps to the GERI target airTemp_mean_degC. The aspirated shield design minimizes radiative heating bias, making it the standard NEON above-canopy air temperature measurement. No competing air temperature products exist in the dataset.",
+    "escalation_steps_used": [
+      "1. Schema semantics: target is mean air temperature in degC; tempTripleMean is arithmetic mean of three co-located PRTs in Celsius — exact semantic match.",
+      "2. No ambiguity — single candidate product, no escalation needed."
+    ],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "precipitation",
+    "chosen_source": {
+      "dp_id": "DP1.00044.001",
+      "file": "WEIPRE_60min",
+      "variable": "precipBulk"
+    },
+    "alternatives_rejected": [
+      {
+        "dp_id": "DP1.00006.001",
+        "variable": "secPrecipBulk / TFPrecipBulk",
+        "reason": "DP1.00006.001 is deprecated as of RELEASE-2025. It was split into three successor products: DP1.00044.001 (primary/weighing gauge), DP1.00045.001 (secondary/tipping bucket), and DP1.00046.001 (throughfall). NEON states the new products should be used exclusively. Additionally, DP1.00006.001 contained throughfall (below-canopy) precipitation which does not match the target definition of total bulk precipitation."
+      },
+      {
+        "dp_id": "DP1.00045.001",
+        "variable": "precipBulk",
+        "reason": "DP1.00045.001 is NEON's secondary precipitation measurement using Met One tipping bucket gauges at tower tops. Tipping buckets are less accurate than the DFIR-shielded weighing gauge (DP1.00044.001), particularly during wind and snowfall — wind-induced undercatch can reach 20-80%. NEON's own ATBD designates the weighing gauge as the primary reference method following WMO guidelines. The tipping bucket is the secondary/fallback instrument."
+      }
+    ],
+    "reasoning": "Three precipitation products exist in the downloaded NEON data. DP1.00044.001 uses a Belfort AEPG II 600M weighing gauge housed within a DFIR (Double Fence Intercomparison Reference) enclosure — NEON's designated primary, reference-grade bulk precipitation measurement following WMO guidelines. The variable precipBulk (mm) maps directly to the GERI target precip_tot_mm. DP1.00006.001 is deprecated and was superseded by DP1.00044/00045/00046. DP1.00045.001 is the secondary tipping-bucket method with known wind undercatch issues. Selection is based on semantic match to 'total bulk precipitation' and instrument accuracy, not temporal resolution or data volume.",
+    "escalation_steps_used": [
+      "1. Schema semantics: target is total precipitation in mm; all three candidates provide precipitation in mm, so semantics alone did not disambiguate.",
+      "2. Research: Web search confirmed DP1.00006.001 is deprecated (split Oct 2025). NEON ATBD designates DP1.00044.001 weighing gauge with DFIR as primary reference method per WMO standards; DP1.00045.001 tipping bucket is secondary. Weighing gauge provides superior accuracy especially for snow and windy conditions. Sources: NEON observatory blog, NEON.DOC.000898 ATBD, NEON data product documentation."
+    ],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_water_content",
+    "chosen_source": {
+      "dp_id": "DP1.00094.001",
+      "file": "SWS_30_minute",
+      "variable": "VSWCMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00094.001 is the only soil water content product in the downloaded NEON data. It measures volumetric soil water content (VSWC) at multiple depths using in-situ soil sensors. VSWCMean provides mean volumetric water content in cm³/cm³ (fraction 0-1), which will need conversion to percent (0-100) per GERI schema rules (multiply by 100). Sensor positions include depth information (vertical indices 501-508 mapping to specific depths), which maps to the GERI target depth column. No competing soil moisture products exist in the dataset.",
+    "escalation_steps_used": [
+      "1. Schema semantics: target is mean volumetric soil water content in percent (0-100); VSWCMean measures volumetric soil water content in cm³/cm³ — exact semantic match with known unit conversion (×100).",
+      "2. No ambiguity — single candidate product, no escalation needed."
+    ],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_temperature",
+    "chosen_source": {
+      "dp_id": "DP1.00041.001",
+      "file": "ST_30_minute",
+      "variable": "soilTempMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00041.001 is the only soil temperature product in the downloaded NEON data. It measures soil temperature at multiple depths (up to 9 depths per soil plot, 5 plots per site) using in-situ temperature sensors. soilTempMean provides arithmetic mean soil temperature in degrees Celsius, which maps directly to the GERI target soilTemp_Mean_degC with no unit conversion needed. Sensor positions encode depth via the vertical index (501-509), preserving per-depth records as required by the schema's depth column. No competing soil temperature products exist in the dataset.",
+    "escalation_steps_used": [
+      "1. Schema semantics: target is mean soil temperature in degC; soilTempMean is arithmetic mean soil temperature in Celsius — exact semantic match, no conversion needed.",
+      "2. No ambiguity — single candidate product, no escalation needed."
+    ],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_texture",
+    "chosen_source": {
+      "dp_id": "DP1.00096.001",
+      "file": "mgp_perbiogeosample",
+      "variable": "sandTotal, siltTotal, clayTotal"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00096.001 (Soil physical and chemical properties, Megapit) is the only soil texture product in the downloaded NEON data. The mgp_perbiogeosample table provides sandTotal, siltTotal, and clayTotal as percentage fractions per soil horizon, mapping directly to the GERI target columns sand_percent, clay_percent, silt_percent. Depth information is available via biogeoTopDepth and biogeoBottomDepth columns, mapping to GERI depthMin_m and depthMax_m. This is a one-time static collection from megapits at each NEON terrestrial site, consistent with the GERI schema treating soil texture as a static product. No competing soil texture products exist in the dataset.",
+    "escalation_steps_used": [
+      "1. Schema semantics: target is sand/clay/silt percentages with depth interval; sandTotal/siltTotal/clayTotal with biogeoTopDepth/biogeoBottomDepth provide exact semantic match.",
+      "2. No ambiguity — single candidate product, no escalation needed."
+    ],
+    "confidence": "HIGH"
+  }
+]

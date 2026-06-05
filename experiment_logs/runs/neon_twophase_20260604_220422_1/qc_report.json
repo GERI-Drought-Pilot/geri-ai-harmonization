@@ -1,0 +1,78 @@
+{
+  "run_id": "neon_twophase_20260604_220422_1",
+  "phase": "harmonize_transform",
+  "timestamp": "2026-06-05T02:51:15.645807+00:00",
+  "elapsed_seconds": 1132.9,
+  "products": {
+    "air_temperature": {
+      "product": "air_temperature",
+      "total_input_rows": 6744624,
+      "after_qf_filter": 5430052,
+      "qc_range_removed": 0,
+      "output_rows": 5430052,
+      "sites": 47,
+      "missing_coords": 0
+    },
+    "precipitation": {
+      "product": "precipitation",
+      "total_input_rows": 1620144,
+      "after_qf_filter": 1283867,
+      "qc_range_removed": 0,
+      "output_rows": 1283867,
+      "sites": 24,
+      "missing_coords": 0
+    },
+    "soil_moisture": {
+      "product": "soil_moisture",
+      "total_input_rows": 179436336,
+      "after_qf_filter": 72927292,
+      "qc_range_removed": 0,
+      "output_rows": 66272282,
+      "sites": 39
+    },
+    "soil_temperature": {
+      "product": "soil_temperature",
+      "total_input_rows": 204592944,
+      "after_qf_filter": 172928046,
+      "qc_range_removed": 1825,
+      "output_rows": 172926221,
+      "sites": 39
+    },
+    "soil_texture": {
+      "product": "soil_texture",
+      "total_input_rows": 375,
+      "output_rows": 346,
+      "sites": 47,
+      "missing_coords": 0
+    }
+  },
+  "schema_rules_applied": {
+    "swc_unit": "fraction(0-1) x 100 -> percent(0-100)",
+    "depth_convention": "negative meters below ground",
+    "height_convention": "positive meters above ground",
+    "sentinel_replacement": "-9999, -999 -> NaN",
+    "quality_filter": "finalQF==0 (VSWCFinalQF==0 for SWC)",
+    "temperature_qc": "air [-60,60] degC, soil [-30,70] degC",
+    "precip_qc": "[0,500] mm per interval",
+    "swc_qc": "[0,100] percent after conversion",
+    "soil_texture_depth": "cm -> negative meters"
+  },
+  "data_quality_notes": {
+    "missing_coordinates": {
+      "affected_products": ["soil_moisture", "soil_temperature"],
+      "count": 2389280,
+      "sites": ["DEJU", "KONZ", "OAES", "TEAK", "TOOL"],
+      "explanation": "56 sensor_positions entries across these 5 sites lack locationReferenceLatitude/Longitude. Measurements are valid (passed QF) but lat/lon/elevation are NaN in output."
+    },
+    "positive_depth_values": {
+      "affected_products": ["soil_moisture", "soil_temperature"],
+      "count_sensor_positions": 60,
+      "max_positive_depth_m": 0.40,
+      "explanation": "Most are 0.01m (surface-level sensors). HEAL site has values up to 0.40m — sensors installed in organic layers above mineral soil reference. These are legitimate NEON zOffset values, not sign convention errors."
+    },
+    "soil_temperature_qc_removed": {
+      "count": 1825,
+      "explanation": "1,825 soil temperature values removed for being outside [-30, 70] degC range"
+    }
+  }
+}

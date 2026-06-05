@@ -13,7 +13,7 @@
 
 set -euo pipefail
 
-PROJECT_ROOT="Accelnet"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 RUNS_DIR="$PROJECT_ROOT/experiment_logs/runs"
 
 get_needed_runs() {
@@ -29,15 +29,15 @@ get_needed_runs() {
 get_prompt() {
     case "$1" in
         icos)
-            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the ICOS METEO L2 data for all 39 sites. Raw data is in Downloads/geri-data/icos/data/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
+            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the ICOS METEO L2 data for all 39 sites. Raw data is in ${PROJECT_ROOT}/Downloads/geri-data/icos/data/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
         neon)
-            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the NEON data for all available sites. Raw data is in Downloads/geri-data/neon/ (raw NEON Level-1 DP1.xxxxx.001 products) and metadata in Downloads/geri-metadata/neon/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
+            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the NEON data for all available sites. Raw data is in ${PROJECT_ROOT}/Downloads/geri-data/neon/ (raw NEON Level-1 DP1.xxxxx.001 products) and metadata in ${PROJECT_ROOT}/Downloads/geri-metadata/neon/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
         tern)
-            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the TERN OzFlux L3 NetCDF data for all available sites. Raw data is in Downloads/geri-data/tern/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
+            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the TERN OzFlux L3 NetCDF data for all available sites. Raw data is in ${PROJECT_ROOT}/Downloads/geri-data/tern/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
         saeon)
-            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the SAEON flux tower data for all 8 sites. Raw data is in Downloads/geri-data/saeon/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
+            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the SAEON flux tower data for all 8 sites. Raw data is in ${PROJECT_ROOT}/Downloads/geri-data/saeon/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
         elter)
-            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the eLTER data for all 15 stations. Raw data is in Downloads/geri-data/elter/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
+            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the eLTER data for all 15 stations. Raw data is in ${PROJECT_ROOT}/Downloads/geri-data/elter/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
     esac
 }
 

@@ -1,0 +1,81 @@
+[
+  {
+    "target": "air_temperature",
+    "chosen_source": {
+      "dp_id": "DP1.00003.001",
+      "file": "TAAT_30min.csv",
+      "variable": "tempTripleMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "Only air temperature product in the NEON download. DP1.00003.001 is Triple Aspirated Air Temperature. The variable tempTripleMean is described as 'Arithmetic mean of triple aspirated air temperature' in units of celsius. This is an exact semantic match to the schema target airTemp_mean_degC ('Mean air temperature' in degree C). The triple-aspirated design uses a precision aspirated radiation shield, making it NEON's reference air temperature measurement. No unit conversion needed. 30-minute temporal resolution will require daily aggregation (mean).",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "precipitation",
+    "chosen_source": {
+      "dp_id": "DP1.00044.001",
+      "file": "WEIPRE_60min.csv",
+      "variable": "precipBulk"
+    },
+    "alternatives_rejected": [
+      {
+        "dp_id": "DP1.00006.001",
+        "file": "SECPRE_30min.csv",
+        "variable": "secPrecipBulk",
+        "why_rejected": "Secondary tipping bucket, explicitly designated as NEON's secondary precipitation instrument. The DP1.00006.001 readme states: 'primary weighing gauge precipitation has moved to DP1.00044.001' and will be removed from this product. The variable name itself (secPrecipBulk = 'Bulk secondary precipitation') confirms subordinate status. Measures the same physical quantity as the primary gauge but with a less authoritative instrument."
+      },
+      {
+        "dp_id": "DP1.00006.001",
+        "file": "THRPRE_30min.csv",
+        "variable": "TFPrecipBulk",
+        "why_rejected": "Throughfall precipitation measured below the forest canopy. TFPrecipBulk is described as 'Bulk throughfall precipitation', which is precipitation that passes through the canopy -- reduced by interception losses. This is categorically NOT total precipitation and does not match the schema target precip_tot_mm ('Total precipitation'). Throughfall is a different physical quantity used in ecohydrology, not standard meteorological precipitation."
+      },
+      {
+        "dp_id": "DP1.00045.001",
+        "file": "TIPPRE_30min.csv",
+        "variable": "precipBulk",
+        "why_rejected": "Tipping bucket gauge precipitation. While it measures bulk precipitation (same physical quantity as the weighing gauge), tipping buckets systematically underestimate solid precipitation (snow, sleet, hail) because the mechanism requires liquid water to tip the bucket. The weighing gauge (DP1.00044.001) measures all precipitation phases via mass change and is NEON's designated primary precipitation instrument. For a harmonized dataset spanning all seasons, the weighing gauge provides a more complete and accurate total precipitation record."
+      }
+    ],
+    "reasoning": "Schema target is precip_tot_mm = 'Total precipitation' in mm. Four candidate streams exist across three NEON products. Step 1 (schema semantics): throughfall (THRPRE) immediately rejected -- it measures sub-canopy precipitation, not total. Three remaining candidates all measure 'bulk precipitation' in mm. Step 2 (research): The DP1.00006.001 readme explicitly states that the primary weighing gauge was separated into its own product DP1.00044.001, confirming the weighing gauge as NEON's primary reference. The weighing gauge (OTT Pluvio-type) measures precipitation via mass accumulation, accurately capturing all phases (rain, snow, mixed), with built-in evaporation correction. It is deployed at horizontal position 900 (open ground away from tower), following WMO siting guidelines. WEIPRE precipBulk is described as 'Bulk precipitation accumulated over the aggregation interval' in mm -- a direct match for precip_tot_mm. 60-minute temporal resolution requires aggregation to daily totals (sum).",
+    "escalation_steps_used": ["schema", "research"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_moisture",
+    "chosen_source": {
+      "dp_id": "DP1.00094.001",
+      "file": "SWS_30_minute.parquet",
+      "variable": "VSWCMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "Only soil water content product in the NEON download. DP1.00094.001 is Soil Water Content and Water Salinity. The variable VSWCMean is described as 'Arithmetic mean of volumetric soil water content' in units of cubicCentimetersPerCubicCentimeter (cm3/cm3, i.e., volumetric fraction 0-1). This maps to the schema target sws_mean_percent ('Mean volumetric soil water content' in percent 0-100). CRITICAL: unit conversion required -- multiply by 100 to convert from fraction (0-1) to percent (0-100) per schema rules. Data is split across 8 chunks (DP1.00094.001chunk_1 through chunk_8). Multi-depth sensors are indexed by horizontalPosition and verticalPosition; depth information comes from sensor_positions_00094.csv. 30-minute resolution requires daily aggregation (mean).",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_temperature",
+    "chosen_source": {
+      "dp_id": "DP1.00041.001",
+      "file": "ST_30_minute.csv",
+      "variable": "soilTempMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "Only soil temperature product in the NEON download. DP1.00041.001 is Soil Temperature. The variable soilTempMean is described as 'Arithmetic mean of Soil Temperature' in units of celsius. This is an exact semantic match to the schema target soilTemp_Mean_degC ('Mean soil temperature' in degree C). No unit conversion needed. Data is split across 8 chunks (DP1.00041.001chunk_1 through chunk_8). Multi-depth sensors are indexed by horizontalPosition and verticalPosition; depth information (negative below ground per schema convention) comes from sensor_positions_00041.csv. 30-minute resolution requires daily aggregation (mean).",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_texture",
+    "chosen_source": {
+      "dp_id": "DP1.00096.001",
+      "file": "mgp_perbiogeosample.csv",
+      "variable": "sandTotal,siltTotal,clayTotal"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "Only soil physical properties product in the NEON download. DP1.00096.001 is Soil Physical and Chemical Properties, Megapit. The mgp_perbiogeosample table contains sandTotal ('Total sand content on a weight basis of the <2 mm fraction', percent), siltTotal ('Total silt content', percent), and clayTotal ('Total clay content', percent) -- directly matching schema targets sand_percent, silt_percent, clay_percent. Depth intervals are in biogeoTopDepth and biogeoBottomDepth (centimeters, need /100 for meters to match schema depthMin_m and depthMax_m). Collection date is in collectDate. Site-level metadata (coordinates, elevation, pitID) must be joined from mgp_permegapit.csv on pitID. This is a static (one-time sampling) product, consistent with the schema's soil texture table having dateCollected rather than startDateTime/endDateTime.",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  }
+]

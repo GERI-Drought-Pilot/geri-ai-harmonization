@@ -11,7 +11,7 @@
 
 set -euo pipefail
 
-PROJECT_ROOT="Accelnet"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 RUNS_DIR="$PROJECT_ROOT/experiment_logs/runs"
 N_RUNS="${1:-1}"
 

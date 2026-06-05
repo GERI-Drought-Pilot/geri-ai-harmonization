@@ -1,0 +1,116 @@
+{
+  "network": "NEON",
+  "ingest_timestamp": "2026-06-04T21:05:21Z",
+  "files": [
+    {
+      "path": "Downloads/geri-data/neon/DP1.00003.001/TAAT_30min.parquet",
+      "format": "parquet",
+      "role": "data",
+      "rows": 6744624,
+      "columns": ["domainID", "siteID", "horizontalPosition", "verticalPosition", "startDateTime", "endDateTime", "tempTripleMean", "tempTripleMinimum", "tempTripleMaximum", "tempTripleVariance", "tempTripleNumPts", "tempTripleExpUncert", "tempTripleStdErMean", "finalQF", "publicationDate", "release"],
+      "date_range": {"start": "2014-10-20", "end": "2024-07-01"},
+      "temporal_resolution": "30min",
+      "notes": "Triple aspirated air temperature, 47 sites, units: celsius"
+    },
+    {
+      "path": "Downloads/geri-data/neon/DP1.00045.001/TIPPRE_30min.parquet",
+      "format": "parquet",
+      "role": "data",
+      "rows": 6630864,
+      "columns": ["domainID", "siteID", "horizontalPosition", "verticalPosition", "startDateTime", "endDateTime", "precipBulk", "precipBulkExpUncert", "finalQF", "publicationDate", "release"],
+      "date_range": {"start": "2014-10-20", "end": "2024-07-01"},
+      "temporal_resolution": "30min",
+      "notes": "Tipping bucket precipitation (above canopy), 44 sites, units: mm"
+    },
+    {
+      "path": "Downloads/geri-data/neon/DP1.00006.001/SECPRE_30min.csv",
+      "format": "csv",
+      "role": "data",
+      "rows": "~6M",
+      "columns": ["domainID", "siteID", "horizontalPosition", "verticalPosition", "startDateTime", "endDateTime", "secPrecipBulk", "secPrecipExpUncert", "secPrecipRangeQF", "secPrecipSciRvwQF", "publicationDate", "release"],
+      "temporal_resolution": "30min",
+      "notes": "Secondary precipitation (tower above canopy), 44 sites. CANDIDATE for precipitation - NOT selected."
+    },
+    {
+      "path": "Downloads/geri-data/neon/DP1.00006.001/THRPRE_30min.csv",
+      "format": "csv",
+      "role": "data",
+      "rows": "~18M",
+      "columns": ["domainID", "siteID", "horizontalPosition", "verticalPosition", "startDateTime", "endDateTime", "TFPrecipBulk", "TFPrecipExpUncert", "TFPrecipRangeQF", "TFPrecipSciRvwQF", "publicationDate", "release"],
+      "temporal_resolution": "30min",
+      "notes": "Throughfall precipitation (below canopy). EXCLUDED - not total precipitation."
+    },
+    {
+      "path": "Downloads/geri-data/neon/DP1.00044.001/WEIPRE_60min.csv",
+      "format": "csv",
+      "role": "data",
+      "rows": "~1.5M",
+      "columns": ["domainID", "siteID", "horizontalPosition", "verticalPosition", "startDateTime", "endDateTime", "precipBulk", "precipBulkExpUncert", "finalQF", "publicationDate", "release"],
+      "temporal_resolution": "60min",
+      "notes": "Weighing gauge precipitation (primary, field site), 24 sites. CANDIDATE for precipitation - NOT selected (fewer sites)."
+    },
+    {
+      "path": "Downloads/geri-data/neon/DP1.00041.001chunk_{1-8}/ST_30_minute.csv",
+      "format": "csv",
+      "role": "data",
+      "rows": "~225M total across 8 chunks",
+      "columns": ["domainID", "siteID", "horizontalPosition", "verticalPosition", "startDateTime", "endDateTime", "soilTempMean", "soilTempMinimum", "soilTempMaximum", "soilTempVariance", "soilTempNumPts", "soilTempExpUncert", "soilTempStdErMean", "finalQF", "publicationDate", "release"],
+      "temporal_resolution": "30min",
+      "notes": "Soil temperature, ~47 sites split across 8 CSV chunks (3-4GB each). Multi-depth per soil plot."
+    },
+    {
+      "path": "Downloads/geri-data/neon/DP1.00094.001chunk_{1-8}/SWS_30_minute.parquet",
+      "format": "parquet",
+      "role": "data",
+      "rows": "~200M total across 8 chunks",
+      "columns": ["domainID", "siteID", "horizontalPosition", "verticalPosition", "startDateTime", "endDateTime", "VSWCMean", "VSWCMinimum", "VSWCMaximum", "VSWCVariance", "VSWCNumPts", "VSWCExpUncert", "VSWCStdErMean", "VSWCFinalQF", "VSICMean", "VSICMinimum", "VSICMaximum", "VSICVariance", "VSICNumPts", "VSICExpUncert", "VSICStdErMean", "VSICFinalQF", "publicationDate", "release"],
+      "temporal_resolution": "30min",
+      "notes": "Soil water content, ~47 sites split across 8 parquet chunks. VSWCMean in FRACTION (0-1). Needs *100 for percent."
+    },
+    {
+      "path": "Downloads/geri-data/neon/DP1.00096.001/mgp_perbiogeosample.csv",
+      "format": "csv",
+      "role": "data",
+      "rows": 375,
+      "columns": ["uid", "domainID", "siteID", "pitID", "horizonID", "horizonName", "biogeoTopDepth", "biogeoBottomDepth", "sandTotal", "siltTotal", "clayTotal", "..."],
+      "notes": "Megapit biogeochemistry - contains sand/silt/clay percentages by horizon"
+    },
+    {
+      "path": "Downloads/geri-data/neon/DP1.00096.001/mgp_permegapit.csv",
+      "format": "csv",
+      "role": "metadata",
+      "rows": 47,
+      "columns": ["uid", "domainID", "siteID", "pitID", "decimalLatitude", "decimalLongitude", "elevation", "collectDate", "..."],
+      "notes": "Megapit site metadata - coordinates, elevation, soil classification"
+    }
+  ],
+  "metadata_files": [
+    {"path": "Downloads/geri-data/neon/DP1.00003.001/sensor_positions_00003.csv", "product": "TAAT", "rows": 47},
+    {"path": "Downloads/geri-data/neon/DP1.00045.001/sensor_positions_00045.csv", "product": "TIPPRE", "rows": 67},
+    {"path": "Downloads/geri-data/neon/DP1.00044.001/sensor_positions_00044.csv", "product": "WEIPRE", "rows": 25},
+    {"path": "Downloads/geri-data/neon/DP1.00094.001chunk_1/sensor_positions_00094.csv", "product": "SWS", "rows": 240},
+    {"path": "Downloads/geri-data/neon/DP1.00041.001chunk_1/sensor_positions_00041.csv", "product": "ST", "rows": 270},
+    {"path": "Downloads/geri-data/neon/DP1.00003.001/variables_00003.csv", "product": "TAAT"},
+    {"path": "Downloads/geri-data/neon/DP1.00045.001/variables_00045.csv", "product": "TIPPRE"},
+    {"path": "Downloads/geri-data/neon/DP1.00094.001chunk_1/variables_00094.csv", "product": "SWS"},
+    {"path": "Downloads/geri-data/neon/DP1.00041.001chunk_1/variables_00041.csv", "product": "ST"},
+    {"path": "Downloads/geri-data/neon/DP1.00096.001/variables_00096.csv", "product": "Megapit"}
+  ],
+  "sites": [],
+  "variables_found": {
+    "air_temperature": ["tempTripleMean"],
+    "precipitation": ["precipBulk (TIPPRE)", "secPrecipBulk (SECPRE)", "TFPrecipBulk (THRPRE)", "precipBulk (WEIPRE)"],
+    "soil_water_content": ["VSWCMean"],
+    "soil_temperature": ["soilTempMean"],
+    "soil_texture": ["sandTotal", "siltTotal", "clayTotal"]
+  },
+  "format_challenges": [
+    "Soil temperature data is CSV only (no parquet), 3-4GB per chunk, 8 chunks total (~27GB)",
+    "Soil moisture data has 8 parquet chunks (~5GB total)",
+    "Three precipitation products require Source Selection Protocol"
+  ],
+  "missing_info": [
+    "Site names not in data files (only siteID codes)",
+    "Country not in data files (all USA for NEON)"
+  ]
+}

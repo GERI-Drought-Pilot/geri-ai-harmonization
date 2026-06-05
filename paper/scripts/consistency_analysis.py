@@ -25,7 +25,7 @@ import numpy as np
 from pathlib import Path
 from itertools import combinations
 
-PROJECT_ROOT = Path("Accelnet")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 RUNS_DIR = PROJECT_ROOT / "experiment_logs" / "runs"
 OUTPUT_DIR = PROJECT_ROOT / "paper" / "tables"
 

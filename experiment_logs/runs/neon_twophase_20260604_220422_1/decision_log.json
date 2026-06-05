@@ -1,0 +1,87 @@
+{
+  "run_id": "neon_twophase_20260604_220422_1",
+  "phase": "harmonize_transform",
+  "timestamp": "2026-06-05T02:51:15.645286+00:00",
+  "elapsed_seconds": 1132.9,
+  "source_selection": "selection.json (COMMITTED)",
+  "decisions": [
+    {
+      "product": "air_temperature",
+      "decision": "quality_filter",
+      "detail": "finalQF==0 kept 5,430,052/6,744,624 rows",
+      "timestamp": "2026-06-05T02:32:23.180604+00:00"
+    },
+    {
+      "product": "air_temperature",
+      "decision": "sensor_join",
+      "detail": "Inner join selects primary (top-of-tower) measurement level per site",
+      "timestamp": "2026-06-05T02:32:25.233969+00:00"
+    },
+    {
+      "product": "precipitation",
+      "decision": "quality_filter",
+      "detail": "finalQF==0 kept 1,283,867/1,620,144 rows",
+      "timestamp": "2026-06-05T02:32:57.436006+00:00"
+    },
+    {
+      "product": "precipitation",
+      "decision": "no_unit_conversion",
+      "detail": "precipBulk already in mm; no conversion needed",
+      "timestamp": "2026-06-05T02:32:57.579437+00:00"
+    },
+    {
+      "product": "soil_water_content",
+      "decision": "unit_conversion",
+      "detail": "VSWCMean * 100: fraction (0-1) -> percent (0-100)",
+      "timestamp": "2026-06-05T02:40:04.790742+00:00"
+    },
+    {
+      "product": "soil_water_content",
+      "decision": "quality_filter",
+      "detail": "VSWCFinalQF==0 kept 72,927,292/179,436,336 rows",
+      "timestamp": "2026-06-05T02:40:04.790776+00:00"
+    },
+    {
+      "product": "soil_water_content",
+      "decision": "depth_convention",
+      "detail": "zOffset from sensor_positions used directly as depth (already negative meters)",
+      "timestamp": "2026-06-05T02:40:04.790778+00:00"
+    },
+    {
+      "product": "soil_temperature",
+      "decision": "quality_filter",
+      "detail": "finalQF==0 kept 172,928,046/204,592,944 rows",
+      "timestamp": "2026-06-05T02:51:15.589236+00:00"
+    },
+    {
+      "product": "soil_temperature",
+      "decision": "no_unit_conversion",
+      "detail": "soilTempMean already in degC; no conversion needed",
+      "timestamp": "2026-06-05T02:51:15.589287+00:00"
+    },
+    {
+      "product": "soil_temperature",
+      "decision": "depth_convention",
+      "detail": "zOffset from sensor_positions used as depth (already negative meters)",
+      "timestamp": "2026-06-05T02:51:15.589288+00:00"
+    },
+    {
+      "product": "soil_texture",
+      "decision": "null_filter",
+      "detail": "Dropped rows where ALL of sand/silt/clay are NaN: 29",
+      "timestamp": "2026-06-05T02:51:15.616599+00:00"
+    },
+    {
+      "product": "soil_texture",
+      "decision": "coordinates",
+      "detail": "Joined mgp_permegapit on siteID for lat/lon/elevation",
+      "timestamp": "2026-06-05T02:51:15.618998+00:00"
+    },
+    {
+      "product": "soil_texture",
+      "decision": "depth_conversion",
+      "detail": "biogeoTopDepth/biogeoBottomDepth: positive cm -> negative meters (divide by 100, negate)",
+      "timestamp": "2026-06-05T02:51:15.619950+00:00"
+    }
+  ]
+}

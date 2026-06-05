@@ -1,0 +1,106 @@
+[
+  {
+    "target": "air_temperature",
+    "chosen_source": {
+      "dp_id": "DP1.00003.001",
+      "file": "TAAT_30min",
+      "variable": "tempTripleMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00003.001 (Triple Aspirated Air Temperature) is the only air temperature data product in the NEON download. The target variable airTemp_mean_degC requires mean air temperature in degrees Celsius. The TAAT product provides exactly this: 30-minute arithmetic means of triplicate 1 Hz temperature observations from three platinum resistance thermometers housed in a fan-aspirated shield at the tower top. The variable tempTripleMean is already in Celsius, directly matching the target definition. No competing products exist in the data. NEON also publishes DP1.00002.001 (Single Aspirated Air Temperature), but it was not included in this data download; even if it were, the triple-aspirated sensor is NEON's primary, higher-accuracy air temperature measurement.",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "precipitation",
+    "chosen_source": {
+      "dp_id": "DP1.00044.001",
+      "file": "WEIPRE_60min",
+      "variable": "precipBulk"
+    },
+    "alternatives_rejected": [
+      {
+        "dp_id": "DP1.00045.001",
+        "file": "TIPPRE_30min",
+        "variable": "precipBulk",
+        "why_rejected": "DP1.00045.001 is the secondary tipping bucket precipitation. NEON's own documentation explicitly states: 'the weighing gauge surrounded by the DFIR is considered the primary method, while the tipping bucket is referred to as the secondary method.' Both measure total bulk precipitation in mm, but the weighing gauge (DP1.00044) is more accurate, particularly for solid precipitation (snow), because the tipping bucket requires mechanical movement that can miss or delay frozen precipitation. The tipping bucket was split out of the legacy bundled product DP1.00006.001 and is deployed at tower tops as a backup/secondary instrument."
+      },
+      {
+        "dp_id": "DP1.00006.001",
+        "file": "SECPRE_30min",
+        "variable": "secPrecipBulk",
+        "why_rejected": "SECPRE (Secondary Precipitation) in the legacy bundled product DP1.00006.001 is the same secondary tipping bucket instrument now separately published as DP1.00045.001. The DP1.00006 readme explicitly notes that 'primary weighing gauge precipitation has moved to DP1.00044.001.' The secondary designation means this is a backup measurement, not the primary site precipitation record."
+      },
+      {
+        "dp_id": "DP1.00006.001",
+        "file": "THRPRE_30min",
+        "variable": "TFPrecipBulk",
+        "why_rejected": "THRPRE measures throughfall precipitation — the portion of precipitation that passes through the forest canopy to reach the ground. This is a fundamentally different physical quantity from total bulk precipitation (precip_tot_mm). Throughfall is always less than or equal to total precipitation because the canopy intercepts a fraction. The target schema defines precip_tot_mm as 'Total precipitation', which requires the full bulk amount before canopy interception, not the throughfall component."
+      }
+    ],
+    "reasoning": "The target variable precip_tot_mm requires 'Total precipitation' in mm. Four candidate files exist across three NEON data products. Anchoring on the schema definition (Step 1): total precipitation means the full bulk amount reaching the site, measured above the canopy. This immediately eliminates throughfall (THRPRE), which measures only the sub-canopy fraction. Among the remaining three (WEIPRE, TIPPRE, SECPRE), all measure bulk precipitation in mm. Researching the candidates (Step 2): NEON's documentation establishes a clear primary/secondary hierarchy. The weighing gauge (DP1.00044.001, Geonor T-200B inside a small DFIR wind shield) is the designated primary instrument, offering superior accuracy especially for solid precipitation. The tipping buckets (DP1.00045.001 and the legacy SECPRE in DP1.00006.001) are secondary instruments. NEON explicitly moved the primary precipitation out of the bundled DP1.00006 into its own product DP1.00044 to clarify this hierarchy. The selection is unambiguous from Steps 1-2; peer RI cross-referencing (Step 3) was not needed.",
+    "escalation_steps_used": ["schema", "research"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_moisture",
+    "chosen_source": {
+      "dp_id": "DP1.00094.001",
+      "file": "SWS_30_minute",
+      "variable": "VSWCMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00094.001 (Soil Water Content and Water Salinity) is the only soil moisture data product in the NEON download. The target variable sws_mean_percent requires mean volumetric soil water content in percent (0-100). The SWS product provides VSWCMean (arithmetic mean of volumetric soil water content) measured at multiple depths from ~6 cm to 200 cm across five instrumented soil plots per site. CRITICAL UNIT NOTE: the source variable is in units of cubicCentimetersPerCubicCentimeter (volumetric fraction, range 0-1), and MUST be multiplied by 100 to convert to the target's percent (0-100) scale. The product also carries depth information via sensor_positions (zOffset), matching the schema's depth column requirement. No competing products exist in the data.",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_temperature",
+    "chosen_source": {
+      "dp_id": "DP1.00041.001",
+      "file": "ST_30_minute",
+      "variable": "soilTempMean"
+    },
+    "alternatives_rejected": [],
+    "reasoning": "DP1.00041.001 (Soil Temperature) is the only soil temperature data product in the NEON download. The target variable soilTemp_Mean_degC requires mean soil temperature in degrees Celsius. The ST product provides soilTempMean (arithmetic mean of soil temperature) already in Celsius at multiple depths across instrumented soil plots. The variable matches the target definition exactly with no unit conversion needed. Depth information is available via sensor_positions (zOffset). No competing products exist in the data.",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  },
+  {
+    "target": "soil_texture",
+    "chosen_source": {
+      "dp_id": "DP1.00096.001",
+      "file": "mgp_perbiogeosample",
+      "variable": "sandTotal,siltTotal,clayTotal"
+    },
+    "alternatives_rejected": [
+      {
+        "dp_id": "DP1.00096.001",
+        "file": "mgp_perbulksample",
+        "variable": "bulkDensExclCoarseFrag",
+        "why_rejected": "The perbulksample table contains bulk density measurements (bulkDensExclCoarseFrag) with associated depth intervals (bulkDensTopDepth, bulkDensBottomDepth), but no particle-size analysis (sand, silt, clay fractions). Bulk density is a different physical property from soil texture."
+      },
+      {
+        "dp_id": "DP1.00096.001",
+        "file": "mgp_perhorizon",
+        "variable": "horizonTopDepth,horizonBottomDepth",
+        "why_rejected": "The perhorizon table provides soil horizon definitions (names, top/bottom depths, NRCS description IDs) but contains no texture data. It can serve as supplementary reference for horizon structure but does not supply the target variables sand_percent, clay_percent, silt_percent."
+      },
+      {
+        "dp_id": "DP1.00096.001",
+        "file": "mgp_perarchivesample",
+        "variable": "sampleMass",
+        "why_rejected": "The perarchivesample table records archived sample metadata (archive ID, laboratory, depth intervals, sample mass) for preserved specimens. It contains no particle-size analysis data."
+      },
+      {
+        "dp_id": "DP1.00096.001",
+        "file": "mgp_permegapit",
+        "variable": "soilOrder,soilSeries",
+        "why_rejected": "The permegapit table provides site-level megapit metadata (coordinates, soil taxonomy, NLCD class, pit depth) but no particle-size analysis. It is a one-row-per-pit summary, not a horizon-level measurement table."
+      }
+    ],
+    "reasoning": "The target requires sand_percent, clay_percent, and silt_percent at specified depth intervals. DP1.00096.001 (Soil Physical and Chemical Properties, Megapit) is the only soil texture data product in the NEON download. Within this product, five tables exist: mgp_permegapit (site metadata), mgp_perhorizon (horizon definitions), mgp_perbulksample (bulk density), mgp_perbiogeosample (biogeochemical analysis), and mgp_perarchivesample (archived specimens). Anchoring on the schema (Step 1): the target needs particle-size fractions (sand, silt, clay as percentages) with depth information. Only mgp_perbiogeosample contains the columns sandTotal, siltTotal, and clayTotal alongside biogeoTopDepth and biogeoBottomDepth. These map directly to the target's sand_percent, clay_percent, silt_percent, depthMin_m, and depthMax_m (with cm-to-m conversion). The data were collected once during site construction by the USDA NRCS, consistent with the schema's static soil_texture product design.",
+    "escalation_steps_used": ["schema"],
+    "confidence": "HIGH"
+  }
+]
