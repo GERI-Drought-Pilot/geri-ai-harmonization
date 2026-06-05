@@ -14,6 +14,8 @@ Read these files from the working directory:
 - `ingest_catalog.json` — file format details, encodings, delimiters
 - `research_report.json` — sensor heights and site metadata
 
+**Source selection is already decided — do NOT re-open it here.** The committed `mapping.json` names exactly which source product/file/variable feeds each target column; that choice was made in the map phase on the basis of meaning, using metadata and research. Transform only the chosen sources. Do NOT switch to a different candidate product, and do NOT let data-volume observations you encounter while loading (more rows, more sites, a more convenient resolution) change the selection. If you find concrete evidence a mapping is genuinely wrong, stop and return an action item to the map skill rather than silently substituting a different source.
+
 Also read the `harmonize-schema` skill to verify output column names and types.
 
 ## What You Do

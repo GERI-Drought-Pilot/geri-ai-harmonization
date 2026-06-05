@@ -31,7 +31,7 @@ get_prompt() {
         icos)
             echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the ICOS METEO L2 data for all 39 sites. Raw data is in Downloads/geri-data/icos/data/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
         neon)
-            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the NEON data for all available sites. Raw data is in Downloads/geri/geri-working/ri_data/ and metadata in Downloads/geri/geri-metadata/neon/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
+            echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the NEON data for all available sites. Raw data is in Downloads/geri-data/neon/ (raw NEON Level-1 DP1.xxxxx.001 products) and metadata in Downloads/geri-metadata/neon/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
         tern)
             echo "Run the full harmonization pipeline (schema, ingest, research, map, transform, review) on the TERN OzFlux L3 NetCDF data for all available sites. Raw data is in Downloads/geri-data/tern/. Output harmonized CSVs and Parquets to the project root. Log results to experiment_logs/runs/ with a timestamped run ID." ;;
         saeon)

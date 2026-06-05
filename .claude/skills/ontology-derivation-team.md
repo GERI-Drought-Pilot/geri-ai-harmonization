@@ -18,7 +18,7 @@ Create an agent team with these roles:
 2. **SAEON Profiler** — Profile `Downloads/geri-data/saeon/` (South African flux towers)
 3. **eLTER Profiler** — Profile `Downloads/geri-data/elter/` (European multi-format: CSV, Parquet, Excel)
 4. **TERN Profiler** — Profile `Downloads/geri-data/tern/` (Australian NetCDF files)
-5. **NEON Profiler** — Profile `Downloads/geri/geri-working/ri_data/neon_*.parquet` and `Downloads/geri/geri-metadata/neon/` (US sites, Parquet)
+5. **NEON Profiler** — Profile `Downloads/geri-data/neon/` (raw NEON Level-1 DP1.xxxxx.001 products) and `Downloads/geri-metadata/neon/` (US sites)
 
 ### Reviewer Teammate (1 — use ontology-reviewer agent type, Opus model)
 6. **Reviewer** — Critically reviews each draft ontology and sends it back with issues
