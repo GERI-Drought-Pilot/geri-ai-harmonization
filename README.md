@@ -2,7 +2,7 @@
 
 LLM agent pipeline for autonomous harmonization of environmental monitoring data across global research infrastructures.
 
-**Paper:** Karns, T.D., Hagen, C.J., Deshpande, K., SanClements, M.D., Laney, C., Ruddell, B.L., Loescher, H.W., & Swetnam, T.L. (2026). Large language model agents autonomously harmonize environmental data across global research infrastructures. *Ecological Informatics* (in review).
+**Paper:** Karns, T.D., Hagen, C.J., Deshpande, K., SanClements, M.D., Laney, C.M., Ruddell, B.L., Loescher, H.W., & Swetnam, T.L. (2026). Large language model agents autonomously harmonize environmental data across global research infrastructures. *In Draft*
 
 ## Overview
 
@@ -10,9 +10,9 @@ This repository contains the agent skill definitions, experiment logs, and analy
 
 | Network | Region | Sites | Formats |
 |---------|--------|-------|---------|
-| [NEON](https://www.neonscience.org/) | USA | 47 | Parquet, CSV |
+| [NEON](https://www.neonscience.org/) | USA | 47 | CSV (+ Parquet copy) |
 | [ICOS](https://www.icos-cp.eu/) | Europe | 39 | CSV |
-| [eLTER](https://elter-ri.eu/) | Europe | 15 | Parquet, CSV, Excel |
+| [eLTER](https://elter-ri.eu/) | Europe | 15 | CSV (+ Parquet copy), Excel |
 | [TERN](https://www.tern.org.au/) | Australia | 10 | NetCDF, Excel |
 | [SAEON](https://www.saeon.ac.za/) | South Africa | 8 | CSV |
 
@@ -99,12 +99,22 @@ python3 paper/scripts/consistency_analysis.py
 ## Data Availability
 
 - **Harmonized data**: [GERI DataONE Repository](https://geri.dataone.org/)
-- **Raw source data**: Available from each network's public data portal (NEON, ICOS, TERN, SAEON, eLTER)
+- **Raw source data**: Downloaded from each RI data portal (NEON, ICOS, SAEON) or obtained via data manager (eLTER, TERN). Available from CyVerse by request until the paper is submitted.
 - Raw data is not redistributed in this repository
 
 ## Acknowledgments
 
-This work was supported by the U.S. National Science Foundation AccelNet program ([NSF-2301655](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2301655): GERI - Harmonizing Data to Address Ecological Drought). NEON is sponsored by the U.S. NSF and managed under cooperative support agreement NSF-2217817 to Battelle.
+This work was supported by the U.S. National Science Foundation AccelNet program ([NSF-2301655](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2301655): GERI - Harmonizing Data to Address Ecological Drought). 
+
+The National Ecological Observatory Network (NEON) is a program sponsored by the U.S. National Science Foundation and operated under cooperative agreement (NSF-2217817) by Battelle.
+
+TERN is supported by the Australian Government through the National Collaborative Research Infrastructure Strategy, NCRIS.
+
+ICOS is an intergovernmental organisation funded by Member and Observer countries through annual contributions, host contributions, and national funding agencies.
+
+eLTER receives funding from the European Union's Horizon 2020 and Horizon Europe research and innovation programmes.
+
+SAEON is funded primarily by the South African Department of Science, Technology and Innovation through the National Research Foundation, with additional support from the Department of Environment, Forestry and Fisheries.
 
 ## License
 
