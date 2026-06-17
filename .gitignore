@@ -5,6 +5,7 @@
 # INCLUDE: Pipeline skill definitions (the core contribution)
 # ============================================================
 !.gitignore
+!.zenodo.json
 !README.md
 !LICENSE
 

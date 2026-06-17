@@ -1,0 +1,44 @@
+{
+  "title": "Large language model agents autonomously harmonize environmental data across global research infrastructures",
+  "description": "Pipeline source code, agent skills, and experiment logs for the GERI study in which large language model agents autonomously harmonize environmental data across global research infrastructures (NEON, ICOS, TERN, SAEON, eLTER).",
+  "license": "Apache-2.0",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Karns, Tyler D.",
+      "affiliation": "AS&T, Battelle Memorial Institute",
+      "orcid": "0009-0000-3425-9297"
+    },
+    {
+      "name": "Hagen, Cedric J.",
+      "affiliation": "National Ecological Observatory Network, Battelle Memorial Institute",
+      "orcid": "0000-0001-6722-3098"
+    },
+    {
+      "name": "Deshpande, Krutika",
+      "affiliation": "School of Informatics, Computing, and Cyber Systems, Northern Arizona University",
+      "orcid": "0009-0005-7116-0591"
+    },
+    {
+      "name": "SanClements, Michael D.",
+      "affiliation": "National Ecological Observatory Network, Battelle Memorial Institute"
+    },
+    {
+      "name": "Laney, Christine",
+      "affiliation": "National Ecological Observatory Network, Battelle Memorial Institute"
+    },
+    {
+      "name": "Ruddell, Benjamin L.",
+      "affiliation": "School of Informatics, Computing, and Cyber Systems, Northern Arizona University",
+      "orcid": "0000-0003-2967-9393"
+    },
+    {
+      "name": "Loescher, Henry W.",
+      "affiliation": "National Ecological Observatory Network, Battelle Memorial Institute"
+    },
+    {
+      "name": "Swetnam, Tyson L.",
+      "affiliation": "CyVerse, University of Arizona"
+    }
+  ]
+}
