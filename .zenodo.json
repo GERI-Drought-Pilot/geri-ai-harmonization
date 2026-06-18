@@ -21,24 +21,28 @@
     },
     {
       "name": "SanClements, Michael D.",
-      "affiliation": "National Ecological Observatory Network, Battelle Memorial Institute"
+      "affiliation": "National Ecological Observatory Network, Battelle Memorial Institute",
+      "orcid": "0000-0002-1962-3561"
     },
     {
       "name": "Laney, Christine",
-      "affiliation": "National Ecological Observatory Network, Battelle Memorial Institute"
+      "affiliation": "National Ecological Observatory Network, Battelle Memorial Institute",
+      "orcid": "0000-0002-4944-2083"
     },
     {
       "name": "Ruddell, Benjamin L.",
       "affiliation": "School of Informatics, Computing, and Cyber Systems, Northern Arizona University",
-      "orcid": "0000-0003-2967-9393"
+      "orcid": "0000-0003-2967-9339"
     },
     {
       "name": "Loescher, Henry W.",
-      "affiliation": "National Ecological Observatory Network, Battelle Memorial Institute"
+      "affiliation": "National Ecological Observatory Network, Battelle Memorial Institute",
+      "orcid": "0000-0002-0681-0368"
     },
     {
       "name": "Swetnam, Tyson L.",
-      "affiliation": "CyVerse, University of Arizona"
+      "affiliation": "CyVerse, University of Arizona",
+      "orcid": "0000-0002-6639-7181"
     }
   ]
 }
